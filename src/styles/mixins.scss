@@ -1,0 +1,27 @@
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin light-mode {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
+@mixin theme-color {
+  :root {
+    @include light-mode {
+      --color-text: #{$color-blue-dark};
+      --color-button: #{$color-grey-light-1};
+      --color-background: #{$color-white};
+    }
+
+    @include dark-mode {
+      --color-text: #{$color-grey-light-2};
+      --color-button: #{$color-grey-dark-1};
+      --color-background: #{$color-grey-dark-2};
+    }
+  }
+}
