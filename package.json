@@ -21,6 +21,7 @@
     "package.json": "npx sort-package-json"
   },
   "dependencies": {
+    "antd": "^5.11.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
