@@ -1,0 +1,33 @@
+.the-footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 48px;
+  width: 100%;
+
+  box-sizing: border-box;
+  background-color: $color-background-footer;
+
+  &__copyright {
+    font-family: Inter;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  &__link {
+    display: flex;
+    gap: 8px;
+    .ant-btn-link {
+      padding: 0;
+
+      color: $color-font-link;
+
+      &:not(:disabled):not(.ant-btn-disabled):hover {
+        color: $color-font-link;
+        opacity: 0.8;
+      }
+    }
+  }
+}

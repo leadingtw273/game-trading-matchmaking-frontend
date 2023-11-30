@@ -1,8 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap&subset=chinese-traditional");
+@import url("https://fonts.cdnfonts.com/css/inter");
 @import "@/styles/reset.scss";
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
+  margin-top: $height-navbar;
+  margin-bottom: $height-footer;
+
   font-family:
     Noto Sans TC,
     Inter,
