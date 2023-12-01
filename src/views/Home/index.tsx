@@ -1,3 +1,4 @@
-export default function Home() {
-  return <div>Home</div>;
+Component.displayName = "Layout";
+export function Component() {
+  return <div className="default-content">Home</div>;
 }

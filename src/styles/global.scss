@@ -6,11 +6,13 @@
 html {
   position: relative;
   min-height: 100%;
+  height: 100%;
 }
 
 body {
   margin-top: $height-navbar;
   margin-bottom: $height-footer;
+  height: calc(100% - #{$height-navbar} - #{$height-footer});
 
   font-family:
     Noto Sans TC,
@@ -26,4 +28,18 @@ body {
 
   color: $color-font-base;
   background-color: $color-background-base;
+}
+
+#root {
+  height: 100%;
+}
+
+.default-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  font-size: 68px;
 }

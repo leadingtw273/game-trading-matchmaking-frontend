@@ -1,10 +1,14 @@
 import logoText from "@/assets/logo-text.png";
 import { Button, Input } from "antd";
 import "./style.scss";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export default function TheNavbar() {
-  const handlePressSearch = () => {
-    console.log("[test] Navbar search");
+  const navigate = useNavigate();
+
+  const handlePressSearch = (value: string) => {
+    console.log("[test] Navbar search", value);
+    navigate("/search", { state: { search: value } });
   };
 
   const handleClickSend = () => {
@@ -18,11 +22,19 @@ export default function TheNavbar() {
   return (
     <div className="the-navbar">
       <div className="the-navbar__menus menus">
-        <img className="menus-logo" src={logoText} alt="logo-text" />
+        <Link className="menus-logo" to="/">
+          <img src={logoText} alt="logo-text" />
+        </Link>
         <div className="menus-items">
-          <div className="item">買賣金幣</div>
-          <div className="item">買賣外觀</div>
-          <div className="item">買賣角色</div>
+          <NavLink className="item" to="/market/coin">
+            買賣金幣
+          </NavLink>
+          <NavLink className="item" to="/market/appearance">
+            買賣外觀
+          </NavLink>
+          <NavLink className="item" to="/market/character">
+            買賣角色
+          </NavLink>
         </div>
       </div>
       <div className="the-navbar__actions actions">
@@ -30,7 +42,7 @@ export default function TheNavbar() {
           className="actions-search"
           placeholder="搜尋"
           prefix={<span className="material-symbols-outlined">search</span>}
-          onPressEnter={handlePressSearch}
+          onPressEnter={(e) => handlePressSearch(e.currentTarget.value)}
         />
         <Button
           className="actions-item"
