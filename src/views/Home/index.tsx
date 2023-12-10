@@ -1,4 +1,11 @@
-Component.displayName = "Layout";
+import Background from "./component/Background";
+
+
+Component.displayName = "Home";
 export function Component() {
-  return <div className="default-content">Home</div>;
+  return (
+    <>
+    <Background />
+    </>
+  );
 }
