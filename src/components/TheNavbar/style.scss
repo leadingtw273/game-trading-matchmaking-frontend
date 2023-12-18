@@ -1,6 +1,7 @@
 .the-navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,8 +33,9 @@
   .menus {
     height: 100%;
 
-    &-logo {
+    &-logo > img {
       cursor: pointer;
+      width: 108px;
     }
 
     &-items {

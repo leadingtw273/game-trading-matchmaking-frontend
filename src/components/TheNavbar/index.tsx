@@ -1,4 +1,4 @@
-import logoText from "@/assets/logo-text.png";
+import logo from "@/assets/logo.png";
 import { Button, Input } from "antd";
 import "./style.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ export default function TheNavbar() {
     <div className="the-navbar">
       <div className="the-navbar__menus menus">
         <Link className="menus-logo" to="/">
-          <img src={logoText} alt="logo-text" />
+          <img src={logo} alt="logo-text" />
         </Link>
         <div className="menus-items">
           <NavLink className="item" to="/market/coin">

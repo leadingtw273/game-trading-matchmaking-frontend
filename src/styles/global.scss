@@ -3,17 +3,9 @@
 @import url("https://fonts.cdnfonts.com/css/inter");
 @import "@/styles/reset.scss";
 
-html {
-  position: relative;
-  min-height: 100%;
-  height: 100%;
-}
-
+html,
 body {
-  margin-top: $height-navbar;
-  margin-bottom: $height-footer;
-  height: calc(100% - #{$height-navbar} - #{$height-footer});
-
+  height: 100%;
   font-family:
     Noto Sans TC,
     Inter,
@@ -27,19 +19,25 @@ body {
   line-height: 1;
 
   color: $color-font-base;
-  background-color: $color-background-base;
 }
 
 #root {
-  height: 100%;
-}
+  position: relative;
+  padding-top: $height-navbar;
+  padding-bottom: $height-footer;
+  min-height: 100%;
+  box-sizing: border-box;
 
-.default-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
 
-  font-size: 68px;
+    background-color: $color-background-base;
+    background-image: url("@/assets/backage-main.png");
+    background-size: cover;
+  }
 }
