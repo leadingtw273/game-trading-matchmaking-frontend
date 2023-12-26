@@ -1,68 +1,22 @@
+import { Flex } from "antd";
 import logo from "@/assets/logo.png";
+import SearchCard from "./components/SearchCard";
+import CommodityCarousel from "./components/CommodityCarousel";
+import MerchantCarousel from "./components/MerchantCarousel";
 import "./style.scss";
-import { Button, Card, Input, Tabs, TabsProps } from "antd";
-
-const items: TabsProps["items"] = [
-  {
-    key: "1",
-    label: "外觀",
-  },
-  {
-    key: "2",
-    label: "角色",
-  },
-  {
-    key: "3",
-    label: "金幣",
-  },
-];
 
 Component.displayName = "Home";
 export function Component() {
   return (
-    <div className="home">
+    <Flex className="home" gap={40} vertical>
       <div className="search-block">
         <img className="search-block_logo" src={logo} alt="logo-text" />
-        <Card className="search-block_card">
-          <Tabs defaultActiveKey="1" items={items} tabBarStyle={{ color: "red" }} />
-          <Input placeholder="搜尋" prefix={<span className="icon material-symbols-outlined">search</span>} />
-          <Button type="primary">搜尋</Button>
-        </Card>
+        <SearchCard />
       </div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-      <div>橫向卡片列表</div>
-    </div>
+      <CommodityCarousel title="最新販賣" />
+      <CommodityCarousel title="最新收購" />
+      <MerchantCarousel title="外觀商專區" />
+      <MerchantCarousel title="代練專區" />
+    </Flex>
   );
 }
