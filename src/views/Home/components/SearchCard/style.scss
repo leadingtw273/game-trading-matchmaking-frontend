@@ -1,6 +1,13 @@
 .search-card {
+  position: relative;
   width: 100%;
   text-align: center;
+
+  background: url("src/assets/background-search-card.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 0;
 
   .ant-card {
     &-body {
@@ -21,22 +28,35 @@
       padding: 16px 0;
 
       &-btn {
+        color: #6d5833 !important;
+        opacity: 0.3;
+
         font-family: Noto Sans TC;
         font-size: 24px;
         font-style: normal;
         font-weight: 700;
         line-height: 32px; /* 133.333% */
       }
+
+      &-active {
+        .ant-tabs-tab-btn {
+          opacity: 1 !important;
+        }
+      }
     }
 
     &-ink-bar {
-      height: 6px;
+      height: 6px !important;
+
+      background: #6d5833;
     }
   }
 
   .ant-input {
-    font-size: 32px;
-    font-style: normal;
+    height: 40px;
+
+    font-family: Noto Sans TC;
+    font-size: 32px !important;
     font-weight: 400;
     line-height: 22px; /* 68.75% */
 
@@ -44,10 +64,18 @@
       margin: 24px 0;
       padding: 20px 24px;
       border-radius: 12px;
+
+      &:active,
+      &:hover,
+      &:focus-within {
+        border-color: rgba(217, 217, 217, 1);
+        box-shadow: none;
+      }
     }
 
     &-prefix {
       margin-inline-end: 16px;
+      color: rgba(217, 217, 217, 1);
 
       > .icon {
         font-size: 40px;
@@ -65,5 +93,57 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+
+    background: url("src/assets/btn-long-default.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+
+    transition: none;
+
+    &:not(:disabled):not(.ant-btn-disabled) {
+      &:hover,
+      &:active {
+        background: url("src/assets/btn-long-active.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      &:focus-visible {
+        outline: none;
+        outline-offset: 0;
+      }
+    }
+
+    .ant-wave {
+      display: none !important;
+    }
+  }
+
+  &_decorate {
+    position: absolute;
+
+    &.decorate-1 {
+      top: 214.69px;
+      left: -60px;
+
+      width: 155px;
+    }
+
+    &.decorate-2 {
+      top: 244.33px;
+      left: 48px;
+
+      width: 105px;
+    }
+
+    &.decorate-3 {
+      top: 31.33px;
+      right: -98px;
+
+      width: 184px;
+    }
   }
 }

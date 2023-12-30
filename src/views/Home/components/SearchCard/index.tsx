@@ -1,5 +1,6 @@
 import { Button, Card, Input, Tabs, TabsProps } from "antd";
 import "./style.scss";
+import searchDecorate from "@/assets/search-decorate.png";
 
 export default function SearchCard() {
   const items: TabsProps["items"] = [
@@ -22,6 +23,9 @@ export default function SearchCard() {
       <Tabs defaultActiveKey="1" items={items} tabBarStyle={{ color: "red" }} />
       <Input placeholder="搜尋" prefix={<span className="icon material-symbols-outlined">search</span>} />
       <Button type="primary">搜尋</Button>
+      <img className="search-card_decorate decorate-1" src={searchDecorate} />
+      <img className="search-card_decorate decorate-2" src={searchDecorate} />
+      <img className="search-card_decorate decorate-3" src={searchDecorate} />
     </Card>
   );
 }

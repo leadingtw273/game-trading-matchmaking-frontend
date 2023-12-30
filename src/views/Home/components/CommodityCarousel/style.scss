@@ -2,11 +2,10 @@
   padding: 5px 0;
   width: 100%;
 
-  font-family: Noto Sans TC;
-
   &_title {
     color: #6d5833;
 
+    font-family: Noto Sans TC;
     font-size: 24px;
     font-weight: 700;
     line-height: 1.33;
@@ -16,14 +15,64 @@
     padding: 0 15px;
 
     .ant-btn {
+      position: relative;
+      z-index: 1;
+
       width: 80px;
       height: 40px;
 
       color: rgba(109, 88, 51, 0.5);
 
+      font-family: Noto Sans TC;
       font-size: 16px;
       font-weight: 700;
       line-height: 1.5;
+
+      background:
+        linear-gradient(0, rgba(226, 212, 187, 0.25), rgba(226, 212, 187, 0.25)),
+        linear-gradient(0, rgba(226, 212, 187, 0.25), rgba(226, 212, 187, 0.25)),
+        linear-gradient(-45deg, rgb(226 212 187) 2.5px, transparent 0) bottom right,
+        linear-gradient(45deg, rgb(226 212 187) 2.5px, transparent 0) bottom left,
+        linear-gradient(135deg, rgb(226 212 187) 2.5px, transparent 0) top left,
+        linear-gradient(-135deg, rgb(226 212 187) 2.5px, transparent 0) top right,
+        url("src/assets/btn-1.png");
+      border-color: rgb(226 212 187);
+
+      clip-path: polygon(
+        4px 0,
+        calc(100% - 4px) 0,
+        100% 4px,
+        100% calc(100% - 4px),
+        calc(100% - 4px) 100%,
+        4px 100%,
+        0 calc(100% - 4px),
+        0 4px
+      );
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 0;
+      border-style: solid;
+      border-width: 1px;
+
+      transition: none;
+
+      &:not(:disabled):not(.ant-btn-disabled) {
+        &:hover,
+        &:active {
+          color: #fff;
+          z-index: 1;
+
+          background:
+            linear-gradient(0, rgba(109, 88, 51, 0.5), rgba(109, 88, 51, 0.5)),
+            linear-gradient(-45deg, rgb(181, 172, 153) 2.5px, transparent 0) bottom right,
+            linear-gradient(45deg, rgb(181, 172, 153) 2.5px, transparent 0) bottom left,
+            linear-gradient(135deg, rgb(181, 172, 153) 2.5px, transparent 0) top left,
+            linear-gradient(-135deg, rgb(181, 172, 153) 2.5px, transparent 0) top right,
+            url("src/assets/btn-1.png");
+          border-color: rgb(145 130 102);
+          background-size: cover;
+        }
+      }
     }
   }
 
@@ -36,6 +85,13 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
+
+    &.ant-btn:not(:disabled):not(.ant-btn-disabled) {
+      &:hover,
+      &:active {
+        color: #6a6a6a;
+      }
+    }
   }
 
   .base-carousel .slick-arrow {
