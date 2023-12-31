@@ -3,7 +3,7 @@
   width: 100%;
   text-align: center;
 
-  background: url("src/assets/background-search-card.png");
+  background: url("@/assets/background-search-card.png");
   background-size: contain;
   background-repeat: no-repeat;
   border: none;
@@ -94,7 +94,7 @@
     font-weight: 700;
     line-height: normal;
 
-    background: url("src/assets/btn-long-default.png");
+    background: url("@/assets/btn-long-default.png");
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: none;
@@ -106,7 +106,7 @@
     &:not(:disabled):not(.ant-btn-disabled) {
       &:hover,
       &:active {
-        background: url("src/assets/btn-long-active.png");
+        background: url("@/assets/btn-long-active.png");
         background-size: cover;
         background-repeat: no-repeat;
       }

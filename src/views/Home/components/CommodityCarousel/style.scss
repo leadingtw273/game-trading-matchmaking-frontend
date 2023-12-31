@@ -35,7 +35,7 @@
         linear-gradient(45deg, rgb(226 212 187) 2.5px, transparent 0) bottom left,
         linear-gradient(135deg, rgb(226 212 187) 2.5px, transparent 0) top left,
         linear-gradient(-135deg, rgb(226 212 187) 2.5px, transparent 0) top right,
-        url("src/assets/btn-1.png");
+        url("@/assets/btn-1.png");
       border-color: rgb(226 212 187);
 
       clip-path: polygon(
@@ -68,7 +68,7 @@
             linear-gradient(45deg, rgb(181, 172, 153) 2.5px, transparent 0) bottom left,
             linear-gradient(135deg, rgb(181, 172, 153) 2.5px, transparent 0) top left,
             linear-gradient(-135deg, rgb(181, 172, 153) 2.5px, transparent 0) top right,
-            url("src/assets/btn-1.png");
+            url("@/assets/btn-1.png");
           border-color: rgb(145 130 102);
           background-size: cover;
         }

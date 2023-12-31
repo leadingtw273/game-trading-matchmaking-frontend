@@ -10,7 +10,6 @@ enum CommodityType {
   Character = "character",
   Coin = "coin",
 }
-
 interface ICommodityCarouselProps {
   title: string;
 }
