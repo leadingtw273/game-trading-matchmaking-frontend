@@ -1,16 +1,18 @@
 name: PR-Pipeline
 on:
   pull_request:
+  
+  workflow_dispatch:
 
 jobs:
   pr-pipline:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: action/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node
-        use: actions/setup-node@v2
+        use: actions/setup-node@v3
         with:
           node-version: '18.18.1'
 
