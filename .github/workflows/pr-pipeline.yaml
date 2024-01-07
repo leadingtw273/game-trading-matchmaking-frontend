@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+        with:
+          ref: feature/GHA-PRpipeline
 
       - name: install dependencies
         uses: ./.github/actions/pnpm-install@feature/GHA-PRpipeline
