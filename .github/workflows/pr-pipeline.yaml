@@ -14,7 +14,7 @@ jobs:
           ref: feature/GHA-PRpipeline
 
       - name: install dependencies
-        uses: ./.github/actions/pnpm-install@feature/GHA-PRpipeline
+        uses: ./.github/actions/pnpm-install
 
       - name: build env
         shell: bash
