@@ -1,0 +1,20 @@
+name: pnpm-install
+description: 'Setup project dependency via pnpm'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup
+      with:
+        version: 8
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.18.1'
+        catch: 'pnpm'
+    
+    - name: Install package
+      shell: bash
+      run: pnpm install
