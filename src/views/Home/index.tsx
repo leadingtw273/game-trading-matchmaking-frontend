@@ -13,9 +13,11 @@ export function Component() {
       <div className="background-image" style={{ backgroundImage: `url(${background})` }}>
       <>
       <LogoTextFrame />
-      <SearchCard/>
       </>
       </div>
+      <>
+      <SearchCard/>
+      </>
     </div>
   );
 };

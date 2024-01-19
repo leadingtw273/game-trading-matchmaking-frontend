@@ -3,9 +3,9 @@
    
   .logo-text-image {
     /* 設定 logo-text.png 圖片的樣式，可以設定寬高、位置等 */
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    width: 242px;
+    height: 80.67px;
     background-image: url("./Logo.png");
     background-repeat: no-repeat;
     object-fit: cover; /* 保持圖片比例並填充容器 */
