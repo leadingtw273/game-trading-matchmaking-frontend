@@ -1,0 +1,46 @@
+//views/Home/component/new-sale/sale-button
+
+//.sale-btn-defult {
+    /* 設定 logo-text.png 圖片的樣式，可以設定寬高、位置等 
+    position: relative;
+    width: 80px;
+    height: 40px;
+    background-image: url("./button-default.png");
+    background-repeat: no-repeat;
+    object-fit: cover; /* 保持圖片比例並填充容器 
+    left: 15%;
+    margin-bottom: 40px;
+    color: #6d5833 !important; 
+}*/
+
+  .ant-sale-btn {
+    left: 15%;
+    width: 80px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-family: Noto Sans TC;
+    color: #6d5833 !important; 
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 32px;
+    line-height: 24px;
+
+    background: url("./button-default.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+
+    transition: none;
+
+    &:not(:disabled):not(.ant-btn-disabled) {
+      &:hover,
+      &:active {
+        background: url("./button-active.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }

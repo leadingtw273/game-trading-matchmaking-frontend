@@ -1,0 +1,16 @@
+// views/home/components/new-sale/style.tsx
+
+.newsale-text {
+  /* 設定 logo-text.png 圖片的樣式，可以設定寬高、位置等 */
+  position: relative;
+  left: 15%;
+  font-family: Noto Sans TC;
+  font-size: 24px;
+  font-style: normal;
+  color: #6d5833;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100px;
+  /* 其他樣式設定 */
+}
+

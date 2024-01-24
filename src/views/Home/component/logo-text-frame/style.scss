@@ -1,0 +1,20 @@
+// views/home/components/logo-text-frame/style.scss
+
+   
+  .logo-text-image {
+    /* 設定 logo-text.png 圖片的樣式，可以設定寬高、位置等 */
+    position: relative;
+    width: 242px;
+    height: 80.67px;
+    background-image: url("./Logo.png");
+    background-repeat: no-repeat;
+    object-fit: cover; /* 保持圖片比例並填充容器 */
+    left: 43%;
+    margin-bottom: 40px;
+    /* 其他樣式設定 */
+    
+  }
+  
+
+
+
