@@ -48,6 +48,10 @@ export default function Router() {
           path: "contact",
           lazy: () => import("@/views/Contact"),
         },
+        {
+          path: "test",
+          lazy: () => import("@/views/Test"),
+        },
       ],
     },
   ]);

@@ -22,4 +22,9 @@ module.exports = {
     "react/react-in-jsx-scope": "off", // React 17 以後不需要引入
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
   },
+  settings: {
+    react: {
+      version: "detect", // 让 ESLint 自动检测 React 版本
+    },
+  },
 };
