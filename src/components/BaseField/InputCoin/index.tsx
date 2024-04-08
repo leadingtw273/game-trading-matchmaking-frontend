@@ -28,30 +28,33 @@ export default function InputCoin(props: InputCoinProps) {
       label: Currency.Label[currency],
     }));
 
-  const triggerChange = () => {
-    onChange?.(isNoLimit ? null : { currency: currencyType, value: coinValue! });
-  };
-
   const handleClickNoLimit = (checked: boolean) => {
-    if (checked) setCoinValue(null);
-    if (!checked && coinValue == null) setCoinValue(0);
-
     setIsNoLimit(checked);
 
-    triggerChange();
+    if (checked) {
+      setCoinValue(null);
+      onChange?.(null);
+    } else {
+      setCoinValue(0);
+      onChange?.({ currency: currencyType, value: 0 });
+    }
   };
 
   const handleSelectCurrency = (currency: Currency.Type) => {
     setCurrencyType(currency);
 
-    triggerChange();
+    if (coinValue != null) {
+      onChange?.({ currency, value: coinValue });
+    }
   };
 
   const handleChangeValue = (value: number | null) => {
     setIsNoLimit(value == null);
     setCoinValue(value);
 
-    triggerChange();
+    if (value != null) {
+      onChange?.({ currency: currencyType, value });
+    }
   };
 
   return (
