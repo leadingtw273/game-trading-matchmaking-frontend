@@ -1,0 +1,16 @@
+@import "../style.scss";
+
+.base-field {
+  .select-option {
+    &__no-limit {
+      @extend %tag-item;
+    }
+
+    &__selector {
+      .ant-select-selector {
+        color: #b6b6b6c0;
+        border-color: $colorPrimary;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "../style.scss";
+
+.base-field {
+  .select-tag {
+    &__item {
+      @extend %tag-item;
+    }
+  }
+}
