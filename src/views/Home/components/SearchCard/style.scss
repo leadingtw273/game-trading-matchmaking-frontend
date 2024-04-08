@@ -88,38 +88,8 @@
     height: 55px;
     padding: 10px;
 
-    font-family: Noto Sans TC;
     font-size: 24px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
-
-    background: url("@/assets/btn-long-default.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-
-    transition: none;
-
-    &:not(:disabled):not(.ant-btn-disabled) {
-      &:hover,
-      &:active {
-        background: url("@/assets/btn-long-active.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-
-      &:focus-visible {
-        outline: none;
-        outline-offset: 0;
-      }
-    }
-
-    .ant-wave {
-      display: none !important;
-    }
   }
 
   &_decorate {

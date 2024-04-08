@@ -1,0 +1,48 @@
+.transaction-table {
+  height: calc(100vh - $height-navbar - $height-footer);
+
+  &__side {
+    padding: 130px 20px 80px;
+    width: 380px;
+    height: 800px;
+
+    box-sizing: border-box;
+
+    background-color: $color-background-base;
+
+    border: 1px solid $colorPrimary;
+    border-radius: 20px;
+  }
+
+  &__main {
+    width: 1060px;
+    height: 800px;
+
+    .main {
+      &-tabs {
+        width: 100%;
+
+        .ant-radio-button {
+          &-wrapper {
+            width: 50%;
+            height: 50px;
+
+            text-align: center;
+
+            font-size: 22px;
+            line-height: 42px;
+          }
+        }
+      }
+
+      &-content {
+        height: 100%;
+
+        background-color: $color-background-base;
+
+        border: 1px solid $colorPrimary;
+        border-radius: 20px;
+      }
+    }
+  }
+}
