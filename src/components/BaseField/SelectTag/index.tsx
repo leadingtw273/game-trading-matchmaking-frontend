@@ -40,7 +40,7 @@ export default function SelectTag<ValueType = null>(props: SelectTagProps<ValueT
     setIsNoLimit(activeTag.size === 0);
     setActiveTag(new Set([...activeTag]));
 
-    onChange?.([...activeTag]);
+    onChange?.(activeTag.size === 0 ? null : [...activeTag]);
   };
 
   return (
