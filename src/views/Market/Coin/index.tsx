@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Transaction } from "@/enums";
 import SaleForm from "./components/SaleForm";
 import PurchaseForm from "./components/PurchaseForm";
 import TransactionTable from "@/components/TransactionTable";
-import { Transaction } from "@/enums";
+import ItemTable from "./components/ItemTable";
 
 Component.displayName = "MarketCoin";
 export function Component() {
@@ -23,7 +24,7 @@ export function Component() {
           <PurchaseForm onSubmit={handleSubmitPurchase} />
         )
       }
-      renderContent={() => "content"}
+      renderContent={() => <ItemTable />}
     />
   );
 }

@@ -1,0 +1,18 @@
+.item-table {
+  padding: 20px 20px 20px;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  &__header {
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    height: -webkit-fill-available;
+  }
+
+  &__pagination {
+    margin-top: 20px;
+  }
+}
