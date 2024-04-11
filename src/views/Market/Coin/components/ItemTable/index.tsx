@@ -1,9 +1,14 @@
-import { Flex, Pagination } from "antd";
+import { Col, Flex, Pagination, Row } from "antd";
 import TableHeader from "./components/TableHeader";
+import coinCommodityList from "@/mocks/CoinCommodity";
 
 import "./style.scss";
+import { useState } from "react";
+import ItemCard from "./components/ItemCard";
 
 export default function ItemTable() {
+  const [dataList] = useState(coinCommodityList);
+
   const handleChangePagination = (page: number, pageSize: number | undefined) => {
     console.log("handleChangePagination", page, pageSize);
   };
@@ -15,7 +20,13 @@ export default function ItemTable() {
   return (
     <Flex className="item-table" vertical>
       <TableHeader className="item-table__header" />
-      <div className="item-table__content">content</div>
+      <Row className="item-table__content" gutter={[10, 10]}>
+        {dataList.map((item) => (
+          <Col key={item.id} span={6}>
+            <ItemCard item={item} />
+          </Col>
+        ))}
+      </Row>
       <Pagination
         className="item-table__pagination"
         current={2}

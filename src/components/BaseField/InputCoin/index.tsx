@@ -3,24 +3,20 @@ import { Flex, InputNumber, Select, Tag } from "antd";
 import { Currency } from "@/enums";
 
 import "./style.scss";
-
-type CoinItem = {
-  currency: Currency.Type;
-  value: number;
-};
+import { CoinRatio } from "@/types/common";
 
 type InputCoinProps = {
-  value?: CoinItem | null;
+  value?: CoinRatio | null;
   placeholder?: string;
   hasNoLimit?: boolean;
   options?: Array<{ value: Currency.Type; label: string }>;
-  onChange?: (value: CoinItem | null) => void;
+  onChange?: (value: CoinRatio | null) => void;
 };
 export default function InputCoin(props: InputCoinProps) {
   const { value, placeholder, hasNoLimit = false, options, onChange } = props;
   const [isNoLimit, setIsNoLimit] = useState<boolean>(value == null);
   const [currencyType, setCurrencyType] = useState<Currency.Type>(value?.currency ?? Currency.Type.TWD);
-  const [coinValue, setCoinValue] = useState<number | null>(value?.value ?? null);
+  const [coinValue, setCoinValue] = useState<number | null>(value?.ratio ?? null);
   const currencyOptions =
     options ??
     Object.values(Currency.Type).map((currency) => ({
@@ -36,7 +32,7 @@ export default function InputCoin(props: InputCoinProps) {
       onChange?.(null);
     } else {
       setCoinValue(0);
-      onChange?.({ currency: currencyType, value: 0 });
+      onChange?.({ currency: currencyType, ratio: 0 });
     }
   };
 
@@ -44,7 +40,7 @@ export default function InputCoin(props: InputCoinProps) {
     setCurrencyType(currency);
 
     if (coinValue != null) {
-      onChange?.({ currency, value: coinValue });
+      onChange?.({ currency, ratio: coinValue });
     }
   };
 
@@ -53,7 +49,7 @@ export default function InputCoin(props: InputCoinProps) {
     setCoinValue(value);
 
     if (value != null) {
-      onChange?.({ currency: currencyType, value });
+      onChange?.({ currency: currencyType, ratio: value });
     }
   };
 

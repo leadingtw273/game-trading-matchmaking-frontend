@@ -10,29 +10,33 @@
     }
   }
 
-  .action-reset {
-    color: $colorInfo;
-    border-color: $colorActive;
+  .action {
+    padding: 5px 0;
 
-    &:active,
-    &:hover {
-      color: $colorInfo !important;
-      border-color: $colorActive !important;
+    &-reset {
+      color: $colorInfo;
+      border-color: $colorActive;
+
+      &:active,
+      &:hover {
+        color: $colorInfo !important;
+        border-color: $colorActive !important;
+      }
     }
-  }
 
-  .action-confirm {
-    width: 100px;
+    &-confirm {
+      width: 100px;
 
-    color: white;
-    background-color: $colorPrimary;
-    border-color: $colorActive;
+      color: white;
+      background-color: $colorPrimary;
+      border-color: $colorActive;
 
-    &:active,
-    &:hover {
-      color: white !important;
-      background-color: $colorPrimary !important;
-      border-color: $colorActive !important;
+      &:active,
+      &:hover {
+        color: white !important;
+        background-color: $colorPrimary !important;
+        border-color: $colorActive !important;
+      }
     }
   }
 }

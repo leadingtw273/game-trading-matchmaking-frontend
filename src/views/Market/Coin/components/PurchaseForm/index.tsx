@@ -44,7 +44,7 @@ export default function PurchaseForm(props: PurchaseProps) {
           <Form.Item name="transaction" label="交易方式" colon={false}>
             <SelectTag<Transaction.Method | null>
               options={[
-                { label: "匯款", value: Transaction.Method.REMIT },
+                { label: "匯款", value: Transaction.Method.BANK_TRANSFER },
                 { label: "LinePay", value: Transaction.Method.LINE_PAY },
                 { label: "8591", value: Transaction.Method.THIRD_PARTY },
               ]}
@@ -63,7 +63,7 @@ export default function PurchaseForm(props: PurchaseProps) {
             />
           </Form.Item>
         </Flex>
-        <Flex gap={10}>
+        <Flex gap={10} className="action">
           <Button className="action-reset" onClick={() => form.resetFields()}>
             重置
           </Button>
