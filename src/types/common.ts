@@ -1,23 +1,15 @@
-/**
- * 商品類型
- */
-export enum CommodityType {
-  Skin = "skin",
-  Character = "character",
-  Coin = "coin",
-}
+import { Currency } from "@/enums";
 
-/**
- * 幣種
- */
-export enum Currency {
-  NTD = "NTD",
-}
+/** 識別碼類型 */
+export type IdType = string;
 
-/**
- * 價格
- */
-export interface IPrize {
-  currency: Currency;
-  value: number;
-}
+/** 時間戳記 */
+export type TimeStamp = number;
+
+/** 幣種比值 */
+export type CoinRatio = {
+  /** 幣種 */
+  currency: Currency.Type;
+  /** 比值 */
+  ratio: number;
+};

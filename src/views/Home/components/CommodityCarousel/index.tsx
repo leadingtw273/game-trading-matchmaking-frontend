@@ -1,28 +1,23 @@
-import { Currency } from "@/types/common";
 import { useState } from "react";
 import BaseCarousel from "@/components/BaseCarousel";
 import ItemCard from "./CommodityCard";
 import "./style.scss";
 import { Button, Flex } from "antd";
+import { Currency, Transaction } from "@/enums";
 
-enum CommodityType {
-  Skin = "skin",
-  Character = "character",
-  Coin = "coin",
-}
 interface ICommodityCarouselProps {
   title: string;
 }
 
 export default function CommodityCarousel(props: ICommodityCarouselProps) {
   const { title } = props;
-  const [type, setType] = useState<CommodityType>(CommodityType.Skin);
+  const [type, setType] = useState<Transaction.Commodity>(Transaction.Commodity.Skin);
   const [commodities] = useState([
     {
       id: 1,
       name: "月絨絨‧明橙",
       price: {
-        currency: Currency.NTD,
+        currency: Currency.Type.TWD,
         value: 600,
       },
       image:
@@ -33,7 +28,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       id: 2,
       name: "月絨絨‧明橙",
       price: {
-        currency: Currency.NTD,
+        currency: Currency.Type.TWD,
         value: 600,
       },
       image:
@@ -44,7 +39,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       id: 3,
       name: "月絨絨‧明橙",
       price: {
-        currency: Currency.NTD,
+        currency: Currency.Type.TWD,
         value: 600,
       },
       image:
@@ -55,7 +50,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       id: 4,
       name: "月絨絨‧明橙",
       price: {
-        currency: Currency.NTD,
+        currency: Currency.Type.TWD,
         value: 600,
       },
       image:
@@ -66,7 +61,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       id: 5,
       name: "月絨絨‧明橙",
       price: {
-        currency: Currency.NTD,
+        currency: Currency.Type.TWD,
         value: 600,
       },
       image:
@@ -77,7 +72,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       id: 6,
       name: "月絨絨‧明橙",
       price: {
-        currency: Currency.NTD,
+        currency: Currency.Type.TWD,
         value: 600,
       },
       image:
@@ -86,9 +81,9 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
     },
   ]);
   const labelMap = {
-    [CommodityType.Skin]: "外觀",
-    [CommodityType.Character]: "角色",
-    [CommodityType.Coin]: "金幣",
+    [Transaction.Commodity.Skin]: "外觀",
+    [Transaction.Commodity.Character]: "角色",
+    [Transaction.Commodity.Coin]: "金幣",
   };
 
   const settings = {
@@ -101,7 +96,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
     slidesToScroll: 1,
   };
 
-  const handleClickType = (type: CommodityType) => {
+  const handleClickType = (type: Transaction.Commodity) => {
     setType(type);
   };
 
@@ -114,9 +109,9 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       <div className="commodity-carousel_title">{title}</div>
       <Flex justify="space-between" align="center">
         <Flex className="commodity-carousel_type-action" gap={16}>
-          <Button onClick={() => handleClickType(CommodityType.Skin)}>外觀</Button>
-          <Button onClick={() => handleClickType(CommodityType.Character)}>角色</Button>
-          <Button onClick={() => handleClickType(CommodityType.Coin)}>金幣</Button>
+          <Button onClick={() => handleClickType(Transaction.Commodity.Skin)}>外觀</Button>
+          <Button onClick={() => handleClickType(Transaction.Commodity.Character)}>角色</Button>
+          <Button onClick={() => handleClickType(Transaction.Commodity.Coin)}>金幣</Button>
         </Flex>
         <Button className="commodity-carousel_more-action" type="link">
           查看販賣中{labelMap[type]}
