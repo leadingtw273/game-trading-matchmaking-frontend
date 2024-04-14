@@ -46,7 +46,7 @@ export default function PurchaseForm(props: PurchaseProps) {
               options={[
                 { label: "匯款", value: Transaction.Method.BANK_TRANSFER },
                 { label: "LinePay", value: Transaction.Method.LINE_PAY },
-                { label: "8591", value: Transaction.Method.THIRD_PARTY },
+                { label: "8591", value: Transaction.Method.THIRD_PARTY_8591 },
               ]}
               hasNoLimit
             />

@@ -6,7 +6,7 @@ export default [
     id: "1",
     type: Transaction.Type.SALE,
     status: Transaction.Status.UNFINISHED,
-    methods: [Transaction.Method.BANK_TRANSFER],
+    methods: [Transaction.Method.BANK_TRANSFER, Transaction.Method.LINE_PAY, Transaction.Method.THIRD_PARTY_8591],
     commodity: {
       id: "1",
       type: Transaction.Commodity.Coin,
@@ -16,7 +16,7 @@ export default [
         ratio: 150,
       },
       amount: 200000,
-      tags: ["可小額"],
+      tags: ["可小額購", "限制四字", "不知打啥", "蒼霸缺奶", "測試Tag", "abcdefg"],
       transMinLimit: 10000,
     },
     postedBy: {
@@ -41,12 +41,12 @@ export default [
       type: Transaction.Commodity.Coin,
       remark: "",
       coinRatio: {
-        currency: Currency.Type.TWD,
-        ratio: 150,
+        currency: Currency.Type.USD,
+        ratio: 4500,
       },
       amount: 200000,
-      tags: ["可小額"],
-      transMinLimit: 10000,
+      tags: ["可小", "限制", "不知", "蒼霸", "測試Tag", "abcdefg"],
+      transMinLimit: 100,
     },
     postedBy: {
       nickname: "梨子",

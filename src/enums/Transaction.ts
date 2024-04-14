@@ -33,5 +33,15 @@ export enum Method {
   /** line pay */
   LINE_PAY = "LINE_PAY",
   /** 8591 */
-  THIRD_PARTY = "8591",
+  THIRD_PARTY_8591 = "THIRD_PARTY_8591",
+}
+
+/** 交易方式 */
+export enum MethodLabel {
+  /** 匯款 */
+  BANK_TRANSFER = "匯款",
+  /** line pay */
+  LINE_PAY = "LinePay",
+  /** 8591 */
+  THIRD_PARTY_8591 = "8591",
 }

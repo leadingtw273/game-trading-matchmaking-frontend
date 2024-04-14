@@ -1,6 +1,84 @@
 .item-card {
+  padding: 10px;
+
   width: 250px;
   height: 300px;
 
+  box-sizing: border-box;
+
   background-image: url("@/assets/border/market-card_block.svg");
+
+  cursor: pointer;
+
+  &__main {
+    .card-main {
+      &__image {
+        width: 80px;
+        height: 80px;
+      }
+
+      &__tip {
+        color: #bbbbbb;
+
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: bold;
+      }
+
+      &__name {
+        color: $colorSuccess;
+
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__info {
+    padding: 4px 10px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    .card-info {
+      &__label {
+        flex-shrink: 0;
+
+        min-width: 68px;
+
+        color: #434343;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      &__value {
+        color: #434343;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__tags {
+    flex: 1;
+    align-content: flex-end;
+
+    padding: 8px;
+
+    .ant-tag {
+      padding: 2px;
+      margin-right: 0;
+
+      color: white;
+
+      border-radius: 2px;
+
+      font-size: 12px;
+      line-height: 12px;
+      font-weight: bold;
+
+      background-color: #c7c7c7;
+    }
+  }
 }

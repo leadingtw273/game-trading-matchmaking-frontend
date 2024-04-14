@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Flex, Radio } from "antd";
+import { Flex } from "antd";
 import { Transaction } from "@/enums";
 
 import "./style.scss";
@@ -18,14 +18,26 @@ export default function TransactionTable(props: TransactionTableProps) {
         <div className="transaction-table__side">{renderForm(transactionType)}</div>
 
         <Flex className="transaction-table__main" gap={5} vertical>
-          <Radio.Group
-            className="main-tabs"
-            value={transactionType}
-            onChange={(e) => setTransactionType(e.target.value)}
+          <Flex
+            className={[
+              "main-tabs",
+              transactionType === Transaction.Type.SALE ? "decorate-left" : "decorate-right",
+            ].join(" ")}
+            align="center"
           >
-            <Radio.Button value={Transaction.Type.SALE}>販售中</Radio.Button>
-            <Radio.Button value={Transaction.Type.PURCHASE}>收購中</Radio.Button>
-          </Radio.Group>
+            <div
+              className={["main-tabs__item", transactionType === Transaction.Type.SALE ? "active" : ""].join(" ")}
+              onClick={() => setTransactionType(Transaction.Type.SALE)}
+            >
+              販售中
+            </div>
+            <div
+              className={["main-tabs__item", transactionType === Transaction.Type.PURCHASE ? "active" : ""].join(" ")}
+              onClick={() => setTransactionType(Transaction.Type.PURCHASE)}
+            >
+              收購中
+            </div>
+          </Flex>
           <div className="main-content">{renderContent(transactionType)}</div>
         </Flex>
       </Flex>

@@ -29,20 +29,60 @@
 
     .main {
       &-tabs {
+        position: relative;
+        z-index: 1;
+
+        padding-bottom: 4px;
+        height: 46px;
         width: 100%;
 
-        .ant-radio-button {
-          &-wrapper {
-            padding: 10px 20px;
-            width: 50%;
-            height: 50px;
+        background: url("@/assets/decorate/market-tab_background.svg");
+        background-repeat: no-repeat;
+        background-position: 0 3px;
 
-            text-align: center;
+        &__item {
+          width: 50%;
+          height: 100%;
 
-            font-size: 24px;
-            font-weight: bold;
-            line-height: 24px;
+          color: $colorPrimary;
+          font-size: 20px;
+          line-height: 46px;
+          font-weight: bold;
+
+          text-align: center;
+          cursor: pointer;
+
+          transition: all 0.2s ease-out;
+
+          &.active {
+            color: $colorActive;
           }
+        }
+
+        &.decorate {
+          &-left::before {
+            transform: translateX(0);
+            left: 0;
+          }
+
+          &-right::before {
+            left: 100%;
+            transform: translateX(-100%);
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 0;
+
+          height: 46px;
+          width: 562px;
+
+          background: url("@/assets/decorate/market-tab_active.svg");
+
+          transition: all 0.2s ease-out;
         }
       }
 
