@@ -45,7 +45,7 @@ function customTransform(commit) {
 }
 
 module.exports = {
-  branches: "feature/ISSUE-17_addSemanticRelease", // 要發布的分支
+  branches: "master", // 要發布的分支
   writerOpts: { transform: customTransform }, // 自定義 commit 轉換
   plugins: [
     "@semantic-release/commit-analyzer",
