@@ -1,3 +1,6 @@
+name: Release Discord Notification
+run-name: ${{ github.ref_name }} is notify releasing ✨
+
 on:
   release:
     types: [published]
@@ -14,8 +17,7 @@ jobs:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
           color: "2105893"
           username: "Release Changelog"
-          avatar_url: "https://cdn.discordapp.com/avatars/487431320314576937/bd64361e4ba6313d561d54e78c9e7171.png"
-          content: "||@everyone||"
+          avatar_url: "https://cdn.discordapp.com/avatars/396662502076841984/664233da95097fc5fed92e57107f1b18.png"
           footer_title: "Changelog"
-          footer_icon_url: "https://cdn.discordapp.com/avatars/487431320314576937/bd64361e4ba6313d561d54e78c9e7171.png"
+          footer_icon_url: "https://cdn.discordapp.com/avatars/396662502076841984/664233da95097fc5fed92e57107f1b18.png"
           footer_timestamp: true

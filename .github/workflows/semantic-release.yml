@@ -1,5 +1,5 @@
-name: Automatic Release
-run-name: ${{ github.actor }} is automatically releasing 🚀
+name: Release Automatic
+run-name: ${{ github.ref_name }} is automatically releasing 🚀
 
 on:
   push:
