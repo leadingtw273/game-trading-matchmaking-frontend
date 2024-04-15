@@ -28,17 +28,12 @@ function customTransform(commit) {
 
   // 設置 short commit hash
   if (typeof commit.hash === "string") {
-    convertedCommit.shortHash = commit.hash.substring(0, 7);
+    convertedCommit.shortHash = commit.commit.short;
   }
 
   // 設置 committer
   if (typeof commit.subject === "string") {
     convertedCommit.subject = `${commit.subject} (by @${commit.committer.name})`;
-  }
-
-  // 設置 jira 單連結
-  if (typeof commit.scope === "string") {
-    convertedCommit.scope = `[${commit.scope}](https://gl-jira-new.funnyhelp9.com/browse/${commit.scope})`;
   }
 
   return convertedCommit;
