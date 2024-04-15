@@ -1,4 +1,5 @@
-name: Release
+name: Automatic Release
+run-name: ${{ github.actor }} is automatically releasing 🚀
 
 on:
   push:
@@ -9,6 +10,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: 'Generate token'
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.BOT_APP_ID }}
+          private_key: ${{ secrets.BOT_PRIVATE_KEY }}
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -16,7 +23,7 @@ jobs:
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
       - name: Github Releases To Discord
         uses: SethCohen/github-releases-to-discord@v1.13.1
         with:
