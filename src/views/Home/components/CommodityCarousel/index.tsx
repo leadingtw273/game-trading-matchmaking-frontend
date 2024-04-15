@@ -18,7 +18,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       name: "月絨絨‧明橙",
       price: {
         currency: Currency.Type.TWD,
-        value: 600,
+        ratio: 600,
       },
       image:
         "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
@@ -29,7 +29,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       name: "月絨絨‧明橙",
       price: {
         currency: Currency.Type.TWD,
-        value: 600,
+        ratio: 600,
       },
       image:
         "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
@@ -40,7 +40,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       name: "月絨絨‧明橙",
       price: {
         currency: Currency.Type.TWD,
-        value: 600,
+        ratio: 600,
       },
       image:
         "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
@@ -51,7 +51,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       name: "月絨絨‧明橙",
       price: {
         currency: Currency.Type.TWD,
-        value: 600,
+        ratio: 600,
       },
       image:
         "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
@@ -62,7 +62,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       name: "月絨絨‧明橙",
       price: {
         currency: Currency.Type.TWD,
-        value: 600,
+        ratio: 600,
       },
       image:
         "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
@@ -73,7 +73,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       name: "月絨絨‧明橙",
       price: {
         currency: Currency.Type.TWD,
-        value: 600,
+        ratio: 600,
       },
       image:
         "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
