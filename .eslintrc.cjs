@@ -16,7 +16,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", "release.config.cjs"],
   plugins: ["react", "react-refresh"],
   rules: {
     "react/react-in-jsx-scope": "off", // React 17 以後不需要引入
