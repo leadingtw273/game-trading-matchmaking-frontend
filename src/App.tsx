@@ -8,7 +8,7 @@ export default function APP() {
       autoInsertSpaceInButton={false}
       theme={{
         token: {
-          fontFamily: "Noto Sans TC, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+          fontFamily: "Inter, Noto Sans TC, system-ui, Avenir, Helvetica, Arial, sans-serif",
           colorPrimary: "#E2D4BB",
           colorInfo: "#b6ab99",
           colorSuccess: "#ffc700",

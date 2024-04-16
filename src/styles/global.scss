@@ -40,4 +40,9 @@ body {
     background-image: url("@/assets/backage-main.png");
     background-size: cover;
   }
+
+  // react-custom-scroll 樣式設置
+  .rcs-inner-handle {
+    background-color: #e0e0e0;
+  }
 }

@@ -61,13 +61,11 @@
 
         &.decorate {
           &-left::before {
-            transform: translateX(0);
             left: 0;
           }
 
           &-right::before {
-            left: 100%;
-            transform: translateX(-100%);
+            left: calc(50% - 30px);
           }
         }
 
@@ -87,7 +85,7 @@
       }
 
       &-content {
-        height: 100%;
+        height: calc(100% - 50px);
 
         border: 1px solid $colorPrimary;
         border-radius: 20px;
