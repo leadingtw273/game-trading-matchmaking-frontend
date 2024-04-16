@@ -1,11 +1,10 @@
 export type ContactInfo = {
-  discord: string;
-  line: string;
-  facebook: string;
+  name: string;
+  value: string;
 };
 
 export type UserInfo = {
   nickname: string;
   gameId: string;
-  contactInfo: ContactInfo;
+  contacts: ContactInfo[];
 };

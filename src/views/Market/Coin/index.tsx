@@ -24,7 +24,7 @@ export function Component() {
           <PurchaseForm onSubmit={handleSubmitPurchase} />
         )
       }
-      renderContent={() => <ItemTable />}
+      renderContent={(type) => <ItemTable transactionType={type} />}
     />
   );
 }

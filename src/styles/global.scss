@@ -7,8 +7,8 @@ html,
 body {
   height: 100%;
   font-family:
-    Noto Sans TC,
     Inter,
+    Noto Sans TC,
     system-ui,
     Avenir,
     Helvetica,
@@ -39,5 +39,10 @@ body {
     background-color: $color-background-base;
     background-image: url("@/assets/backage-main.png");
     background-size: cover;
+  }
+
+  // react-custom-scroll 樣式設置
+  .rcs-inner-handle {
+    background-color: #e0e0e0;
   }
 }

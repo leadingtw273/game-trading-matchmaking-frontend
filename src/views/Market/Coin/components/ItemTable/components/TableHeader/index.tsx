@@ -2,27 +2,29 @@ import { AppstoreFilled, MenuOutlined } from "@ant-design/icons";
 import { Flex, Radio, Select } from "antd";
 
 import "./style.scss";
-
-enum SortType {
-  RECENT_UPDATE = "RECENT_UPDATE",
-  AMOUNT_DESC = "AMOUNT_DESC",
-  AMOUNT_ASC = "AMOUNT_ASC",
-}
+import { TableDisplayMode, TableSortType } from "@/enums";
 
 type TableHeaderProps = {
-  className?: string;
+  itemCount?: number;
+  displayMode?: TableDisplayMode;
+  onChangeSortType?: (value: TableSortType) => void;
+  onChangeDisplayMode?: (value: TableDisplayMode) => void;
 };
 export default function TableHeader(props: TableHeaderProps) {
-  const { className = "" } = props;
+  const { itemCount = 0, displayMode = TableDisplayMode.GRID, onChangeSortType, onChangeDisplayMode } = props;
 
-  const handleChangeSortType = (value: SortType) => {
-    console.log("handleChangeSortType", value);
+  const handleChangeSortType = (value: TableSortType) => {
+    onChangeSortType?.(value);
+  };
+
+  const handleChangeDisplayMode = (value: TableDisplayMode) => {
+    onChangeDisplayMode?.(value);
   };
 
   return (
-    <Flex className={["table-header", className].join(" ")} align="center" justify="space-between">
+    <Flex className="table-header" align="center" justify="space-between">
       <div className="table-header__result-count">
-        共<span className="count">87</span>項搜尋結果
+        共<span className="count">{itemCount}</span>項搜尋結果
       </div>
       <Flex align="center" gap={28}>
         <div className="table-header__sort-type">
@@ -30,23 +32,29 @@ export default function TableHeader(props: TableHeaderProps) {
           <Select
             className="selector"
             popupMatchSelectWidth={false}
-            defaultValue={SortType.RECENT_UPDATE}
+            defaultValue={TableSortType.RECENT_UPDATE}
             onChange={handleChangeSortType}
             options={[
-              { value: SortType.RECENT_UPDATE, label: "最近更新" },
-              { value: SortType.AMOUNT_DESC, label: "金額大到小" },
-              { value: SortType.AMOUNT_ASC, label: "金額小到大" },
+              { value: TableSortType.RECENT_UPDATE, label: "最近更新" },
+              { value: TableSortType.AMOUNT_DESC, label: "金額大到小" },
+              { value: TableSortType.AMOUNT_ASC, label: "金額小到大" },
             ]}
           />
         </div>
         <div className="table-header__show-style">
           <span className="label">排列方式</span>
-          <Radio.Group className="radio" defaultValue="a" buttonStyle="solid" size="small">
+          <Radio.Group
+            className="radio"
+            value={displayMode}
+            buttonStyle="solid"
+            size="small"
+            onChange={(e) => handleChangeDisplayMode(e.target.value)}
+          >
             <Flex gap={6}>
-              <Radio.Button value="a">
+              <Radio.Button value={TableDisplayMode.GRID}>
                 <AppstoreFilled />
               </Radio.Button>
-              <Radio.Button value="b">
+              <Radio.Button value={TableDisplayMode.LIST}>
                 <MenuOutlined />
               </Radio.Button>
             </Flex>
