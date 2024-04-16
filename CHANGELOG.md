@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.0.0...v1.1.0) (2024-04-16)
+
+
+### ✨ Features
+
+* 新增列表查看切版與細項調整 (by @mike) ([c6e2ef6](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/c6e2ef6080128a24ca0e231d7ef783dfcaf2de7f))
+* 調整字型與 Tag 大小 (by @mike) ([08b8e45](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/08b8e45eb995ce075c2416ec45ce1633f8ce2cf1))
+
 # 1.0.0 (2024-04-15)
 
 
