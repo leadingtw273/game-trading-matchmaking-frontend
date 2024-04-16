@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.1.0...v1.1.1) (2024-04-16)
+
+
+### 🐞 Bug Fixes
+
+* 修復商品卡右側 border 消失問題 (by @mike) ([fb93c39](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/fb93c39afca80fd6cd98e4f13fb924627cd4dda0))
+
 # [1.1.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.0.0...v1.1.0) (2024-04-16)
 
 
