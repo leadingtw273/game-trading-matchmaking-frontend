@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.1.1...v1.2.0) (2024-06-03)
+
+
+### ✨ Features
+
+* 調整 table 畫面 (by @mike) ([c55b5f4](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/c55b5f4dc67caf164be745ec6f75270037d2a65b))
+
 ## [1.1.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.1.0...v1.1.1) (2024-04-16)
 
 
