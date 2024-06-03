@@ -17,7 +17,7 @@ export default function TransactionTable(props: TransactionTableProps) {
       <Flex className="transaction-table__wrapper" gap={20}>
         <div className="transaction-table__side">{renderForm(transactionType)}</div>
 
-        <Flex className="transaction-table__main" gap={5} vertical>
+        <Flex className="transaction-table__main" vertical>
           <Flex
             className={[
               "main-tabs",

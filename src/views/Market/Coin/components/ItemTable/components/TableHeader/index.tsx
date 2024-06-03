@@ -1,7 +1,6 @@
 import { AppstoreFilled, MenuOutlined } from "@ant-design/icons";
 import { Flex, Radio, Select } from "antd";
 
-import "./style.scss";
 import { TableDisplayMode, TableSortType } from "@/enums";
 
 type TableHeaderProps = {
@@ -34,6 +33,7 @@ export default function TableHeader(props: TableHeaderProps) {
             popupMatchSelectWidth={false}
             defaultValue={TableSortType.RECENT_UPDATE}
             onChange={handleChangeSortType}
+            size="small"
             options={[
               { value: TableSortType.RECENT_UPDATE, label: "最近更新" },
               { value: TableSortType.AMOUNT_DESC, label: "金額大到小" },

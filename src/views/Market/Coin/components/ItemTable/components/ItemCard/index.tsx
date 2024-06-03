@@ -1,10 +1,8 @@
 import { Col, Flex, Row, Tag, Tooltip } from "antd";
 import dayjs from "dayjs";
 import { CoinCommodity, TransactionItem } from "@/types";
-import CoinImage from "@/assets/icon/coin.png";
+import CoinImage from "@/assets/icon/coin.svg";
 import { Currency, TableDisplayMode, Transaction } from "@/enums";
-
-import "./style.scss";
 
 type ItemCardProps = {
   mode: TableDisplayMode;
@@ -36,7 +34,7 @@ export default function ItemCard(props: ItemCardProps) {
           <Flex gap={25} className="card-content__wrapper">
             <div className="card-content__info">
               <Flex gap={8}>
-                <span className="info__label">{isSale ? "庫存" : "收購數量"}</span>
+                <span className="info__label">{isSale ? "庫存" : "需求"}</span>
                 <span className="info__value">{currencyFormatter(commodity.amount)}金</span>
               </Flex>
               <Flex gap={8}>
@@ -79,15 +77,16 @@ export default function ItemCard(props: ItemCardProps) {
               </Tooltip>
             </div>
           </Flex>
-          <Row className="card-content__tags" justify="center" gutter={[4, 4]}>
-            {commodity.tags.slice(0, 3).map((tag) => (
-              <Col key={tag}>
-                <Tag>{tag}</Tag>
-              </Col>
-            ))}
-          </Row>
         </div>
       </div>
+
+      <Row className="item-card__tags" justify="center" gutter={[4, 4]}>
+        {commodity.tags.slice(0, 3).map((tag) => (
+          <Col key={tag}>
+            <Tag>{tag}</Tag>
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 
@@ -109,7 +108,7 @@ export default function ItemCard(props: ItemCardProps) {
           <Flex gap={25} className="card-content__wrapper">
             <div className="card-content__info">
               <Flex gap={8}>
-                <span className="info__label">{isSale ? "庫存" : "收購數量"}</span>
+                <span className="info__label">{isSale ? "庫存" : "需求"}</span>
                 <span className="info__value">{currencyFormatter(commodity.amount)}金</span>
               </Flex>
               <Flex gap={8}>

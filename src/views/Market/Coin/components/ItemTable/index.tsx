@@ -3,7 +3,6 @@ import { CustomScroll } from "react-custom-scroll";
 import TableHeader from "./components/TableHeader";
 import coinCommodityList from "@/mocks/CoinCommodity";
 
-import "./style.scss";
 import { useEffect, useState } from "react";
 import ItemCard from "./components/ItemCard";
 import { TableDisplayMode, TableSortType, Transaction } from "@/enums";
