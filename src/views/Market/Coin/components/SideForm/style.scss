@@ -1,0 +1,72 @@
+.side-form {
+  height: 100%;
+
+  &_wrapper {
+    height: 100%;
+  }
+
+  &_content {
+    padding: 0 15px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    > .ant-form-item {
+      padding: 5px 0;
+    }
+
+    .ant-form-item {
+      margin: 0;
+
+      label {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &_action {
+    padding: 5px 0;
+
+    .form-reset {
+      padding: 0;
+
+      height: 32px;
+      width: 45px;
+
+      color: #8c8c8c;
+      border-color: #8c8c8c;
+
+      border-radius: 5px;
+
+      &:active {
+        color: $colorPrimary !important;
+        border-color: $colorPrimary !important;
+      }
+
+      &:hover {
+        color: #8c8c8c !important;
+        border-color: $colorPrimary !important;
+      }
+    }
+
+    .form-confirm {
+      padding: 0;
+
+      height: 32px;
+      width: 100px;
+
+      color: white;
+      background-color: $colorPrimary;
+      border-color: $colorActive;
+
+      &:active,
+      &:hover {
+        color: white !important;
+        background-color: $colorPrimary !important;
+        border-color: $colorActive !important;
+      }
+    }
+  }
+}

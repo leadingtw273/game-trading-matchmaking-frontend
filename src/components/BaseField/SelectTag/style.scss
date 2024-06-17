@@ -1,9 +1,28 @@
-@import "../style.scss";
-
 .base-field {
   .select-tag {
     &__item {
-      @extend %tag-item;
+      margin-inline-end: 0;
+      padding: 8px;
+
+      color: #8c8c8c;
+      font-size: 14px;
+      line-height: 1;
+
+      border: 1px solid #bfbfbf;
+      border-radius: 5px;
+      box-sizing: border-box;
+
+      &:hover {
+        color: #8c8c8c !important;
+        border-color: $colorPrimary !important;
+        background-color: inherit;
+      }
+
+      &.ant-tag-checkable-checked {
+        color: $colorPrimary !important;
+        border-color: $colorPrimary !important;
+        background-color: inherit;
+      }
     }
   }
 }
