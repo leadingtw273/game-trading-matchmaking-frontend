@@ -23,6 +23,77 @@
       background-image: url("@/assets/border/market-side.svg");
       background-repeat: no-repeat;
     }
+
+    .side-form {
+      &_wrapper {
+        height: 100%;
+      }
+
+      &_content {
+        padding: 0 15px;
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        > .ant-form-item {
+          padding: 5px 0;
+        }
+
+        .ant-form-item {
+          margin: 0;
+
+          label {
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      &_action {
+        padding: 5px 0;
+
+        .form-reset {
+          padding: 0;
+
+          height: 32px;
+          width: 45px;
+
+          color: #8c8c8c;
+          border-color: #8c8c8c;
+
+          border-radius: 5px;
+
+          &:active {
+            color: $colorPrimary !important;
+            border-color: $colorPrimary !important;
+          }
+
+          &:hover {
+            color: #8c8c8c !important;
+            border-color: $colorPrimary !important;
+          }
+        }
+
+        .form-confirm {
+          padding: 0;
+
+          height: 32px;
+          width: 100px;
+
+          color: white;
+          background-color: $colorPrimary;
+          border-color: $colorActive;
+
+          &:active,
+          &:hover {
+            color: white !important;
+            background-color: $colorPrimary !important;
+            border-color: $colorActive !important;
+          }
+        }
+      }
+    }
   }
 
   &__main {
@@ -87,6 +158,10 @@
       }
 
       &-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
         padding: 10px 0 15px;
 
         height: calc(100% - 50px);
@@ -98,331 +173,9 @@
         box-sizing: border-box;
 
         .item-table {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-
-          height: 100%;
-
-          box-sizing: border-box;
-
-          &__header {
-            .table-header {
-              padding: 0 40px;
-
-              &__result-count {
-                font-weight: bold;
-
-                .count {
-                  margin: 0 5px;
-
-                  color: $colorSuccess;
-                }
-              }
-
-              &__sort-type {
-                .selector {
-                  width: 114px;
-                }
-              }
-
-              &__show-style {
-                .radio {
-                  .ant-radio-button-wrapper {
-                    padding: 0 5px;
-
-                    border-style: solid;
-                    border-radius: 4px;
-                    border-width: 1px;
-
-                    color: white;
-                    background: #dfdfdf;
-
-                    &-checked {
-                      background: $colorPrimary;
-                    }
-
-                    &::before {
-                      display: none;
-                    }
-                  }
-                }
-              }
-
-              .label {
-                margin-right: 12px;
-              }
-            }
-          }
-
           &__content {
-            padding: 0 15px 15px;
+            padding: 0 14px 15px;
             overflow: auto;
-          }
-
-          &__pagination {
-            padding: 0 25px;
-          }
-        }
-
-        .item-card {
-          position: relative;
-          z-index: 1;
-          display: flex;
-          align-items: center;
-
-          box-sizing: border-box;
-
-          cursor: pointer;
-
-          &.mode-list {
-            gap: 10px;
-
-            padding: 15px 20px;
-
-            width: 1020px;
-            height: 120px;
-
-            background-image: url("@/assets/border/market-card_list.svg");
-
-            .item-card {
-              &__main {
-                width: 320px;
-
-                .card-main {
-                  display: flex;
-                  align-items: center;
-                  gap: 30px;
-
-                  &__image {
-                    width: 90px;
-                    height: 90px;
-                  }
-
-                  &__content {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                  }
-
-                  &__tip {
-                    color: #bbbbbb;
-
-                    font-size: 16px;
-                    line-height: 16px;
-                    font-weight: bold;
-                  }
-
-                  &__name {
-                    flex: 1 1;
-
-                    color: $colorSuccess;
-
-                    font-size: 24px;
-                    line-height: 24px;
-                    font-weight: bold;
-                  }
-                }
-              }
-
-              &__content {
-                flex: 1;
-
-                .card-content {
-                  display: flex;
-                  flex-direction: column;
-
-                  &__wrapper {
-                    padding-right: 105px;
-                  }
-
-                  &__info {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-
-                    width: 100%;
-
-                    box-sizing: border-box;
-
-                    .info {
-                      &__label {
-                        flex-shrink: 0;
-
-                        min-width: 68px;
-
-                        color: #434343;
-                        font-size: 16px;
-                        font-weight: bold;
-                      }
-
-                      &__value {
-                        color: #434343;
-                        font-size: 16px;
-                      }
-                    }
-                  }
-
-                  &__tags {
-                    padding: 8px 0 0;
-
-                    .ant-tag {
-                      padding: 2px;
-                      margin-right: 0;
-
-                      color: white;
-
-                      border-radius: 2px;
-
-                      font-size: 13px;
-                      line-height: 13px;
-
-                      background-color: #bfbfbf;
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-          &.mode-grid {
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-
-            padding: 10px 10px 12px;
-
-            width: 250px;
-            height: 250px;
-
-            overflow: hidden;
-
-            background-image: url("@/assets/border/market-card_grid.svg");
-
-            .item-card {
-              &__main {
-                .card-main {
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  gap: 5px;
-
-                  &__image {
-                    width: 60px;
-                    height: 60px;
-                  }
-
-                  &__content {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 5px;
-                  }
-
-                  &__tip {
-                    color: #8c8c8c;
-
-                    font-size: 14px;
-                    line-height: 14px;
-                  }
-
-                  &__name {
-                    color: $colorSuccess;
-
-                    font-size: 20px;
-                    line-height: 20px;
-                    font-weight: bold;
-                  }
-                }
-              }
-
-              &__divider {
-                width: 100%;
-                height: 13px;
-
-                background-image: url("@/assets/decorate/market-card_divider.svg");
-              }
-
-              &__content {
-                flex: 1;
-
-                width: 100%;
-
-                .card-content {
-                  display: flex;
-                  flex-direction: column;
-
-                  height: 100%;
-
-                  &__wrapper {
-                    height: 100%;
-                  }
-
-                  &__info {
-                    flex: 1;
-
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-
-                    padding: 0 5px;
-
-                    width: 100%;
-
-                    box-sizing: border-box;
-
-                    .info {
-                      &__label {
-                        flex-shrink: 0;
-
-                        min-width: 68px;
-
-                        color: #434343;
-                        font-size: 16px;
-                        font-weight: bold;
-                      }
-
-                      &__value {
-                        color: #434343;
-                        font-size: 16px;
-                      }
-                    }
-                  }
-                }
-              }
-
-              &__tags {
-                align-content: flex-end;
-
-                .ant-tag {
-                  padding: 2px;
-                  margin-right: 0;
-
-                  color: white;
-
-                  border-radius: 2px;
-
-                  font-size: 13px;
-                  line-height: 13px;
-
-                  background-color: #bfbfbf;
-                }
-              }
-            }
-          }
-
-          .decorate-dot {
-            display: inline-flex;
-            align-self: center;
-
-            padding: 5px;
-
-            height: 2px;
-            width: 5px;
-
-            background-repeat: no-repeat;
-            background-position: center;
-            background-image: url("@/assets/decorate/market-dot.svg");
           }
         }
       }

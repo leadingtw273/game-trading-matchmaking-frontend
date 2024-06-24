@@ -8,8 +8,24 @@ export type CommodityItem<Type> = {
 } & Type;
 
 export type CoinCommodity = CommodityItem<Coin>;
+export type AppearanceCommodity = CommodityItem<Appearance>;
+export type CharacterCommodity = CommodityItem<Character>;
 
 type Coin = {
+  coinRatio: CoinRatio;
+  amount: number;
+  tags: Array<string>;
+  transMinLimit: number;
+};
+
+type Appearance = {
+  coinRatio: CoinRatio;
+  amount: number;
+  tags: Array<string>;
+  transMinLimit: number;
+};
+
+type Character = {
   coinRatio: CoinRatio;
   amount: number;
   tags: Array<string>;

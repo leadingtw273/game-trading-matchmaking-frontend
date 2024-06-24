@@ -3,6 +3,8 @@ import { Flex, Radio, Select } from "antd";
 
 import { TableDisplayMode, TableSortType } from "@/enums";
 
+import "./style.scss";
+
 type TableHeaderProps = {
   itemCount?: number;
   displayMode?: TableDisplayMode;

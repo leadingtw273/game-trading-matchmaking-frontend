@@ -1,12 +1,5 @@
 <svg width="230" height="13" viewBox="0 0 230 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_2302_22067)">
-<line x1="15" y1="5.86328" x2="103.636" y2="5.86328" stroke="#BBBBBB"/>
+<line y1="5.86328" x2="103.636" y2="5.86328" stroke="#BBBBBB"/>
 <rect x="109.343" y="6.36328" width="8" height="8" transform="rotate(-45 109.343 6.36328)" stroke="#BBBBBB"/>
-<line x1="126.364" y1="5.86328" x2="215" y2="5.86328" stroke="#BBBBBB"/>
-</g>
-<defs>
-<clipPath id="clip0_2302_22067">
-<rect width="230" height="12.7279" fill="white"/>
-</clipPath>
-</defs>
+<line x1="126.364" y1="5.86328" x2="230" y2="5.86328" stroke="#BBBBBB"/>
 </svg>

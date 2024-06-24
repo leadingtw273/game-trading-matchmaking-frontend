@@ -1,0 +1,46 @@
+.item-card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  &.mode-list {
+    gap: 10px;
+
+    width: 1020px;
+    height: 120px;
+
+    background-image: url("@/assets/border/market-card_list.svg");
+  }
+
+  &.mode-grid {
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    width: 250px;
+    height: 250px;
+
+    overflow: hidden;
+
+    background-image: url("@/assets/border/market-card_grid.svg");
+  }
+
+  .decorate-dot {
+    display: inline-flex;
+    align-self: center;
+
+    padding: 5px;
+
+    height: 2px;
+    width: 5px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("@/assets/decorate/market-dot.svg");
+  }
+}

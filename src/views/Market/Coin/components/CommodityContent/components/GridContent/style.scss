@@ -1,0 +1,97 @@
+.grid-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 10px 10px 12px;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    .image {
+      width: 60px;
+      height: 60px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .tip {
+      color: #8c8c8c;
+
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    .name {
+      color: $colorSuccess;
+
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: bold;
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    height: 13px;
+
+    background-image: url("@/assets/decorate/market-card_divider.svg");
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 0 5px;
+
+    .info {
+      &__label {
+        flex-shrink: 0;
+
+        min-width: 68px;
+
+        color: #434343;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      &__value {
+        color: #434343;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__tags {
+    align-content: flex-end;
+
+    .ant-tag {
+      padding: 2px;
+      margin-right: 0;
+
+      color: white;
+
+      border-radius: 2px;
+
+      font-size: 13px;
+      line-height: 13px;
+
+      background-color: #bfbfbf;
+    }
+  }
+}
