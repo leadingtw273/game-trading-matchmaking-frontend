@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.4.0...v1.4.1) (2024-07-01)
+
+
+### 🐞 Bug Fixes
+
+* 修正首頁型別問題 (by @mike) ([289404e](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/289404e19d7077616153de9d2aa2f3ef263e478f))
+
 # [1.4.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.3.0...v1.4.0) (2024-07-01)
 
 
