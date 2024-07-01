@@ -1,4 +1,5 @@
-.coin.list-content {
+.appearance.list-content {
+  position: relative;
   display: flex;
   gap: 12px;
 
@@ -37,7 +38,7 @@
       &__name {
         flex: 1 1;
 
-        color: $colorSuccess;
+        color: #434343;
 
         font-size: 24px;
         line-height: 24px;
@@ -97,5 +98,20 @@
         background-color: #bfbfbf;
       }
     }
+  }
+
+  .list-content__prize {
+    position: absolute;
+    right: 40px;
+    bottom: 17px;
+
+    font-family: "Inter";
+
+    color: $colorSuccess;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+
+    text-align: right;
   }
 }

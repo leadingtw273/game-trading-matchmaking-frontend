@@ -11,7 +11,7 @@ interface ICommodityCarouselProps {
 
 export default function CommodityCarousel(props: ICommodityCarouselProps) {
   const { title } = props;
-  const [type, setType] = useState<Transaction.Commodity>(Transaction.Commodity.Skin);
+  const [type, setType] = useState<Transaction.Commodity>(Transaction.Commodity.Appearance);
   const [commodities] = useState([
     {
       id: 1,
@@ -81,7 +81,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
     },
   ]);
   const labelMap = {
-    [Transaction.Commodity.Skin]: "外觀",
+    [Transaction.Commodity.Appearance]: "外觀",
     [Transaction.Commodity.Character]: "角色",
     [Transaction.Commodity.Coin]: "金幣",
   };
@@ -109,7 +109,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
       <div className="commodity-carousel_title">{title}</div>
       <Flex justify="space-between" align="center">
         <Flex className="commodity-carousel_type-action" gap={16}>
-          <Button onClick={() => handleClickType(Transaction.Commodity.Skin)}>外觀</Button>
+          <Button onClick={() => handleClickType(Transaction.Commodity.Appearance)}>外觀</Button>
           <Button onClick={() => handleClickType(Transaction.Commodity.Character)}>角色</Button>
           <Button onClick={() => handleClickType(Transaction.Commodity.Coin)}>金幣</Button>
         </Flex>

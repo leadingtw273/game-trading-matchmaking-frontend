@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Col, Flex, Form, Pagination, Row } from "antd";
-import { TableDisplayMode, TableSortType, Transaction } from "@/enums";
-import coinCommodityList from "@/mocks/CoinCommodity";
+import { TableDisplayModeEnum, TableSortTypeEnum, TransactionEnum } from "@/enums";
 
 import "./style.scss";
 import { useForm } from "antd/es/form/Form";
@@ -11,48 +10,45 @@ import { CommodityItem, TransactionItem } from "@/types";
 import ItemCardWrapper from "./components/ItemCardWrapper";
 
 type TransactionTableProps<FormValues, Commodity extends CommodityItem<unknown>> = {
-  onSubmit: (values: FormValues) => void;
-  renderForm: (transactionType: Transaction.Type) => React.ReactNode;
+  defaultTransactionType?: TransactionEnum.Type;
+  dataSource: TransactionItem<Commodity>[];
+  onSearch: (values: FormValues) => void;
+  renderForm: (transactionType: TransactionEnum.Type) => React.ReactNode;
   renderCardContent: (
-    transactionType: Transaction.Type,
-    displayMode: TableDisplayMode,
+    transactionType: TransactionEnum.Type,
+    displayMode: TableDisplayModeEnum,
     item: TransactionItem<Commodity>
   ) => React.ReactNode;
 };
 export default function TransactionTable<FormValues, Commodity extends CommodityItem<unknown>>(
   props: TransactionTableProps<FormValues, Commodity>
 ) {
-  const { onSubmit, renderForm, renderCardContent } = props;
+  const {
+    defaultTransactionType = TransactionEnum.Type.SALE,
+    dataSource,
+    onSearch,
+    renderForm,
+    renderCardContent,
+  } = props;
   const [form] = useForm<FormValues>();
-  const [transactionType, setTransactionType] = useState<Transaction.Type>(Transaction.Type.SALE);
-  const [displayMode, setDisplayMode] = useState<TableDisplayMode>(TableDisplayMode.GRID);
-  const [dataList, setDataList] = useState<TransactionItem<Commodity>[]>([]);
-
-  useEffect(() => {
-    const list = requestList<TransactionItem<Commodity>[]>(transactionType);
-    setDataList(list);
-  }, [transactionType]);
-
-  const requestList = <Response,>(transactionType: Transaction.Type): Response => {
-    // TODO: fetch data from server
-    return coinCommodityList.filter((item) => item.type === transactionType).slice(0, 8) as Response;
-  };
+  const [transactionType, setTransactionType] = useState<TransactionEnum.Type>(defaultTransactionType);
+  const [displayMode, setDisplayMode] = useState<TableDisplayModeEnum>(TableDisplayModeEnum.GRID);
 
   const handleSubmit = (values: FormValues) => {
     // do transaction
-    onSubmit(values);
+    onSearch(values);
   };
 
-  const handleChangeSortType = (value: TableSortType) => {
+  const handleChangeSortType = (value: TableSortTypeEnum) => {
     console.log("handleChangeSortType", value);
-  };
-
-  const handleChangeDisplayMode = (value: TableDisplayMode) => {
-    setDisplayMode(value);
   };
 
   const handleChangePagination = (page: number, pageSize: number | undefined) => {
     console.log("handleChangePagination", page, pageSize);
+  };
+
+  const handleChangeDisplayMode = (value: TableDisplayModeEnum) => {
+    setDisplayMode(value);
   };
 
   return (
@@ -84,19 +80,21 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
           <Flex
             className={[
               "main-tabs",
-              transactionType === Transaction.Type.SALE ? "decorate-left" : "decorate-right",
+              transactionType === TransactionEnum.Type.SALE ? "decorate-left" : "decorate-right",
             ].join(" ")}
             align="center"
           >
             <div
-              className={["main-tabs__item", transactionType === Transaction.Type.SALE ? "active" : ""].join(" ")}
-              onClick={() => setTransactionType(Transaction.Type.SALE)}
+              className={["main-tabs__item", transactionType === TransactionEnum.Type.SALE ? "active" : ""].join(" ")}
+              onClick={() => setTransactionType(TransactionEnum.Type.SALE)}
             >
               販售中
             </div>
             <div
-              className={["main-tabs__item", transactionType === Transaction.Type.PURCHASE ? "active" : ""].join(" ")}
-              onClick={() => setTransactionType(Transaction.Type.PURCHASE)}
+              className={["main-tabs__item", transactionType === TransactionEnum.Type.PURCHASE ? "active" : ""].join(
+                " "
+              )}
+              onClick={() => setTransactionType(TransactionEnum.Type.PURCHASE)}
             >
               收購中
             </div>
@@ -104,7 +102,7 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
 
           <Flex className="main-content item-table" vertical>
             <TableHeader
-              itemCount={dataList.length}
+              itemCount={dataSource.length}
               displayMode={displayMode}
               onChangeSortType={handleChangeSortType}
               onChangeDisplayMode={handleChangeDisplayMode}
@@ -113,8 +111,8 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
             <div className="item-table__content">
               <CustomScroll heightRelativeToParent="100%">
                 <Row gutter={[10, 10]}>
-                  {dataList.map((item) => (
-                    <Col key={item.id} span={displayMode === TableDisplayMode.GRID ? 6 : 24}>
+                  {dataSource.map((item) => (
+                    <Col key={item.id} span={displayMode === TableDisplayModeEnum.GRID ? 6 : 24}>
                       <ItemCardWrapper displayMode={displayMode}>
                         {renderCardContent(transactionType, displayMode, item)}
                       </ItemCardWrapper>

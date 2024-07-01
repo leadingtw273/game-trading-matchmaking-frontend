@@ -1,4 +1,4 @@
-import { Currency } from "@/enums";
+import { CurrencyEnum } from "@/enums";
 
 /** 識別碼類型 */
 export type IdType = string;
@@ -7,9 +7,17 @@ export type IdType = string;
 export type TimeStamp = number;
 
 /** 幣種比值 */
-export type CoinRatio = {
+export type CurrencyRatio = {
   /** 幣種 */
-  currency: Currency.Type;
+  currency: CurrencyEnum.Type;
   /** 比值 */
-  ratio: number;
+  value: number;
+};
+
+/** 幣種價格 */
+export type CurrencyPrice = {
+  /** 幣種 */
+  currency: CurrencyEnum.Type;
+  /** 價格 */
+  value: number;
 };

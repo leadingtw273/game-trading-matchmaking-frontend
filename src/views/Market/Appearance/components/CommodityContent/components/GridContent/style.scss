@@ -1,4 +1,4 @@
-.coin.grid-content {
+.appearance.grid-content {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -32,14 +32,22 @@
       color: #8c8c8c;
 
       font-size: 14px;
-      line-height: 14px;
+      line-height: 1;
     }
 
     .name {
+      color: #434343;
+
+      font-size: 20px;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    .price {
       color: $colorSuccess;
 
       font-size: 20px;
-      line-height: 20px;
+      line-height: 1;
       font-weight: bold;
     }
   }

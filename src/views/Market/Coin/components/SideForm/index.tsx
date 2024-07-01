@@ -1,26 +1,26 @@
 import { Flex, Form, Input, Select } from "antd";
 import { SelectTag } from "@/components/BaseField";
-import { Currency, Transaction } from "@/enums";
+import { CurrencyEnum, TransactionEnum } from "@/enums";
 
 import { StockType } from "./enum";
 
 type SideFormProps = {
-  transactionType: Transaction.Type;
+  transactionType: TransactionEnum.Type;
 };
 export default function SideForm(props: SideFormProps) {
   const { transactionType } = props;
   console.log("transactionType", transactionType);
 
-  const currencyOptions = Object.values(Currency.Type).map((currency) => ({
+  const currencyOptions = Object.values(CurrencyEnum.Type).map((currency) => ({
     value: currency,
-    label: "1" + Currency.Label[currency],
+    label: "1" + CurrencyEnum.Label[currency],
   }));
 
   return (
     <>
       <Form.Item name="sellCurrency" label="幣值" colon={false}>
         <Flex align="center" gap={5}>
-          <Form.Item name="currency" style={{ minWidth: "80px" }} initialValue={Currency.Type.TWD}>
+          <Form.Item name="currency" style={{ minWidth: "80px" }} initialValue={CurrencyEnum.Type.TWD}>
             <Select options={currencyOptions} popupMatchSelectWidth={false} />
           </Form.Item>
           <span style={{ color: "#AEAEAE", fontWeight: "bold" }}>:</span>
@@ -41,11 +41,11 @@ export default function SideForm(props: SideFormProps) {
         />
       </Form.Item>
       <Form.Item name="transaction" label="交易方式" colon={false}>
-        <SelectTag<Transaction.Method | null>
+        <SelectTag<TransactionEnum.Method | null>
           options={[
-            { label: "匯款", value: Transaction.Method.BANK_TRANSFER },
-            { label: "LinePay", value: Transaction.Method.LINE_PAY },
-            { label: "8591", value: Transaction.Method.THIRD_PARTY_8591 },
+            { label: "匯款", value: TransactionEnum.Method.BANK_TRANSFER },
+            { label: "LinePay", value: TransactionEnum.Method.LINE_PAY },
+            { label: "8591", value: TransactionEnum.Method.THIRD_PARTY_8591 },
           ]}
         />
       </Form.Item>

@@ -29,10 +29,10 @@ export default function TheNavbar() {
           <NavLink className="item" to="/market/coin">
             買賣金幣
           </NavLink>
-          {/* <NavLink className="item" to="/market/appearance">
+          <NavLink className="item" to="/market/appearance">
             買賣外觀
           </NavLink>
-          <NavLink className="item" to="/market/character">
+          {/* <NavLink className="item" to="/market/character">
             買賣角色
           </NavLink> */}
         </div>

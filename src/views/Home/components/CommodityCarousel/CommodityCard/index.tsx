@@ -1,9 +1,9 @@
-import { CoinRatio } from "@/types/common";
+import { CurrencyRatio } from "@/types/common";
 import "./style.scss";
 
 interface ICommodityCardProps {
   name: string;
-  price: CoinRatio;
+  price: CurrencyRatio;
   image: string;
   seller: string;
 }
@@ -18,7 +18,7 @@ export default function CommodityCard(props: ICommodityCardProps) {
           <div className="commodity-card_title">{name}</div>
           <div className="commodity-card_name">賣家名稱({seller})</div>
           <div className="commodity-card_prize">
-            {price.currency} : {price.ratio}
+            {price.currency} : {price.value}
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export enum Status {
 /** 交易商品 */
 export enum Commodity {
   /** 外觀 */
-  Skin = "skin",
+  Appearance = "appearance",
   /** 角色 */
   Character = "character",
   /** 金幣 */
@@ -28,6 +28,10 @@ export enum Commodity {
 
 /** 交易方式 */
 export enum Method {
+  /** 付費信 */
+  PAID_LETTER = "PAID_LETTER",
+  /** 玩家交易 */
+  PLAYER_TRADE = "PLAYER_TRADE",
   /** 匯款 */
   BANK_TRANSFER = "BANK_TRANSFER",
   /** line pay */
@@ -38,6 +42,10 @@ export enum Method {
 
 /** 交易方式 */
 export enum MethodLabel {
+  /** 付費信 */
+  PAID_LETTER = "付費信",
+  /** 玩家交易 */
+  PLAYER_TRADE = "玩家交易",
   /** 匯款 */
   BANK_TRANSFER = "匯款",
   /** line pay */

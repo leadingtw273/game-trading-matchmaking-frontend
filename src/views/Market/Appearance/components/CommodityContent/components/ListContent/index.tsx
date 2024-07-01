@@ -1,15 +1,21 @@
 import { Col, Flex, Row, Tag } from "antd";
 import dayjs from "dayjs";
 import { TransactionItem } from "@/types";
-import CoinImage from "@/assets/icon/coin.svg";
-import { CurrencyEnum, TransactionEnum } from "@/enums";
-import { CoinCommodity } from "@/views/Market/Coin";
+import { AppearanceEnum, CurrencyEnum, TransactionEnum } from "@/enums";
+import { AppearanceCommodity } from "@/views/Market/Appearance";
+import CoatImage from "@/assets/icon/coat.svg";
+import GiftBoxImage from "@/assets/icon/giftBox.svg";
+import HairImage from "@/assets/icon/hair.svg";
+import HangingPetImage from "@/assets/icon/hangingPet.svg";
+import HarnessImage from "@/assets/icon/harness.svg";
+import MountImage from "@/assets/icon/mount.svg";
+import OtherImage from "@/assets/icon/other.svg";
 
 import "./style.scss";
 
 type CommodityContentProps = {
   transactionType: TransactionEnum.Type;
-  item: TransactionItem<CoinCommodity>;
+  item: TransactionItem<AppearanceCommodity>;
 };
 export default function CommodityContent(props: CommodityContentProps) {
   const { transactionType, item } = props;
@@ -17,30 +23,36 @@ export default function CommodityContent(props: CommodityContentProps) {
   const isSale = transactionType === TransactionEnum.Type.SALE;
   const currencyFormatter = new Intl.NumberFormat("zh-TW").format;
 
+  const categoryImageMap = {
+    [AppearanceEnum.Type.GIFT_BOX]: GiftBoxImage,
+    [AppearanceEnum.Type.CLOAK]: CoatImage,
+    [AppearanceEnum.Type.COAT]: CoatImage,
+    [AppearanceEnum.Type.HAIR]: HairImage,
+    [AppearanceEnum.Type.HARNESS]: HarnessImage,
+    [AppearanceEnum.Type.MOUNT]: MountImage,
+    [AppearanceEnum.Type.HANGING_PET]: HangingPetImage,
+    [AppearanceEnum.Type.OTHER]: OtherImage,
+  };
+
   return (
-    <div className="coin list-content">
+    <div className="appearance list-content">
       <div className="list-content__main">
-        <img className="image" src={CoinImage} />
+        <img className="image" src={categoryImageMap[commodity.category]} />
         <div className="content">
           <div className="content__tip">{isSale ? "販賣" : "收購"}金幣</div>
-          <div className="content__name">
-            {`1${CurrencyEnum.Label[commodity.coinRatio.currency]} : ${currencyFormatter(commodity.coinRatio.value)}金`}
-          </div>
+          <div className="content__name">{commodity.name}</div>
         </div>
       </div>
       <div className="list-content__content">
         <Flex gap={25} className="info">
           <div className="info__column">
             <Flex gap={8}>
-              <span className="label">{isSale ? "庫存" : "需求"}</span>
-              <span className="value">{currencyFormatter(commodity.amount)}金</span>
+              <span className="label">類型</span>
+              <span className="value">{AppearanceEnum.Label[commodity.category]}</span>
             </Flex>
             <Flex gap={8}>
-              <span className="label">最低{isSale ? "購買" : "收購"}</span>
-              <span className="value">
-                {currencyFormatter(commodity.transMinLimit)}
-                {CurrencyEnum.Label[commodity.coinRatio.currency]}
-              </span>
+              <span className="label">{isSale ? "庫存數量" : "需求數量"}</span>
+              <span className="value">{commodity.amount}</span>
             </Flex>
             <Flex gap={8}>
               <span className="label">交易方式</span>
@@ -77,6 +89,11 @@ export default function CommodityContent(props: CommodityContentProps) {
             </Col>
           ))}
         </Row>
+      </div>
+
+      <div className="list-content__prize">
+        <div className="currency">{CurrencyEnum.Label[commodity.price.currency]}</div>
+        <div className="amount">{currencyFormatter(commodity.price.value)}</div>
       </div>
     </div>
   );
