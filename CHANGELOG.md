@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.3.0...v1.4.0) (2024-07-01)
+
+
+### ✨ Features
+
+* 完成外觀市場切版 (by @mike) ([3278d3b](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/3278d3bb1fb368abcc9fb67e37b69c9e99de20cb))
+
+
+### 🦄 Code Refactoring
+
+* 抽象化收售頁面邏輯，使其可以拆分業務與版面呈現代碼 (by @mike) ([50ab6d1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/50ab6d190d2571b8ed5cab91fbf518643fa1f95b))
+
 # [1.3.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.2.0...v1.3.0) (2024-06-17)
 
 
