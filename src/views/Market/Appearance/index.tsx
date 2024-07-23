@@ -1,5 +1,5 @@
 import SideForm from "./components/SideForm";
-import TransactionTable from "@/components/TransactionTable";
+import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum, AppearanceEnum } from "@/enums";
 import { CurrencyPrice, CommodityItem, TransactionItem } from "@/types";
 import CommodityContent from "./components/CommodityContent";
@@ -20,7 +20,7 @@ type FormValues = {
     currency: CurrencyEnum.Type;
     value: number;
   } | null;
-  transaction: TransactionEnum.Method[] | null;
+  transactionMethod: TransactionEnum.Method[] | null;
 };
 
 Component.displayName = "MarketAppearance";
@@ -37,16 +37,18 @@ export function Component() {
     return appearanceCommodityList.filter((item) => item.type === transactionType).slice(0, 8) as Response;
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSearch = (values: any) => {
+  const handleSearch = (values: TableSubmitParams<FormValues>) => {
     console.log("handleSearch", values);
+
+    const list = requestList<TransactionItem<AppearanceCommodity>[]>(values.transactionType);
+    setDataList(list);
   };
 
   return (
     <TransactionTable<FormValues, AppearanceCommodity>
       defaultTransactionType={TransactionEnum.Type.SALE}
       dataSource={dataList}
-      renderForm={(type) => <SideForm transactionType={type} />}
+      renderForm={() => <SideForm />}
       renderCardContent={(type, mode, item) =>
         mode === TableDisplayModeEnum.GRID ? (
           <CommodityContent.Grid transactionType={type} item={item} />

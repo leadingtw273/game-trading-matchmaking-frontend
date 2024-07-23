@@ -1,6 +1,7 @@
 export * as CurrencyEnum from "./Currency";
 export * as TransactionEnum from "./Transaction";
 export * as AppearanceEnum from "./Appearance";
+export * as CharacterEnum from "./Character";
 
 export enum TableSortTypeEnum {
   RECENT_UPDATE = "RECENT_UPDATE",

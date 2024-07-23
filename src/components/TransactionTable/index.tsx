@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Button, Col, Flex, Form, Pagination, Row } from "antd";
 import { TableDisplayModeEnum, TableSortTypeEnum, TransactionEnum } from "@/enums";
 
@@ -9,10 +9,17 @@ import { CustomScroll } from "react-custom-scroll";
 import { CommodityItem, TransactionItem } from "@/types";
 import ItemCardWrapper from "./components/ItemCardWrapper";
 
+export type TableSubmitParams<FormValues> = FormValues & {
+  page: number;
+  pageSize: number;
+  transactionType: TransactionEnum.Type;
+  sortType: TableSortTypeEnum;
+};
+
 type TransactionTableProps<FormValues, Commodity extends CommodityItem<unknown>> = {
   defaultTransactionType?: TransactionEnum.Type;
   dataSource: TransactionItem<Commodity>[];
-  onSearch: (values: FormValues) => void;
+  onSearch: (values: TableSubmitParams<FormValues>) => void;
   renderForm: (transactionType: TransactionEnum.Type) => React.ReactNode;
   renderCardContent: (
     transactionType: TransactionEnum.Type,
@@ -32,23 +39,71 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
   } = props;
   const [form] = useForm<FormValues>();
   const [transactionType, setTransactionType] = useState<TransactionEnum.Type>(defaultTransactionType);
+  const [sortType, setSortType] = useState<TableSortTypeEnum>(TableSortTypeEnum.RECENT_UPDATE);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const [displayMode, setDisplayMode] = useState<TableDisplayModeEnum>(TableDisplayModeEnum.GRID);
+  const tableParams = useMemo(
+    () => ({
+      page,
+      pageSize,
+      transactionType,
+      sortType,
+    }),
+    [page, pageSize, sortType, transactionType]
+  );
 
   const handleSubmit = (values: FormValues) => {
-    // do transaction
-    onSearch(values);
+    setPage(1);
+    onSearch({ ...values, ...tableParams });
   };
 
-  const handleChangeSortType = (value: TableSortTypeEnum) => {
-    console.log("handleChangeSortType", value);
+  const handleChangeSortType = (sortType: TableSortTypeEnum) => {
+    setSortType(sortType);
+    onSearch({
+      ...form.getFieldsValue(),
+      ...tableParams,
+      sortType,
+    });
   };
 
-  const handleChangePagination = (page: number, pageSize: number | undefined) => {
-    console.log("handleChangePagination", page, pageSize);
+  const handleChangeTransaction = (transactionType: TransactionEnum.Type) => {
+    setTransactionType(transactionType);
+    onSearch({
+      ...form.getFieldsValue(),
+      ...tableParams,
+      transactionType,
+    });
   };
 
-  const handleChangeDisplayMode = (value: TableDisplayModeEnum) => {
-    setDisplayMode(value);
+  const handleChangePagination = (page: number, pageSize: number) => {
+    setPage(page);
+    setPageSize(pageSize);
+    onSearch({
+      ...form.getFieldsValue(),
+      ...tableParams,
+      page,
+      pageSize,
+    });
+  };
+
+  const handleChangeDisplayMode = (displayMode: TableDisplayModeEnum) => {
+    setDisplayMode(displayMode);
+
+    if (displayMode === TableDisplayModeEnum.LIST) {
+      setPageSize(20);
+      setPage(1);
+    } else {
+      setPageSize(8);
+      setPage(1);
+    }
+
+    onSearch({
+      ...form.getFieldsValue(),
+      ...tableParams,
+      page,
+      pageSize,
+    });
   };
 
   return (
@@ -86,7 +141,7 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
           >
             <div
               className={["main-tabs__item", transactionType === TransactionEnum.Type.SALE ? "active" : ""].join(" ")}
-              onClick={() => setTransactionType(TransactionEnum.Type.SALE)}
+              onClick={() => handleChangeTransaction(TransactionEnum.Type.SALE)}
             >
               販售中
             </div>
@@ -94,7 +149,7 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
               className={["main-tabs__item", transactionType === TransactionEnum.Type.PURCHASE ? "active" : ""].join(
                 " "
               )}
-              onClick={() => setTransactionType(TransactionEnum.Type.PURCHASE)}
+              onClick={() => handleChangeTransaction(TransactionEnum.Type.PURCHASE)}
             >
               收購中
             </div>
@@ -124,7 +179,9 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
 
             <Pagination
               style={{ padding: "0 25px" }}
-              current={2}
+              current={page}
+              pageSize={pageSize}
+              showSizeChanger={displayMode === TableDisplayModeEnum.LIST}
               total={500}
               onChange={handleChangePagination}
               showQuickJumper

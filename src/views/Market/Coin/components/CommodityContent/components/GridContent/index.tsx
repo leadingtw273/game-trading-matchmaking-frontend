@@ -1,10 +1,12 @@
 import { Col, Flex, Row, Tag, Tooltip } from "antd";
 import { TransactionItem } from "@/types";
 import CoinImage from "@/assets/icon/coin.svg";
-import { CurrencyEnum, TransactionEnum } from "@/enums";
+import { TransactionEnum } from "@/enums";
 import { CoinCommodity } from "@/views/Market/Coin";
 
 import "./style.scss";
+import { getOptionsLabel } from "@/utils";
+import { CurrencyConst, TransactionConst } from "@/consts";
 
 type GridContentProps = {
   transactionType: TransactionEnum.Type;
@@ -23,7 +25,9 @@ export default function GridContent(props: GridContentProps) {
         <div className="content">
           <div className="tip">{isSale ? "販賣" : "收購"}金幣</div>
           <div className="name">
-            {`1${CurrencyEnum.Label[commodity.coinRatio.currency]} : ${currencyFormatter(commodity.coinRatio.value)}金`}
+            {`1${getOptionsLabel(commodity.coinRatio.currency, CurrencyConst.getTypeOptions())} : ${currencyFormatter(
+              commodity.coinRatio.value
+            )}金`}
           </div>
         </div>
       </div>
@@ -37,7 +41,7 @@ export default function GridContent(props: GridContentProps) {
           <span className="info__label">最低{isSale ? "購買" : "收購"}</span>
           <span className="info__value">
             {currencyFormatter(commodity.transMinLimit)}
-            {CurrencyEnum.Label[commodity.coinRatio.currency]}
+            {getOptionsLabel(commodity.coinRatio.currency, CurrencyConst.getTypeOptions())}
           </span>
         </Flex>
         <Tooltip
@@ -45,7 +49,9 @@ export default function GridContent(props: GridContentProps) {
           color="#B6AB99"
           getPopupContainer={(triggerNode) => triggerNode.parentElement as HTMLElement}
           title={item.methods
-            .map<React.ReactNode>((method) => <span key={method}>{TransactionEnum.MethodLabel[method]}</span>)
+            .map<React.ReactNode>((method) => (
+              <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
+            ))
             .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
         >
           <Flex gap={8}>
@@ -55,13 +61,17 @@ export default function GridContent(props: GridContentProps) {
                 <>
                   {item.methods
                     .slice(0, 2)
-                    .map<React.ReactNode>((method) => <span key={method}>{TransactionEnum.MethodLabel[method]}</span>)
+                    .map<React.ReactNode>((method) => (
+                      <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
+                    ))
                     .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
                   ...
                 </>
               ) : (
                 item.methods
-                  .map<React.ReactNode>((method) => <span key={method}>{TransactionEnum.MethodLabel[method]}</span>)
+                  .map<React.ReactNode>((method) => (
+                    <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
+                  ))
                   .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])
               )}
             </span>

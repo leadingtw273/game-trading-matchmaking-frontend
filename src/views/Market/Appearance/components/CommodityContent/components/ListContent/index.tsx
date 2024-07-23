@@ -1,7 +1,7 @@
 import { Col, Flex, Row, Tag } from "antd";
 import dayjs from "dayjs";
 import { TransactionItem } from "@/types";
-import { AppearanceEnum, CurrencyEnum, TransactionEnum } from "@/enums";
+import { AppearanceEnum, TransactionEnum } from "@/enums";
 import { AppearanceCommodity } from "@/views/Market/Appearance";
 import CoatImage from "@/assets/icon/coat.svg";
 import GiftBoxImage from "@/assets/icon/giftBox.svg";
@@ -12,6 +12,8 @@ import MountImage from "@/assets/icon/mount.svg";
 import OtherImage from "@/assets/icon/other.svg";
 
 import "./style.scss";
+import { AppearanceConst, CurrencyConst, TransactionConst } from "@/consts";
+import { getOptionsLabel } from "@/utils";
 
 type CommodityContentProps = {
   transactionType: TransactionEnum.Type;
@@ -48,7 +50,7 @@ export default function CommodityContent(props: CommodityContentProps) {
           <div className="info__column">
             <Flex gap={8}>
               <span className="label">類型</span>
-              <span className="value">{AppearanceEnum.Label[commodity.category]}</span>
+              <span className="value">{getOptionsLabel(commodity.category, AppearanceConst.getTypeOptions())}</span>
             </Flex>
             <Flex gap={8}>
               <span className="label">{isSale ? "庫存數量" : "需求數量"}</span>
@@ -58,7 +60,9 @@ export default function CommodityContent(props: CommodityContentProps) {
               <span className="label">交易方式</span>
               <span className="value">
                 {item.methods
-                  .map<React.ReactNode>((method) => <span key={method}>{TransactionEnum.MethodLabel[method]}</span>)
+                  .map<React.ReactNode>((method) => (
+                    <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
+                  ))
                   .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
               </span>
             </Flex>
@@ -92,7 +96,7 @@ export default function CommodityContent(props: CommodityContentProps) {
       </div>
 
       <div className="list-content__prize">
-        <div className="currency">{CurrencyEnum.Label[commodity.price.currency]}</div>
+        <div className="currency">{getOptionsLabel(commodity.price.currency, CurrencyConst.getTypeOptions())}</div>
         <div className="amount">{currencyFormatter(commodity.price.value)}</div>
       </div>
     </div>

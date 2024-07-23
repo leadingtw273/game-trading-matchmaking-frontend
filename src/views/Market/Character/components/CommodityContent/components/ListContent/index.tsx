@@ -1,50 +1,42 @@
-import { Col, Flex, Row, Tag } from "antd";
-import dayjs from "dayjs";
-import { TransactionItem } from "@/types";
-import CoinImage from "@/assets/icon/coin.svg";
-import { TransactionEnum } from "@/enums";
-import { CoinCommodity } from "@/views/Market/Coin";
+// import { Col, Flex, Row, Tag } from "antd";
+// import dayjs from "dayjs";
+// import { TransactionItem } from "@/types";
+// import { AppearanceEnum, TransactionEnum } from "@/enums";
+// import { CharacterCommodity } from "@/views/Market/Character";
 
 import "./style.scss";
-import { getOptionsLabel } from "@/utils";
-import { CurrencyConst, TransactionConst } from "@/consts";
+// import { AppearanceConst, CurrencyConst, TransactionConst } from "@/consts";
+// import { getOptionsLabel } from "@/utils";
 
-type CommodityContentProps = {
-  transactionType: TransactionEnum.Type;
-  item: TransactionItem<CoinCommodity>;
-};
-export default function CommodityContent(props: CommodityContentProps) {
-  const { transactionType, item } = props;
-  const { commodity } = item;
-  const isSale = transactionType === TransactionEnum.Type.SALE;
-  const currencyFormatter = new Intl.NumberFormat("zh-TW").format;
+// type CommodityContentProps = {
+//   transactionType: TransactionEnum.Type;
+//   item: TransactionItem<CharacterCommodity>;
+// };
+export default function CommodityContent() {
+  // const { transactionType, item } = props;
+  // const { commodity } = item;
+  // const isSale = transactionType === TransactionEnum.Type.SALE;
+  // const currencyFormatter = new Intl.NumberFormat("zh-TW").format;
 
   return (
-    <div className="coin list-content">
-      <div className="list-content__main">
-        <img className="image" src={CoinImage} />
+    <div className="commodity list-content">
+      {/* <div className="list-content__main">
+        <img className="image" src={categoryImageMap[commodity.category]} />
         <div className="content">
           <div className="content__tip">{isSale ? "販賣" : "收購"}金幣</div>
-          <div className="content__name">
-            {`1${getOptionsLabel(commodity.coinRatio.currency, CurrencyConst.getTypeOptions())} : ${currencyFormatter(
-              commodity.coinRatio.value
-            )}金`}
-          </div>
+          <div className="content__name">{commodity.name}</div>
         </div>
       </div>
       <div className="list-content__content">
         <Flex gap={25} className="info">
           <div className="info__column">
             <Flex gap={8}>
-              <span className="label">{isSale ? "庫存" : "需求"}</span>
-              <span className="value">{currencyFormatter(commodity.amount)}金</span>
+              <span className="label">類型</span>
+              <span className="value">{getOptionsLabel(commodity.category, AppearanceConst.getTypeOptions())}</span>
             </Flex>
             <Flex gap={8}>
-              <span className="label">最低{isSale ? "購買" : "收購"}</span>
-              <span className="value">
-                {currencyFormatter(commodity.transMinLimit)}
-                {getOptionsLabel(commodity.coinRatio.currency, CurrencyConst.getTypeOptions())}
-              </span>
+              <span className="label">{isSale ? "庫存數量" : "需求數量"}</span>
+              <span className="value">{commodity.amount}</span>
             </Flex>
             <Flex gap={8}>
               <span className="label">交易方式</span>
@@ -84,6 +76,11 @@ export default function CommodityContent(props: CommodityContentProps) {
           ))}
         </Row>
       </div>
+
+      <div className="list-content__prize">
+        <div className="currency">{getOptionsLabel(commodity.price.currency, CurrencyConst.getTypeOptions())}</div>
+        <div className="amount">{currencyFormatter(commodity.price.value)}</div>
+      </div> */}
     </div>
   );
 }
