@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.5.0...v1.5.1) (2024-07-24)
+
+
+### 🐞 Bug Fixes
+
+* 調整未完成型別處理，使其可佈署 (by @mike) ([94592a7](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/94592a7513bffb7369ffbba502b5b67121909807))
+
 # [1.5.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.4.1...v1.5.0) (2024-07-23)
 
 
