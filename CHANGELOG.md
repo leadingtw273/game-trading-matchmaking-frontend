@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.7.0...v1.8.0) (2024-07-29)
+
+
+### ✨ Features
+
+* 完成買賣角色收購列表切版 (by @mike) ([2db4110](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/2db4110c682ccca43dc20fe3cf0dd3fe9091976f))
+
 # [1.7.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.6.0...v1.7.0) (2024-07-29)
 
 
