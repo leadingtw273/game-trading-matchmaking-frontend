@@ -309,3 +309,10 @@ export const getSkinTypeOptions = () => [
   { label: "臉型", value: CharacterEnum.SkinType.FACE },
   { label: "交互", value: CharacterEnum.SkinType.INTERACTION },
 ];
+
+/** 獲取競技場選項 */
+export const getArenaTypeOptions = () => [
+  { label: "2V2", value: CharacterEnum.ArenaType.TWO_VS_TWO },
+  { label: "3V3", value: CharacterEnum.ArenaType.THREE_VS_THREE },
+  { label: "5V5", value: CharacterEnum.ArenaType.FIVE_VS_FIVE },
+];

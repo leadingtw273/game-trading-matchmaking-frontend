@@ -42,6 +42,16 @@ export default [
           type: CharacterEnum.GearType.PVP,
           score: 275000,
         },
+        {
+          innerSkill: CharacterEnum.InnerSkillType.TIE_LAO_LV,
+          type: CharacterEnum.GearType.PVE,
+          score: 263000,
+        },
+        {
+          innerSkill: CharacterEnum.InnerSkillType.TIE_LAO_LV,
+          type: CharacterEnum.GearType.PVP,
+          score: 251000,
+        },
       ],
       battleRank: 14,
       arenaScoreList: [

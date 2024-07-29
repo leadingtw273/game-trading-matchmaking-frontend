@@ -12,7 +12,7 @@
     gap: 10px;
 
     width: 1020px;
-    height: 120px;
+    height: 180px;
 
     background-image: url("@/assets/border/market-card_list.svg");
   }
@@ -30,7 +30,7 @@
     background-image: url("@/assets/border/market-card_grid.svg");
   }
 
-  .dot-split {
+  .split-dot {
     > :nth-child(n + 2)::before {
       content: "";
       padding: 0 6.5px;

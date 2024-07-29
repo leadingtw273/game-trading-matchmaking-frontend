@@ -1,85 +1,149 @@
-// import { Col, Flex, Row, Tag } from "antd";
-// import dayjs from "dayjs";
-// import { TransactionItem } from "@/types";
-// import { AppearanceEnum, TransactionEnum } from "@/enums";
-// import { CharacterCommodity } from "@/views/Market/Character";
+import { Divider, Flex, Tag } from "antd";
+import dayjs from "dayjs";
+import { TransactionItem } from "@/types";
+import { CharacterEnum, TransactionEnum } from "@/enums";
+import { CharacterCommodity } from "@/views/Market/Character";
 
 import "./style.scss";
-// import { AppearanceConst, CurrencyConst, TransactionConst } from "@/consts";
-// import { getOptionsLabel } from "@/utils";
+import { CharacterConst, CurrencyConst } from "@/consts";
+import { getOptionsLabel } from "@/utils";
+import InnerSkillTag from "../InnerSkillTag";
+import { getInnerSkillOptions } from "@/consts/Character";
 
-// type CommodityContentProps = {
-//   transactionType: TransactionEnum.Type;
-//   item: TransactionItem<CharacterCommodity>;
-// };
-export default function CommodityContent() {
-  // const { transactionType, item } = props;
-  // const { commodity } = item;
-  // const isSale = transactionType === TransactionEnum.Type.SALE;
-  // const currencyFormatter = new Intl.NumberFormat("zh-TW").format;
+type CommodityContentProps = {
+  transactionType: TransactionEnum.Type;
+  item: TransactionItem<CharacterCommodity>;
+};
+export default function CommodityContent(props: CommodityContentProps) {
+  const { transactionType, item } = props;
+  const { commodity } = item;
+  const currencyFormatter = new Intl.NumberFormat("zh-TW").format;
 
   return (
     <div className="commodity list-content">
-      {/* <div className="list-content__main">
-        <img className="image" src={categoryImageMap[commodity.category]} />
-        <div className="content">
-          <div className="content__tip">{isSale ? "販賣" : "收購"}金幣</div>
-          <div className="content__name">{commodity.name}</div>
-        </div>
-      </div>
-      <div className="list-content__content">
-        <Flex gap={25} className="info">
-          <div className="info__column">
-            <Flex gap={8}>
-              <span className="label">類型</span>
-              <span className="value">{getOptionsLabel(commodity.category, AppearanceConst.getTypeOptions())}</span>
+      {transactionType === TransactionEnum.Type.SALE && (
+        <Flex className="sale-type">
+          <img className="list-content__image" src={commodity.imageList?.[0]} />
+          <Flex className="list-content__content" gap={8} vertical>
+            <Flex className="content-header" gap={20} align="flex-end">
+              <Flex gap={8}>
+                {commodity.innerSkillList.map((innerSkill) => (
+                  <InnerSkillTag key={innerSkill} innerSkill={innerSkill}></InnerSkillTag>
+                ))}
+              </Flex>
+              <div className="split-vertical">
+                <span>{getOptionsLabel(commodity.bodyTypeList[0], CharacterConst.getBodyTypeOptions())}</span>
+                <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
+                <span>{getOptionsLabel(commodity.campList[0], CharacterConst.getCampTypeOptions())}</span>
+                <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
+                <span>{commodity.level}等</span>
+                {commodity.info.noDebt && (
+                  <>
+                    <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
+                    <span>無負債</span>
+                  </>
+                )}
+                {commodity.info.needTransferred && (
+                  <>
+                    <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
+                    <span>需轉移</span>
+                  </>
+                )}
+                {commodity.info.needChangeName && (
+                  <>
+                    <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
+                    <span>需改名</span>
+                  </>
+                )}
+              </div>
             </Flex>
-            <Flex gap={8}>
-              <span className="label">{isSale ? "庫存數量" : "需求數量"}</span>
-              <span className="value">{commodity.amount}</span>
-            </Flex>
-            <Flex gap={8}>
-              <span className="label">交易方式</span>
-              <span className="value dot-split">
-                {item.methods
-                  .map<React.ReactNode>((method) => (
-                    <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
+            <Flex className="content-main" gap={32}>
+              <Flex className="content-main__left" gap={8} vertical>
+                {commodity.gearScoreList
+                  .reduce<
+                    {
+                      innerSkill: CharacterEnum.InnerSkillType | null;
+                      type: CharacterEnum.GearType;
+                      score: number;
+                    }[][]
+                  >((acc, gearScore) => {
+                    // 查找是否已經有這個 innerSkill 的分組
+                    const group = acc.find((group) => group[0].innerSkill === gearScore.innerSkill);
+
+                    if (group) group.push(gearScore); // 如果有，則將當前項目添加到該分組中
+                    else acc.push([gearScore]); // 如果沒有，則創建一個新的分組
+
+                    return acc;
+                  }, [])
+                  .map((group, index) => (
+                    <Flex key={index} gap={8}>
+                      <span className="label">
+                        {getInnerSkillOptions().find((option) => option.value === group[0].innerSkill)?.label}
+                      </span>
+                      <Flex className="value split-dot" align="flex-end" flex="1">
+                        {group.map((gearScore) => (
+                          <div key={gearScore.type}>
+                            <span>{gearScore.type}</span>
+                            &nbsp;
+                            <span>{gearScore.score}</span>
+                          </div>
+                        ))}
+                      </Flex>
+                    </Flex>
                   ))}
-              </span>
+                <Flex gap={8}>
+                  <span className="label">名劍分數</span>
+                  <span className="value">
+                    {commodity.arenaScoreList?.map(({ type, score }, index) => (
+                      <>
+                        {index !== 0 && <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 6px" }} />}
+                        <span key={type} className="split-dot">
+                          <span>{getOptionsLabel(type, CharacterConst.getArenaTypeOptions())}</span>
+                          <span>{score}</span>
+                        </span>
+                      </>
+                    ))}
+                  </span>
+                </Flex>
+              </Flex>
+              <Flex className="content-main__right" gap={8} vertical>
+                <Flex gap={8}>
+                  <span className="label">資歷分數</span>
+                  <span className="value">{commodity.accomplishmentScore}</span>
+                </Flex>
+                <Flex gap={8}>
+                  <span className="label">寵物分數</span>
+                  <span className="value">{commodity.petScore}</span>
+                </Flex>
+                <Flex gap={8}>
+                  <span className="label">聯絡方式</span>
+                  <span className="value split-dot">
+                    {item.postedBy.contacts.map<React.ReactNode>(({ name }) => (
+                      <span key={name}>{name}</span>
+                    ))}
+                  </span>
+                </Flex>
+              </Flex>
             </Flex>
-          </div>
-          <div className="info__column">
-            <Flex gap={8}>
-              <span className="label">{isSale ? "賣家" : "買家"}</span>
-              <span className="value">{item.postedBy.nickname}</span>
+            <Flex className="content-tags" gap={4}>
+              {commodity.tags.map((tag) => (
+                <Tag key={tag} style={{ margin: 0 }}>
+                  {tag}
+                </Tag>
+              ))}
             </Flex>
-            <Flex gap={8}>
-              <span className="label">聯絡方式</span>
-              <span className="value dot-split">
-                {item.postedBy.contacts
-                  .map<React.ReactNode>(({ name }) => <span key={name}>{name}</span>)
-                }
-              </span>
-            </Flex>
-            <Flex gap={8}>
-              <span className="label">更新時間</span>
-              <span className="value">{dayjs(item.updatedAt).format("YYYY/MM/DD")}</span>
-            </Flex>
+            <div className="content-update">
+              <span>更新時間：</span>
+              <span>{dayjs(item.updatedAt).format("YYYY/MM/DD")}</span>
+            </div>
+          </Flex>
+          <div className="list-content__prize">
+            <div className="currency">{getOptionsLabel(commodity.price.currency, CurrencyConst.getTypeOptions())}</div>
+            <div className="amount">{currencyFormatter(commodity.price.value)}</div>
           </div>
         </Flex>
-        <Row className="tags" gutter={[4, 4]}>
-          {commodity.tags.map((tag) => (
-            <Col key={tag}>
-              <Tag>{tag}</Tag>
-            </Col>
-          ))}
-        </Row>
-      </div>
-
-      <div className="list-content__prize">
-        <div className="currency">{getOptionsLabel(commodity.price.currency, CurrencyConst.getTypeOptions())}</div>
-        <div className="amount">{currencyFormatter(commodity.price.value)}</div>
-      </div> */}
+      )}
+      {transactionType === TransactionEnum.Type.PURCHASE && <div className="purchase-type"></div>}
     </div>
   );
 }

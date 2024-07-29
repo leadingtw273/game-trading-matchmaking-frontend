@@ -102,7 +102,7 @@ export function Component() {
         mode === TableDisplayModeEnum.GRID ? (
           <CommodityContent.Grid transactionType={type} item={item} />
         ) : (
-          <CommodityContent.List />
+          <CommodityContent.List transactionType={type} item={item} />
         )
       }
       onSearch={handleSearch}

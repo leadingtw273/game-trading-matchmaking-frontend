@@ -66,32 +66,32 @@ export default function GridContent(props: GridContentProps) {
           </div>
           <div className="grid-content__divider" />
           <div className="grid-content__content">
-            <div className="dot-split">
-              {item.commodity.bodyTypeList.map<React.ReactNode>((bodyType) => (
+            <div className="split-dot">
+              {commodity.bodyTypeList.map<React.ReactNode>((bodyType) => (
                 <span key={bodyType}>{getOptionsLabel(bodyType, CharacterConst.getBodyTypeOptions())}</span>
               ))}
             </div>
             <Flex align="center">
-              <div className="dot-split">
-                {item.commodity.campList.map<React.ReactNode>((camp) => (
+              <div className="split-dot">
+                {commodity.campList.map<React.ReactNode>((camp) => (
                   <span key={camp}>{getOptionsLabel(camp, CharacterConst.getCampTypeOptions())}</span>
                 ))}
               </div>
               <Divider type="vertical" style={{ height: "100%", borderColor: "#bbb" }} />
-              <div className="dot-split">
-                {item.commodity.gearScoreList
+              <div className="split-dot">
+                {commodity.gearScoreList
                   .map(({ type }) => type)
                   .map<React.ReactNode>((type) => (
                     <span key={type}>{type}</span>
                   ))}
               </div>
             </Flex>
-            <div className="dot-split">
+            <div className="split-dot">
               {[
-                [item.commodity.info.noDebt, <span key="noDebt">無負債</span>],
-                [item.commodity.info.needFullLevel, <span key="needFullLevel">須滿等</span>],
-                [item.commodity.info.needChangeName, <span key="needChangeName">需改名</span>],
-                [item.commodity.info.needTransferred, <span key="needTransferred">需轉移</span>],
+                [commodity.info.noDebt, <span key="noDebt">無負債</span>],
+                [commodity.info.needFullLevel, <span key="needFullLevel">須滿等</span>],
+                [commodity.info.needChangeName, <span key="needChangeName">需改名</span>],
+                [commodity.info.needTransferred, <span key="needTransferred">需轉移</span>],
               ].reduce((prev, [condition, text]) => (condition ? [...prev, text] : prev), [] as React.ReactNode[])}
             </div>
           </div>

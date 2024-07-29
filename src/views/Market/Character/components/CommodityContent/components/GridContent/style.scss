@@ -13,8 +13,6 @@
 
       height: 135px;
 
-      object-fit: fill;
-
       mask:
         radial-gradient(circle 11.3px at top left, #0000 100%, #000) top left,
         radial-gradient(circle 11.3px at top right, #0000 100%, #000) top right;
@@ -133,30 +131,4 @@
       }
     }
   }
-
-  // .grid-content__content {
-  //   display: flex;
-  //   flex: 1;
-  //   flex-direction: column;
-  //   gap: 8px;
-
-  //   padding: 0 5px;
-
-  //   .info {
-  //     &__label {
-  //       flex-shrink: 0;
-
-  //       min-width: 68px;
-
-  //       color: #434343;
-  //       font-size: 16px;
-  //       font-weight: bold;
-  //     }
-
-  //     &__value {
-  //       color: #434343;
-  //       font-size: 16px;
-  //     }
-  //   }
-  // }
 }
