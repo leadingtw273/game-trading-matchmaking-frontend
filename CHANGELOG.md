@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.8.0...v1.8.1) (2024-07-29)
+
+
+### 🐞 Bug Fixes
+
+* 修正收購列表卡片 margin 問題 (by @mike) ([59c9eb6](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/59c9eb6e12f2a0094e255d3448337c46fe067600))
+
 # [1.8.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.7.0...v1.8.0) (2024-07-29)
 
 
