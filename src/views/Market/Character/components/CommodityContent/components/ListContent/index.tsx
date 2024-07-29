@@ -143,7 +143,100 @@ export default function CommodityContent(props: CommodityContentProps) {
           </div>
         </Flex>
       )}
-      {transactionType === TransactionEnum.Type.PURCHASE && <div className="purchase-type"></div>}
+      {transactionType === TransactionEnum.Type.PURCHASE && (
+        <Flex className="purchase-type">
+          <Flex className="list-content__content" gap={8} vertical>
+            <Flex className="content-header" gap={20} align="flex-end">
+              <Flex gap={8}>
+                {commodity.innerSkillList.map((innerSkill) => (
+                  <InnerSkillTag key={innerSkill} innerSkill={innerSkill}></InnerSkillTag>
+                ))}
+              </Flex>
+            </Flex>
+            <Flex className="content-main" gap={152}>
+              <Flex className="content-main__left" gap={8} vertical>
+                <Flex gap={8}>
+                  <span className="label">收購體型</span>
+                  <span className="value split-dot">
+                    {commodity.bodyTypeList?.map((bodyType) => (
+                      <span key={bodyType}>{getOptionsLabel(bodyType, CharacterConst.getBodyTypeOptions())}</span>
+                    ))}
+                  </span>
+                </Flex>
+                <Flex gap={8}>
+                  <span className="label">陣營</span>
+                  <span className="value split-dot">
+                    {commodity.campList?.map((camp) => (
+                      <span key={camp}>{getOptionsLabel(camp, CharacterConst.getCampTypeOptions())}</span>
+                    ))}
+                  </span>
+                </Flex>
+                <Flex gap={8}>
+                  <span className="label">裝備</span>
+                  <Flex className="split-dot">
+                    {commodity.gearScoreList.map((gearScore) => (
+                      <Flex key={gearScore.type}>
+                        <span>{gearScore.type}</span>
+                        &nbsp;
+                        <span>裝分{Math.floor(gearScore.score / 10000)}W+</span>
+                      </Flex>
+                    ))}
+                  </Flex>
+                </Flex>
+              </Flex>
+              <Flex className="content-main__right" gap={8} vertical>
+                <Flex gap={8}>
+                  <span className="label">角色狀態</span>
+                  <span className="value">
+                    {[
+                      [commodity.info.noDebt, <span key="noDebt">無負債</span>],
+                      [commodity.info.needFullLevel, <span key="needFullLevel">須滿等</span>],
+                      [commodity.info.needChangeName, <span key="needChangeName">需改名</span>],
+                      [commodity.info.needTransferred, <span key="needTransferred">需轉移</span>],
+                    ].reduce((prev, [condition, text]) => {
+                      if (condition) {
+                        if (prev.length > 0) {
+                          // 插入分隔符
+                          prev.push(<span key={`separator-${prev.length}`}>&nbsp;</span>);
+                        }
+                        prev.push(text);
+                      }
+                      return prev;
+                    }, [] as React.ReactNode[])}
+                  </span>
+                </Flex>
+                <Flex gap={8}>
+                  <span className="label">買家</span>
+                  <span className="value">{item.postedBy.nickname}</span>
+                </Flex>
+                <Flex gap={8}>
+                  <span className="label">聯絡方式</span>
+                  <span className="value split-dot">
+                    {item.postedBy.contacts.map<React.ReactNode>(({ name }) => (
+                      <span key={name}>{name}</span>
+                    ))}
+                  </span>
+                </Flex>
+              </Flex>
+            </Flex>
+            <Flex className="content-tags" gap={4}>
+              {commodity.tags.map((tag) => (
+                <Tag key={tag} style={{ margin: 0 }}>
+                  {tag}
+                </Tag>
+              ))}
+            </Flex>
+            <div className="content-update">
+              <span>更新時間：</span>
+              <span>{dayjs(item.updatedAt).format("YYYY/MM/DD")}</span>
+            </div>
+          </Flex>
+          <div className="list-content__prize">
+            <div className="currency">{getOptionsLabel(commodity.price.currency, CurrencyConst.getTypeOptions())}</div>
+            <div className="amount">{currencyFormatter(commodity.price.value)}</div>
+          </div>
+        </Flex>
+      )}
     </div>
   );
 }

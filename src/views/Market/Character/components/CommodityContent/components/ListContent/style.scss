@@ -86,5 +86,62 @@
   }
 
   .purchase-type {
+    width: 100%;
+    height: 100%;
+
+    .list-content__content {
+      margin-left: 10px;
+      padding: 16px 36px;
+
+      width: 100%;
+
+      box-sizing: border-box;
+
+      .content-header {
+        margin-bottom: 4px;
+      }
+
+      .content-main {
+        .label {
+          width: 64px;
+          font-weight: bold;
+        }
+      }
+
+      .content-tags {
+        .ant-tag {
+          padding: 2px;
+          margin-right: 0;
+
+          color: white;
+
+          border-radius: 2px;
+
+          font-size: 13px;
+          line-height: 13px;
+
+          background-color: #bfbfbf;
+        }
+      }
+
+      .content-update {
+        font-size: 14px;
+      }
+    }
+
+    .list-content__prize {
+      position: absolute;
+      right: 40px;
+      bottom: 17px;
+
+      font-family: "Inter";
+
+      color: $colorSuccess;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1;
+
+      text-align: right;
+    }
   }
 }
