@@ -59,31 +59,30 @@ export default function GridContent(props: GridContentProps) {
           placement="bottomLeft"
           color="#B6AB99"
           getPopupContainer={(triggerNode) => triggerNode.parentElement as HTMLElement}
-          title={item.methods
-            .map<React.ReactNode>((method) => (
-              <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
-            ))
-            .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
+          title={
+            <div className="dot-split">
+              {item.methods.map<React.ReactNode>((method) => (
+                <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
+              ))}
+            </div>
+          }
         >
           <Flex gap={8}>
             <span className="info__label">交易方式</span>
             <span className="info__value">
               {item.methods.length > 2 ? (
-                <>
-                  {item.methods
-                    .slice(0, 2)
-                    .map<React.ReactNode>((method) => (
-                      <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
-                    ))
-                    .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
-                  ...
-                </>
-              ) : (
-                item.methods
-                  .map<React.ReactNode>((method) => (
+                <div className="dot-split">
+                  {item.methods.slice(0, 2).map<React.ReactNode>((method) => (
                     <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
-                  ))
-                  .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])
+                  ))}
+                  ...
+                </div>
+              ) : (
+                <div className="dot-split">
+                  {item.methods.map<React.ReactNode>((method) => (
+                    <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
+                  ))}
+                </div>
               )}
             </span>
           </Flex>

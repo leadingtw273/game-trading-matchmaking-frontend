@@ -16,10 +16,11 @@ function lightenColor(color: string, factor: number): string {
 }
 
 interface IProps {
+  style?: React.CSSProperties;
   innerSkill: CharacterEnum.InnerSkillType;
 }
 export default function InnerSkillTag(props: IProps) {
-  const { innerSkill } = props;
+  const { innerSkill, style } = props;
   const label = getInnerSkillOptions().find((option) => option.value === innerSkill)?.label;
   const sect = InnerSkillSectMap.get(innerSkill);
   const tagOption = sect != null ? SectTagOptionMap.get(sect) : null;
@@ -30,6 +31,7 @@ export default function InnerSkillTag(props: IProps) {
       style={{
         borderColor: tagOption?.color,
         background: `linear-gradient(to right, ${tagOption?.color}, ${lightenColor(tagOption?.color ?? "", 0.25)})`,
+        ...style,
       }}
       key={innerSkill}
     >

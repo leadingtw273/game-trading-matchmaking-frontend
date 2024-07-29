@@ -40,12 +40,11 @@ export default function CommodityContent() {
             </Flex>
             <Flex gap={8}>
               <span className="label">交易方式</span>
-              <span className="value">
+              <span className="value dot-split">
                 {item.methods
                   .map<React.ReactNode>((method) => (
                     <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
-                  ))
-                  .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
+                  ))}
               </span>
             </Flex>
           </div>
@@ -56,10 +55,10 @@ export default function CommodityContent() {
             </Flex>
             <Flex gap={8}>
               <span className="label">聯絡方式</span>
-              <span className="value">
+              <span className="value dot-split">
                 {item.postedBy.contacts
                   .map<React.ReactNode>(({ name }) => <span key={name}>{name}</span>)
-                  .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
+                }
               </span>
             </Flex>
             <Flex gap={8}>

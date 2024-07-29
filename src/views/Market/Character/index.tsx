@@ -16,34 +16,39 @@ export type CharacterCommodity = CommodityItem<{
     noDebt: boolean; // 無負債
     needChangeName: boolean; // 需改名
     needTransferred: boolean; // 需轉移
+    needFullLevel: boolean; // 需滿等
   };
   price: CurrencyPrice; // 價格
-  imageList: string[]; // 圖片
+  imageList: string[] | null; // 圖片
   gearScoreList: {
     // 裝分
     innerSkill: CharacterEnum.InnerSkillType | null;
     type: CharacterEnum.GearType;
     score: number;
   }[];
-  battleRank: number; // 戰階
-  arenaScoreList: {
-    // 競技場分數
-    type: CharacterEnum.ArenaType;
-    score: number;
-  }[];
-  estateRank: number; // 家園分數
+  battleRank: number | null; // 戰階
+  arenaScoreList:
+    | {
+        // 競技場分數
+        type: CharacterEnum.ArenaType;
+        score: number;
+      }[]
+    | null;
+  estateRank: number | null; // 家園分數
   endlessBattleValue: {
     // 百戰值
     energy: number;
     stamina: number;
-  };
-  accomplishmentScore: number; // 資歷
-  petScore: number; // 寵物分數
-  skinCount: {
-    // 外觀數量
-    type: CharacterEnum.SkinType;
-    value: number;
-  }[];
+  } | null;
+  accomplishmentScore: number | null; // 資歷
+  petScore: number | null; // 寵物分數
+  skinCount:
+    | {
+        // 外觀數量
+        type: CharacterEnum.SkinType;
+        value: number;
+      }[]
+    | null;
 }>;
 
 type FormValues = {

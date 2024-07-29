@@ -20,8 +20,8 @@ export default function GridContent(props: GridContentProps) {
   return (
     <div className="commodity grid-content">
       {transactionType === TransactionEnum.Type.SALE && (
-        <>
-          <img className="grid-content__image" src={commodity.imageList[0]} />
+        <div className="sale-type">
+          <img className="grid-content__image" src={commodity.imageList?.[0]} />
           <div className="grid-content__main">
             <Flex gap={4}>
               {commodity.innerSkillList.map((innerSkill) => (
@@ -38,7 +38,7 @@ export default function GridContent(props: GridContentProps) {
               <Divider type="vertical" style={{ height: "100%", borderColor: "#bbb" }} />
               <span>{getOptionsLabel(commodity.campList[0], CharacterConst.getCampTypeOptions())}</span>
               <Divider type="vertical" style={{ height: "100%", borderColor: "#bbb" }} />
-              <span>{commodity.level}</span>
+              <span>{commodity.level}等</span>
             </div>
           </div>
           <Row className="grid-content__tags" justify="center" gutter={[4, 4]}>
@@ -48,68 +48,62 @@ export default function GridContent(props: GridContentProps) {
               </Col>
             ))}
           </Row>
-        </>
-      )}
-      {/* <div className="grid-content__main">
-        <img className="image" src={categoryImageMap[commodity.category]} />
-        <div className="content">
-          <div className="tip">{isSale ? "販賣" : "收購"}外觀</div>
-          <div className="name">{commodity.name}</div>
-          <div className="price">
-            {`${getOptionsLabel(commodity.price.currency, CurrencyConst.getTypeOptions())} ${currencyFormatter(
-              commodity.price.value
-            )}`}
-          </div>
         </div>
-      </div> */}
-      {/* <div className="grid-content__divider" /> */}
-      {/* <div className="grid-content__content">
-        <Flex gap={8}>
-          <span className="info__label">類型</span>
-          <span className="info__value">{getOptionsLabel(commodity.category, AppearanceConst.getTypeOptions())}</span>
-        </Flex>
-        <Tooltip
-          placement="bottomLeft"
-          color="#B6AB99"
-          getPopupContainer={(triggerNode) => triggerNode.parentElement as HTMLElement}
-          title={item.methods
-            .map<React.ReactNode>((method) => (
-              <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
-            ))
-            .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
-        >
-          <Flex gap={8}>
-            <span className="info__label">交易方式</span>
-            <span className="info__value">
-              {item.methods.length > 2 ? (
-                <>
-                  {item.methods
-                    .slice(0, 2)
-                    .map<React.ReactNode>((method) => (
-                      <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
-                    ))
-                    .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])}
-                  ...
-                </>
-              ) : (
-                item.methods
-                  .map<React.ReactNode>((method) => (
-                    <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
-                  ))
-                  .reduce((prev, curr) => [prev, <span className="decorate-dot" key={curr?.toString()} />, curr])
-              )}
-            </span>
-          </Flex>
-        </Tooltip>
-      </div> */}
-
-      {/* <Row className="grid-content__tags" justify="center" gutter={[4, 4]}>
-        {commodity.tags.slice(0, 3).map((tag) => (
-          <Col key={tag}>
-            <Tag>{tag}</Tag>
-          </Col>
-        ))}
-      </Row> */}
+      )}
+      {transactionType === TransactionEnum.Type.PURCHASE && (
+        <div className="purchase-type">
+          <div className="grid-content__main">
+            <Flex gap="4px 6px" wrap="wrap-reverse" style={{ padding: "0 16px" }} justify="center">
+              {commodity.innerSkillList.map((innerSkill) => (
+                <InnerSkillTag key={innerSkill} innerSkill={innerSkill}></InnerSkillTag>
+              ))}
+            </Flex>
+            <div className="price">
+              {`${getOptionsLabel(commodity.price.currency, CurrencyConst.getTypeOptions())} ${currencyFormatter(
+                commodity.price.value
+              )}`}
+            </div>
+          </div>
+          <div className="grid-content__divider" />
+          <div className="grid-content__content">
+            <div className="dot-split">
+              {item.commodity.bodyTypeList.map<React.ReactNode>((bodyType) => (
+                <span key={bodyType}>{getOptionsLabel(bodyType, CharacterConst.getBodyTypeOptions())}</span>
+              ))}
+            </div>
+            <Flex align="center">
+              <div className="dot-split">
+                {item.commodity.campList.map<React.ReactNode>((camp) => (
+                  <span key={camp}>{getOptionsLabel(camp, CharacterConst.getCampTypeOptions())}</span>
+                ))}
+              </div>
+              <Divider type="vertical" style={{ height: "100%", borderColor: "#bbb" }} />
+              <div className="dot-split">
+                {item.commodity.gearScoreList
+                  .map(({ type }) => type)
+                  .map<React.ReactNode>((type) => (
+                    <span key={type}>{type}</span>
+                  ))}
+              </div>
+            </Flex>
+            <div className="dot-split">
+              {[
+                [item.commodity.info.noDebt, <span key="noDebt">無負債</span>],
+                [item.commodity.info.needFullLevel, <span key="needFullLevel">須滿等</span>],
+                [item.commodity.info.needChangeName, <span key="needChangeName">需改名</span>],
+                [item.commodity.info.needTransferred, <span key="needTransferred">需轉移</span>],
+              ].reduce((prev, [condition, text]) => (condition ? [...prev, text] : prev), [] as React.ReactNode[])}
+            </div>
+          </div>
+          <Row className="grid-content__tags" justify="center" gutter={[4, 4]}>
+            {commodity.tags.slice(0, 3).map((tag) => (
+              <Col key={tag}>
+                <Tag>{tag}</Tag>
+              </Col>
+            ))}
+          </Row>
+        </div>
+      )}
     </div>
   );
 }

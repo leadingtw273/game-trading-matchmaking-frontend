@@ -30,17 +30,14 @@
     background-image: url("@/assets/border/market-card_grid.svg");
   }
 
-  .decorate-dot {
-    display: inline-flex;
-    align-self: center;
+  .dot-split {
+    > :nth-child(n + 2)::before {
+      content: "";
+      padding: 0 6.5px;
 
-    padding: 5px;
-
-    height: 2px;
-    width: 5px;
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url("@/assets/decorate/market-dot.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("@/assets/decorate/market-dot.svg");
+    }
   }
 }
