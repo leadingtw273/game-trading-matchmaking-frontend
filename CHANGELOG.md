@@ -1,3 +1,16 @@
+# [1.9.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.8.1...v1.9.0) (2024-08-12)
+
+
+### ✨ Features
+
+* 完成金幣與外觀彈窗卡片 (by @mike) ([a4ff51a](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/a4ff51aff5824d227a52ffb429a1d47e08b98a3d))
+
+
+### 🐞 Bug Fixes
+
+* 修正列表卡片高度問題 (by @mike) ([9d6815f](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/9d6815f98868af8777bb4a8acc8f2d4237d2632e))
+* 修正聯絡方式更動判別問題 (by @mike) ([657a399](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/657a399fa8c50f1d63894fe458ea15f2f43f69cc))
+
 ## [1.8.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.8.0...v1.8.1) (2024-07-29)
 
 
