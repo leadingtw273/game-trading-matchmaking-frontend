@@ -1,5 +1,7 @@
+import { ContactInfoEnum } from "@/enums";
+
 export type ContactInfo = {
-  name: string;
+  name: ContactInfoEnum.Type;
   value: string;
 };
 

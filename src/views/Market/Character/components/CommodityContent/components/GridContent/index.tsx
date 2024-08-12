@@ -67,13 +67,13 @@ export default function GridContent(props: GridContentProps) {
           <div className="grid-content__divider" />
           <div className="grid-content__content">
             <div className="split-dot">
-              {commodity.bodyTypeList.map<React.ReactNode>((bodyType) => (
+              {commodity.bodyTypeList.map((bodyType) => (
                 <span key={bodyType}>{getOptionsLabel(bodyType, CharacterConst.getBodyTypeOptions())}</span>
               ))}
             </div>
             <Flex align="center">
               <div className="split-dot">
-                {commodity.campList.map<React.ReactNode>((camp) => (
+                {commodity.campList.map((camp) => (
                   <span key={camp}>{getOptionsLabel(camp, CharacterConst.getCampTypeOptions())}</span>
                 ))}
               </div>
@@ -81,7 +81,7 @@ export default function GridContent(props: GridContentProps) {
               <div className="split-dot">
                 {commodity.gearScoreList
                   .map(({ type }) => type)
-                  .map<React.ReactNode>((type) => (
+                  .map((type) => (
                     <span key={type}>{type}</span>
                   ))}
               </div>

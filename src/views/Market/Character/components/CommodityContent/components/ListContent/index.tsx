@@ -5,7 +5,7 @@ import { CharacterEnum, TransactionEnum } from "@/enums";
 import { CharacterCommodity } from "@/views/Market/Character";
 
 import "./style.scss";
-import { CharacterConst, CurrencyConst } from "@/consts";
+import { CharacterConst, ContactInfoConst, CurrencyConst } from "@/consts";
 import { getOptionsLabel } from "@/utils";
 import InnerSkillTag from "../InnerSkillTag";
 import { getInnerSkillOptions } from "@/consts/Character";
@@ -118,8 +118,8 @@ export default function CommodityContent(props: CommodityContentProps) {
                 <Flex gap={8}>
                   <span className="label">聯絡方式</span>
                   <span className="value split-dot">
-                    {item.postedBy.contacts.map<React.ReactNode>(({ name }) => (
-                      <span key={name}>{name}</span>
+                    {item.postedBy.contacts.map(({ name }) => (
+                      <span key={name}>{getOptionsLabel(name, ContactInfoConst.getTypeOptions())}</span>
                     ))}
                   </span>
                 </Flex>
@@ -212,8 +212,8 @@ export default function CommodityContent(props: CommodityContentProps) {
                 <Flex gap={8}>
                   <span className="label">聯絡方式</span>
                   <span className="value split-dot">
-                    {item.postedBy.contacts.map<React.ReactNode>(({ name }) => (
-                      <span key={name}>{name}</span>
+                    {item.postedBy.contacts.map(({ name }) => (
+                      <span key={name}>{getOptionsLabel(name, ContactInfoConst.getTypeOptions())}</span>
                     ))}
                   </span>
                 </Flex>

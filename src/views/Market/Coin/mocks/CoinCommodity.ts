@@ -1,4 +1,4 @@
-import { CurrencyEnum, TransactionEnum } from "@/enums";
+import { ContactInfoEnum, CurrencyEnum, TransactionEnum } from "@/enums";
 import { TransactionItem } from "@/types";
 import { CoinCommodity } from "..";
 
@@ -15,7 +15,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -29,15 +29,11 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
-          value: "0912345678",
-        },
-        {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -53,7 +49,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.USD,
         value: 4500,
@@ -67,15 +63,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -91,7 +87,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -105,15 +101,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -129,7 +125,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -143,15 +139,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -167,7 +163,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -181,15 +177,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -205,7 +201,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -219,15 +215,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -243,7 +239,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -257,15 +253,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -281,7 +277,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -295,15 +291,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -319,7 +315,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -333,15 +329,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -357,7 +353,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -371,15 +367,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -399,7 +395,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -413,15 +409,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -437,7 +433,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.USD,
         value: 4500,
@@ -451,15 +447,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -475,7 +471,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -489,15 +485,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -513,7 +509,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -527,15 +523,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -551,7 +547,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -565,15 +561,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -589,7 +585,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -603,15 +599,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -627,7 +623,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -641,15 +637,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -665,7 +661,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -679,15 +675,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -703,7 +699,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -717,15 +713,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],
@@ -741,7 +737,7 @@ export default [
     commodity: {
       id: "1",
       type: TransactionEnum.Commodity.Coin,
-      remark: "",
+      remark: "本號交易\n幣源：副本、百戰疏影圖、外觀買賣\n可小額，當天交易",
       coinRatio: {
         currency: CurrencyEnum.Type.TWD,
         value: 150,
@@ -755,15 +751,15 @@ export default [
       gameId: "梨子酒酒",
       contacts: [
         {
-          name: "DC",
+          name: ContactInfoEnum.Type.DISCORD,
           value: "#8964",
         },
         {
-          name: "Line",
+          name: ContactInfoEnum.Type.LINE,
           value: "0912345678",
         },
         {
-          name: "FB",
+          name: ContactInfoEnum.Type.FACEBOOK,
           value: "楊桃酒",
         },
       ],

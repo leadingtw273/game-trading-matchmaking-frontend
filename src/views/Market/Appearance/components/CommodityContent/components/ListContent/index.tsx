@@ -3,16 +3,16 @@ import dayjs from "dayjs";
 import { TransactionItem } from "@/types";
 import { AppearanceEnum, TransactionEnum } from "@/enums";
 import { AppearanceCommodity } from "@/views/Market/Appearance";
-import CoatImage from "@/assets/icon/coat.svg";
-import GiftBoxImage from "@/assets/icon/giftBox.svg";
-import HairImage from "@/assets/icon/hair.svg";
-import HangingPetImage from "@/assets/icon/hangingPet.svg";
-import HarnessImage from "@/assets/icon/harness.svg";
-import MountImage from "@/assets/icon/mount.svg";
-import OtherImage from "@/assets/icon/other.svg";
+import CoatImage from "@/assets/icon/appearance/coat.svg";
+import GiftBoxImage from "@/assets/icon/appearance/giftBox.svg";
+import HairImage from "@/assets/icon/appearance/hair.svg";
+import HangingPetImage from "@/assets/icon/appearance/hangingPet.svg";
+import HarnessImage from "@/assets/icon/appearance/harness.svg";
+import MountImage from "@/assets/icon/appearance/mount.svg";
+import OtherImage from "@/assets/icon/appearance/other.svg";
 
 import "./style.scss";
-import { AppearanceConst, CurrencyConst, TransactionConst } from "@/consts";
+import { AppearanceConst, ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
 import { getOptionsLabel } from "@/utils";
 
 type CommodityContentProps = {
@@ -59,7 +59,7 @@ export default function CommodityContent(props: CommodityContentProps) {
             <Flex gap={8}>
               <span className="label">交易方式</span>
               <span className="value split-dot">
-                {item.methods.map<React.ReactNode>((method) => (
+                {item.methods.map((method) => (
                   <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
                 ))}
               </span>
@@ -73,8 +73,8 @@ export default function CommodityContent(props: CommodityContentProps) {
             <Flex gap={8}>
               <span className="label">聯絡方式</span>
               <span className="value split-dot">
-                {item.postedBy.contacts.map<React.ReactNode>(({ name }) => (
-                  <span key={name}>{name}</span>
+                {item.postedBy.contacts.map(({ name }) => (
+                  <span key={name}>{getOptionsLabel(name, ContactInfoConst.getTypeOptions())}</span>
                 ))}
               </span>
             </Flex>

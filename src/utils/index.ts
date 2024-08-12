@@ -6,7 +6,9 @@ import { LabeledValue } from "antd/es/select";
  * @param options 選項
  * @returns 標籤
  */
-export const getOptionsLabel = (value: string | number, options: LabeledValue[]) => {
+export const getOptionsLabel = (value?: string | number, options: LabeledValue[] = []) => {
+  if (value == null) return;
+
   const option = options.find((option) => option.value === value);
   return option?.label;
 };
