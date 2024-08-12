@@ -12,7 +12,7 @@ import MountImage from "@/assets/icon/appearance/mount.svg";
 import OtherImage from "@/assets/icon/appearance/other.svg";
 
 import "./style.scss";
-import { AppearanceConst, CurrencyConst, TransactionConst } from "@/consts";
+import { AppearanceConst, ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
 import { getOptionsLabel } from "@/utils";
 
 type CommodityContentProps = {
@@ -59,7 +59,7 @@ export default function CommodityContent(props: CommodityContentProps) {
             <Flex gap={8}>
               <span className="label">交易方式</span>
               <span className="value split-dot">
-                {item.methods.map<React.ReactNode>((method) => (
+                {item.methods.map((method) => (
                   <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
                 ))}
               </span>
@@ -73,8 +73,8 @@ export default function CommodityContent(props: CommodityContentProps) {
             <Flex gap={8}>
               <span className="label">聯絡方式</span>
               <span className="value split-dot">
-                {item.postedBy.contacts.map<React.ReactNode>(({ name }) => (
-                  <span key={name}>{name}</span>
+                {item.postedBy.contacts.map(({ name }) => (
+                  <span key={name}>{getOptionsLabel(name, ContactInfoConst.getTypeOptions())}</span>
                 ))}
               </span>
             </Flex>

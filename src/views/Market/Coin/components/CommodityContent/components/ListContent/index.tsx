@@ -7,7 +7,7 @@ import { CoinCommodity } from "@/views/Market/Coin";
 
 import "./style.scss";
 import { getOptionsLabel } from "@/utils";
-import { CurrencyConst, TransactionConst } from "@/consts";
+import { ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
 
 type CommodityContentProps = {
   transactionType: TransactionEnum.Type;
@@ -49,7 +49,7 @@ export default function CommodityContent(props: CommodityContentProps) {
             <Flex gap={8}>
               <span className="label">交易方式</span>
               <span className="value split-dot">
-                {item.methods.map<React.ReactNode>((method) => (
+                {item.methods.map((method) => (
                   <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
                 ))}
               </span>
@@ -63,8 +63,8 @@ export default function CommodityContent(props: CommodityContentProps) {
             <Flex gap={8}>
               <span className="label">聯絡方式</span>
               <span className="value split-dot">
-                {item.postedBy.contacts.map<React.ReactNode>(({ name }) => (
-                  <span key={name}>{name}</span>
+                {item.postedBy.contacts.map(({ name }) => (
+                  <span key={name}>{getOptionsLabel(name, ContactInfoConst.getTypeOptions())}</span>
                 ))}
               </span>
             </Flex>

@@ -50,7 +50,7 @@ export default function GridContent(props: GridContentProps) {
           getPopupContainer={(triggerNode) => triggerNode.parentElement as HTMLElement}
           title={
             <div className="split-dot">
-              {item.methods.map<React.ReactNode>((method) => (
+              {item.methods.map((method) => (
                 <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
               ))}
             </div>
@@ -61,14 +61,14 @@ export default function GridContent(props: GridContentProps) {
             <span className="info__value">
               {item.methods.length > 2 ? (
                 <div className="split-dot">
-                  {item.methods.slice(0, 2).map<React.ReactNode>((method) => (
+                  {item.methods.slice(0, 2).map((method) => (
                     <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
                   ))}
                   ...
                 </div>
               ) : (
                 <div className="split-dot">
-                  {item.methods.map<React.ReactNode>((method) => (
+                  {item.methods.map((method) => (
                     <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
                   ))}
                 </div>

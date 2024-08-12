@@ -33,7 +33,7 @@ export default function DetailContent(props: DetailContentProps) {
         <span className="detail-content__label">交易方式</span>
         <span className="detail-content__value">
           <div className="split-dot">
-            {item.methods.map<React.ReactNode>((method) => (
+            {item.methods.map((method) => (
               <span key={method}>{getOptionsLabel(method, TransactionConst.getMethodOptions())}</span>
             ))}
           </div>
