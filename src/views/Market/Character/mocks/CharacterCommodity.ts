@@ -1,4 +1,4 @@
-import { CharacterEnum, CurrencyEnum, TransactionEnum } from "@/enums";
+import { CharacterEnum, ContactInfoEnum, CurrencyEnum, TransactionEnum } from "@/enums";
 import { TransactionItem } from "@/types";
 import { CharacterCommodity } from "..";
 
@@ -100,9 +100,9 @@ export default [
       nickname: "User1",
       gameId: "GameId1",
       contacts: [
-        { name: "DC", value: "#1234" },
-        { name: "Line", value: "0912345678" },
-        { name: "FB", value: "FBUser1" },
+        { name: ContactInfoEnum.Type.DISCORD, value: "#1234" },
+        { name: ContactInfoEnum.Type.LINE, value: "0912345678" },
+        { name: ContactInfoEnum.Type.FACEBOOK, value: "FBUser1" },
       ],
     },
     createdAt: 1712839503608,
@@ -168,9 +168,9 @@ export default [
       nickname: "User1",
       gameId: "GameId1",
       contacts: [
-        { name: "DC", value: "#1234" },
-        { name: "Line", value: "0912345678" },
-        { name: "FB", value: "FBUser1" },
+        { name: ContactInfoEnum.Type.DISCORD, value: "#1234" },
+        { name: ContactInfoEnum.Type.LINE, value: "0912345678" },
+        { name: ContactInfoEnum.Type.FACEBOOK, value: "FBUser1" },
       ],
     },
     createdAt: 1712839503608,

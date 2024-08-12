@@ -1,5 +1,5 @@
-import ListContent from "./components/ListContent/index.tsx";
-import GridContent from "./components/GridContent/index.tsx";
+import ListContent from "./components/ListContent";
+import GridContent from "./components/GridContent";
 
 export default {
   List: ListContent,

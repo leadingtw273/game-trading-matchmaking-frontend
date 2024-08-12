@@ -1,3 +1,4 @@
+import CommodityCard from "@/components/CommodityModal";
 import SideForm from "./components/SideForm";
 import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum } from "@/enums";
@@ -6,6 +7,7 @@ import { CurrencyRatio, CommodityItem, TransactionItem } from "@/types";
 import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
 import coinCommodityList from "./mocks/CoinCommodity";
+import ModalContent from "./components/ModalContent";
 
 export type CoinCommodity = CommodityItem<{
   coinRatio: CurrencyRatio;
@@ -24,6 +26,7 @@ type FormValues = {
 
 Component.displayName = "MarketCoin";
 export function Component() {
+  const [clickItemData, setClickItemData] = useState<TransactionItem<CoinCommodity> | null>(null);
   const [dataList, setDataList] = useState<TransactionItem<CoinCommodity>[]>([]);
 
   useEffect(() => {
@@ -43,19 +46,38 @@ export function Component() {
     setDataList(list);
   };
 
+  const handleClickItem = (item: TransactionItem<CoinCommodity>) => {
+    console.log("handleClickItem", item);
+    setClickItemData(item);
+  };
+
+  const handleCloseCommodityModal = () => {
+    setClickItemData(null);
+  };
+
   return (
-    <TransactionTable<FormValues, CoinCommodity>
-      defaultTransactionType={TransactionEnum.Type.SALE}
-      dataSource={dataList}
-      renderForm={() => <SideForm />}
-      renderCardContent={(type, mode, item) =>
-        mode === TableDisplayModeEnum.GRID ? (
-          <CommodityContent.Grid transactionType={type} item={item} />
-        ) : (
-          <CommodityContent.List transactionType={type} item={item} />
-        )
-      }
-      onSearch={handleSearch}
-    />
+    <>
+      <TransactionTable<FormValues, CoinCommodity>
+        defaultTransactionType={TransactionEnum.Type.SALE}
+        dataSource={dataList}
+        renderForm={() => <SideForm />}
+        renderCardContent={(type, mode, item) =>
+          mode === TableDisplayModeEnum.GRID ? (
+            <CommodityContent.Grid transactionType={type} item={item} />
+          ) : (
+            <CommodityContent.List transactionType={type} item={item} />
+          )
+        }
+        onSearch={handleSearch}
+        onClickItem={handleClickItem}
+      />
+      <CommodityCard
+        show={clickItemData != null}
+        item={clickItemData}
+        renderHeader={(item) => <ModalContent.Header item={item as TransactionItem<CoinCommodity>} />}
+        renderDetail={(item) => <ModalContent.Detail item={item as TransactionItem<CoinCommodity>} />}
+        onClose={handleCloseCommodityModal}
+      />
+    </>
   );
 }

@@ -5,12 +5,16 @@ import "./style.scss";
 type ItemCardWrapperProps = {
   displayMode: TableDisplayModeEnum;
   children: React.ReactNode;
+  onClick: () => void;
 };
 export default function ItemCardWrapper(props: ItemCardWrapperProps) {
-  const { displayMode, children } = props;
+  const { displayMode, children, onClick } = props;
 
   return (
-    <div className={["item-card", displayMode === TableDisplayModeEnum.LIST ? "mode-list" : "mode-grid"].join(" ")}>
+    <div
+      className={["item-card", displayMode === TableDisplayModeEnum.LIST ? "mode-list" : "mode-grid"].join(" ")}
+      onClick={onClick}
+    >
       {children}
     </div>
   );

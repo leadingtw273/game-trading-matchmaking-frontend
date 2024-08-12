@@ -19,13 +19,14 @@ export type TableSubmitParams<FormValues> = FormValues & {
 type TransactionTableProps<FormValues, Commodity extends CommodityItem<unknown>> = {
   defaultTransactionType?: TransactionEnum.Type;
   dataSource: TransactionItem<Commodity>[];
-  onSearch: (values: TableSubmitParams<FormValues>) => void;
   renderForm: (transactionType: TransactionEnum.Type) => React.ReactNode;
   renderCardContent: (
     transactionType: TransactionEnum.Type,
     displayMode: TableDisplayModeEnum,
     item: TransactionItem<Commodity>
   ) => React.ReactNode;
+  onSearch: (values: TableSubmitParams<FormValues>) => void;
+  onClickItem: (item: TransactionItem<Commodity>) => void;
 };
 export default function TransactionTable<FormValues, Commodity extends CommodityItem<unknown>>(
   props: TransactionTableProps<FormValues, Commodity>
@@ -33,9 +34,10 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
   const {
     defaultTransactionType = TransactionEnum.Type.SALE,
     dataSource,
-    onSearch,
     renderForm,
     renderCardContent,
+    onSearch,
+    onClickItem,
   } = props;
   const [form] = useForm<FormValues>();
   const [transactionType, setTransactionType] = useState<TransactionEnum.Type>(defaultTransactionType);
@@ -106,6 +108,10 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
     });
   };
 
+  const handleClickItem = (item: TransactionItem<Commodity>) => {
+    onClickItem(item);
+  };
+
   return (
     <Flex className="transaction-table" align="center" justify="center">
       <Flex className="transaction-table__wrapper" gap={20}>
@@ -168,7 +174,7 @@ export default function TransactionTable<FormValues, Commodity extends Commodity
                 <Row gutter={[10, 10]}>
                   {dataSource.map((item) => (
                     <Col key={item.id} span={displayMode === TableDisplayModeEnum.GRID ? 6 : 24}>
-                      <ItemCardWrapper displayMode={displayMode}>
+                      <ItemCardWrapper displayMode={displayMode} onClick={() => handleClickItem(item)}>
                         {renderCardContent(transactionType, displayMode, item)}
                       </ItemCardWrapper>
                     </Col>

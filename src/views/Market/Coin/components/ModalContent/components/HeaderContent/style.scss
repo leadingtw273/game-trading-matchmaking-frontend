@@ -1,0 +1,17 @@
+.coin.header-content {
+  .header-content__title {
+    color: #bfbfbf;
+
+    font-size: 16px;
+    line-height: 1;
+    font-weight: bold;
+  }
+
+  .header-content__price {
+    color: $colorSuccess;
+
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: bold;
+  }
+}

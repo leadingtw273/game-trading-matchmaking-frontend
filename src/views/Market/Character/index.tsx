@@ -74,6 +74,7 @@ type FormValues = {
 
 Component.displayName = "MarketCharacter";
 export function Component() {
+  const [, setClickItemData] = useState<TransactionItem<CharacterCommodity> | null>(null);
   const [dataList, setDataList] = useState<TransactionItem<CharacterCommodity>[]>([]);
 
   useEffect(() => {
@@ -93,6 +94,15 @@ export function Component() {
     setDataList(list);
   };
 
+  const handleClickItem = (item: TransactionItem<CharacterCommodity>) => {
+    console.log("handleClickItem", item);
+    setClickItemData(item);
+  };
+
+  // const handleCloseCommodityModal = () => {
+  //   setClickItemData(null);
+  // };
+
   return (
     <TransactionTable<FormValues, CharacterCommodity>
       defaultTransactionType={TransactionEnum.Type.SALE}
@@ -106,6 +116,7 @@ export function Component() {
         )
       }
       onSearch={handleSearch}
+      onClickItem={handleClickItem}
     />
   );
 }

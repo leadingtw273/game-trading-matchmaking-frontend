@@ -1,0 +1,36 @@
+.coin.detail-content {
+  .detail-content__label {
+    min-width: 64px;
+
+    color: #434343;
+
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .detail-content__value {
+    color: #434343;
+
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .detail-content__tags {
+    align-content: flex-end;
+
+    .ant-tag {
+      padding: 2px;
+      margin-right: 0;
+
+      color: white;
+
+      border-radius: 2px;
+
+      font-size: 13px;
+      line-height: 13px;
+
+      background-color: #bfbfbf;
+    }
+  }
+}
