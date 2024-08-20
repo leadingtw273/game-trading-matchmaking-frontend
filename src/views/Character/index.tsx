@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import { CharacterConst, ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
 import { getOptionsLabel } from "@/utils";
 
+import TransactionIcon from "@/assets/icon/transaction.svg";
 import UserIcon from "@/assets/icon/user.svg";
 import DiscordIcon from "@/assets/icon/discord.svg";
 import LineIcon from "@/assets/icon/line.svg";
@@ -269,7 +270,7 @@ export function Component() {
               <Flex style={{ padding: "0 10px" }} flex={1} gap={15} vertical>
                 <Flex gap={10} vertical>
                   <Flex className="label" align="center">
-                    <img src={ContactInfoIconMap[ContactInfoEnum.Type.PRIVATE_MESSAGE]} />
+                    <img src={TransactionIcon} />
                     <span>交易方式</span>
                   </Flex>
                   <Flex className="value split-dot__insert">
