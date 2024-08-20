@@ -1,3 +1,15 @@
+## [1.10.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.10.0...v1.10.1) (2024-08-20)
+
+
+### 🐞 Bug Fixes
+
+* 交易方式 icon 錯誤 (by @mike) ([fcd5747](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/fcd5747c84249f12166113a422ec0df0201453d5))
+
+
+### 🔧 Chores
+
+* 調適 netlify SPA 路由導向問題 (by @mike) ([91b1ed0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/91b1ed0e67a670003fe2f21d71e3e23f5d9609ee))
+
 # [1.10.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.9.0...v1.10.0) (2024-08-20)
 
 
