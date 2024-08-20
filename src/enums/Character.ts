@@ -106,6 +106,18 @@ export enum InnerSkillType {
   SHAN_HAI_XIN_JUE = "WAN_LING-SHAN_HAI_XIN_JUE",
 }
 
+/** 資訊 */
+export enum InfoType {
+  /** 無負債 */
+  NO_DEBT = "noDebt",
+  /** 需改名 */
+  NEED_CHANGE_NAME = "needChangeName",
+  /** 需轉移 */
+  NEED_TRANSFERRED = "needTransferred",
+  /** 需滿等 */
+  NEED_FULL_LEVEL = "needFullLevel",
+}
+
 /** 體型 */
 export enum BodyType {
   /** 成男 */

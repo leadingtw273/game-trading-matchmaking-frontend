@@ -31,30 +31,20 @@ export default function CommodityContent(props: CommodityContentProps) {
                   <InnerSkillTag key={innerSkill} innerSkill={innerSkill}></InnerSkillTag>
                 ))}
               </Flex>
-              <div className="split-vertical">
+              <div>
                 <span>{getOptionsLabel(commodity.bodyTypeList[0], CharacterConst.getBodyTypeOptions())}</span>
                 <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
                 <span>{getOptionsLabel(commodity.campList[0], CharacterConst.getCampTypeOptions())}</span>
                 <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
                 <span>{commodity.level}等</span>
-                {commodity.info.noDebt && (
-                  <>
-                    <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
-                    <span>無負債</span>
-                  </>
-                )}
-                {commodity.info.needTransferred && (
-                  <>
-                    <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
-                    <span>需轉移</span>
-                  </>
-                )}
-                {commodity.info.needChangeName && (
-                  <>
-                    <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
-                    <span>需改名</span>
-                  </>
-                )}
+                {Object.entries(commodity.info)
+                  .filter(([, active]) => active)
+                  .map(([status]) => (
+                    <>
+                      <Divider type="vertical" style={{ borderColor: "#bbb", margin: "0 12px" }} />
+                      <span key={status}>{getOptionsLabel(status, CharacterConst.getInfoTypeOptions())}</span>
+                    </>
+                  ))}
               </div>
             </Flex>
             <Flex className="content-main" gap={32}>
@@ -188,21 +178,11 @@ export default function CommodityContent(props: CommodityContentProps) {
                 <Flex gap={8}>
                   <span className="label">角色狀態</span>
                   <span className="value">
-                    {[
-                      [commodity.info.noDebt, <span key="noDebt">無負債</span>],
-                      [commodity.info.needFullLevel, <span key="needFullLevel">須滿等</span>],
-                      [commodity.info.needChangeName, <span key="needChangeName">需改名</span>],
-                      [commodity.info.needTransferred, <span key="needTransferred">需轉移</span>],
-                    ].reduce((prev, [condition, text]) => {
-                      if (condition) {
-                        if (prev.length > 0) {
-                          // 插入分隔符
-                          prev.push(<span key={`separator-${prev.length}`}>&nbsp;</span>);
-                        }
-                        prev.push(text);
-                      }
-                      return prev;
-                    }, [] as React.ReactNode[])}
+                    {Object.entries(commodity.info)
+                      .filter(([, active]) => active)
+                      .map(([status]) => (
+                        <span key={status}>{getOptionsLabel(status, CharacterConst.getInfoTypeOptions())} </span>
+                      ))}
                   </span>
                 </Flex>
                 <Flex gap={8}>

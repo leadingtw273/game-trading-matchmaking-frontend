@@ -1,0 +1,193 @@
+.character-page {
+  margin: 10px auto;
+  padding: 10px 20px;
+
+  width: 1280px;
+
+  box-sizing: border-box;
+
+  color: #434343;
+
+  font-size: 16px;
+  line-height: 1;
+
+  .image-block {
+    &.main {
+      min-width: 490px;
+      height: 490px;
+    }
+
+    &.empty {
+      background-color: #d9d9d9;
+
+      background-image: url("@/assets/image_empty.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    min-width: 240px;
+    height: 240px;
+
+    border-radius: 5px;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .sub-title {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+
+  .prize {
+    color: $colorSuccess;
+
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .remark {
+    line-height: 1.5;
+  }
+
+  .tag {
+    padding: 2px;
+    margin-right: 0;
+
+    color: white;
+
+    border-radius: 2px;
+
+    font-size: 13px;
+    line-height: 13px;
+
+    background-color: #bfbfbf;
+  }
+
+  .info {
+    font-size: 16px;
+    line-height: 18px;
+
+    &-label {
+      font-weight: bold;
+    }
+  }
+
+  .endless-battle-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px;
+    margin-right: 4px;
+
+    width: 16px;
+    height: 16px;
+
+    box-sizing: border-box;
+
+    color: #fff;
+    font-size: 14px;
+
+    border-radius: 2px;
+
+    &.energy {
+      background-color: #ce9dff;
+    }
+
+    &.stamina {
+      background-color: #fcd486;
+    }
+  }
+
+  .contact-info {
+    position: relative;
+    padding: 24px;
+
+    width: 330px;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+
+      width: 330px;
+      height: 557px;
+
+      background-image: url("@/assets/card/commodity-user-info-large.svg");
+      background-repeat: no-repeat;
+    }
+
+    .nickname {
+      z-index: 1;
+
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 22px;
+    }
+
+    .label {
+      z-index: 1;
+
+      font-size: 14px;
+      line-height: 1;
+
+      img {
+        margin-right: 5px;
+
+        height: 14px;
+        width: 14px;
+      }
+    }
+
+    .value {
+      z-index: 1;
+
+      font-size: 16px;
+      line-height: 1;
+      font-weight: bold;
+    }
+  }
+
+  .border {
+    box-sizing: border-box;
+
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    border: 1px solid #e2d4bb;
+
+    border-radius: 12px;
+  }
+
+  .border-divider__left {
+    padding-left: 8px;
+    margin-left: 8px;
+
+    height: 100%;
+
+    border-left: 1px solid #d9d9d9;
+  }
+
+  .split-dot {
+    content: "";
+    padding: 0 10px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("@/assets/decorate/market-dot.svg");
+
+    &__insert > :nth-child(n + 2)::before {
+      content: "";
+      padding: 0 10px;
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("@/assets/decorate/market-dot.svg");
+    }
+  }
+}

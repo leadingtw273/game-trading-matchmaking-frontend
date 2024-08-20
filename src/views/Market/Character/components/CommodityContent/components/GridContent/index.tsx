@@ -54,9 +54,12 @@ export default function GridContent(props: GridContentProps) {
         <div className="purchase-type">
           <div className="grid-content__main">
             <Flex gap="4px 6px" wrap="wrap-reverse" style={{ padding: "0 16px" }} justify="center">
-              {commodity.innerSkillList.map((innerSkill) => (
-                <InnerSkillTag key={innerSkill} innerSkill={innerSkill}></InnerSkillTag>
-              ))}
+              {commodity.innerSkillList
+                .slice()
+                .reverse()
+                .map((innerSkill) => (
+                  <InnerSkillTag key={innerSkill} innerSkill={innerSkill}></InnerSkillTag>
+                ))}
             </Flex>
             <div className="price">
               {`${getOptionsLabel(commodity.price.currency, CurrencyConst.getTypeOptions())} ${currencyFormatter(
@@ -87,12 +90,11 @@ export default function GridContent(props: GridContentProps) {
               </div>
             </Flex>
             <div className="split-dot">
-              {[
-                [commodity.info.noDebt, <span key="noDebt">無負債</span>],
-                [commodity.info.needFullLevel, <span key="needFullLevel">須滿等</span>],
-                [commodity.info.needChangeName, <span key="needChangeName">需改名</span>],
-                [commodity.info.needTransferred, <span key="needTransferred">需轉移</span>],
-              ].reduce((prev, [condition, text]) => (condition ? [...prev, text] : prev), [] as React.ReactNode[])}
+              {Object.entries(commodity.info)
+                .filter(([, active]) => active)
+                .map(([status]) => (
+                  <span key={status}>{getOptionsLabel(status, CharacterConst.getInfoTypeOptions())}</span>
+                ))}
             </div>
           </div>
           <Row className="grid-content__tags" justify="center" gutter={[4, 4]}>

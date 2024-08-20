@@ -19,7 +19,7 @@ export default function SideForm() {
         <Select options={CharacterConst.getSectOptions()} placeholder="請選擇" allowClear />
       </Form.Item>
       <Form.Item name="innerSkill" label="心法" shouldUpdate>
-        <Select options={CharacterConst.getSectInnerSkillOptions(currentSect)} placeholder="請選擇" allowClear />
+        <Select options={CharacterConst.getInnerSkillOptionsBySect(currentSect)} placeholder="請選擇" allowClear />
       </Form.Item>
       <Form.Item name="bodyType" label="體型" colon={false}>
         <SelectTag options={CharacterConst.getBodyTypeOptions()} />

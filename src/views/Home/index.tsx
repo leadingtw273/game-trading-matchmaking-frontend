@@ -8,7 +8,7 @@ import "./style.scss";
 Component.displayName = "Home";
 export function Component() {
   return (
-    <Flex className="home" gap={40} vertical>
+    <Flex className="home-page" gap={40} vertical>
       <div className="search-block">
         <img className="search-block_logo" src={logo} alt="logo-text" />
         <SearchCard />

@@ -34,20 +34,8 @@ export default function Router() {
           ],
         },
         {
-          path: "create",
-          lazy: () => import("@/views/Create"),
-        },
-        {
-          path: "search",
-          lazy: () => import("@/views/Search"),
-        },
-        {
-          path: "dealer",
-          lazy: () => import("@/views/Dealer"),
-        },
-        {
-          path: "contact",
-          lazy: () => import("@/views/Contact"),
+          path: "character/:id",
+          lazy: () => import("@/views/Character"),
         },
       ],
     },

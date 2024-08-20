@@ -220,13 +220,23 @@ export const SectTagOptionMap = new Map([
 ]);
 
 /**
- * 獲取門派對應心法選項
+ * 獲取門派對應選項
  * @param sect 門派
  * @returns 心法選項
  */
-export const getSectInnerSkillOptions = (sect: CharacterEnum.SectType) => {
+export const getInnerSkillOptionsBySect = (sect: CharacterEnum.SectType) => {
   const innerSkillList = SectInnerSkillMap.get(sect);
   return getInnerSkillOptions().filter(({ value }) => innerSkillList?.includes(value));
+};
+
+/**
+ * 獲取心法對應門派選項
+ * @param innerSkill 心法
+ * @returns 門派選項
+ */
+export const getSectOptionsByInnerSkill = (innerSkill: CharacterEnum.InnerSkillType) => {
+  const sect = InnerSkillSectMap.get(innerSkill);
+  return getSectOptions().find(({ value }) => sect === value);
 };
 
 /** 獲取門派選項 */
@@ -287,6 +297,14 @@ export const getInnerSkillOptions = () => [
   { label: "山海心訣", value: CharacterEnum.InnerSkillType.SHAN_HAI_XIN_JUE },
 ];
 
+/** 獲取資訊選項 */
+export const getInfoTypeOptions = () => [
+  { label: "無負債", value: CharacterEnum.InfoType.NO_DEBT },
+  { label: "需改名", value: CharacterEnum.InfoType.NEED_CHANGE_NAME },
+  { label: "需轉移", value: CharacterEnum.InfoType.NEED_TRANSFERRED },
+  { label: "需滿等", value: CharacterEnum.InfoType.NEED_FULL_LEVEL },
+];
+
 /** 獲取體型選項 */
 export const getBodyTypeOptions = () => [
   { label: "成男", value: CharacterEnum.BodyType.MAN },
@@ -308,6 +326,14 @@ export const getSkinTypeOptions = () => [
   { label: "體型", value: CharacterEnum.SkinType.BODY },
   { label: "臉型", value: CharacterEnum.SkinType.FACE },
   { label: "交互", value: CharacterEnum.SkinType.INTERACTION },
+];
+
+/** 獲取外觀選項單位 */
+export const getSkinTypeUnitOption = () => [
+  { label: "頂", value: CharacterEnum.SkinType.HAIR },
+  { label: "個", value: CharacterEnum.SkinType.BODY },
+  { label: "張", value: CharacterEnum.SkinType.FACE },
+  { label: "個", value: CharacterEnum.SkinType.INTERACTION },
 ];
 
 /** 獲取競技場選項 */
