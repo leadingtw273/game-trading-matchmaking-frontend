@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.9.0...v1.10.0) (2024-08-20)
+
+
+### ✨ Features
+
+* 完成角色收售資訊卡與頁面 (by @mike) ([0bc71a3](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/0bc71a3d3c126b93ed0fd07c1f5dd01f329e4879))
+
 # [1.9.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.8.1...v1.9.0) (2024-08-12)
 
 
