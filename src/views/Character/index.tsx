@@ -116,10 +116,10 @@ export function Component() {
                     {Object.entries(detail.commodity.info)
                       .filter(([, active]) => active)
                       .map(([status]) => (
-                        <>
+                        <span key={status}>
                           <Divider type="vertical" style={{ borderColor: "#D9D9D9", margin: "0 6px" }} />
-                          <span key={status}>{getOptionsLabel(status, CharacterConst.getInfoTypeOptions())}</span>
-                        </>
+                          <span>{getOptionsLabel(status, CharacterConst.getInfoTypeOptions())}</span>
+                        </span>
                       ))}
                   </div>
                 </Flex>
@@ -132,116 +132,123 @@ export function Component() {
                 <Flex className="border" style={{ padding: 20, width: "33.33%", height: 226 }} gap={10} vertical>
                   <span className="sub-title">裝備分數</span>
                   <table className="info" style={{ width: "fit-content", borderSpacing: "0 8px" }}>
-                    {detail.commodity.gearScoreList.map((gearScore) => (
-                      <tr
-                        key={gearScore.innerSkill + "_" + gearScore.type + "_" + gearScore.score}
-                        style={{ verticalAlign: "baseline" }}
-                      >
-                        <td>
-                          <span className="info-label">
-                            {
-                              CharacterConst.getInnerSkillOptions().find(({ value }) => value === gearScore.innerSkill)
-                                ?.label
-                            }
-                          </span>
-                        </td>
-                        <td>
-                          <div className="border-divider__left">
-                            {gearScore.type}
-                            <span className="split-dot" />
-                            {gearScore.score}
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
+                    <tbody>
+                      {detail.commodity.gearScoreList.map((gearScore) => (
+                        <tr
+                          key={gearScore.innerSkill + "_" + gearScore.type + "_" + gearScore.score}
+                          style={{ verticalAlign: "baseline" }}
+                        >
+                          <td>
+                            <span className="info-label">
+                              {
+                                CharacterConst.getInnerSkillOptions().find(
+                                  ({ value }) => value === gearScore.innerSkill
+                                )?.label
+                              }
+                            </span>
+                          </td>
+                          <td>
+                            <div className="border-divider__left">
+                              {gearScore.type}
+                              <span className="split-dot" />
+                              {gearScore.score}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
                   </table>
                 </Flex>
                 <Flex className="border" style={{ padding: 20, width: "33.33%", height: 226 }} gap={10} vertical>
                   <span className="sub-title">副本·陣營·百戰·家園</span>
                   <table className="info" style={{ width: "fit-content", borderSpacing: "0 8px" }}>
-                    <tr style={{ verticalAlign: "baseline" }}>
-                      <td>
-                        <span className="info-label">戰階</span>
-                      </td>
-                      <td>
-                        <div className="border-divider__left">{detail.commodity.battleRank}</div>
-                      </td>
-                    </tr>
-                    <tr style={{ verticalAlign: "baseline" }}>
-                      <td>
-                        <span className="info-label">名劍分數</span>
-                      </td>
-                      <td>
-                        <Flex className="border-divider__left" gap={4} vertical>
-                          {detail.commodity.arenaScoreList?.map(({ type, score }) => (
-                            <span style={{ lineHeight: "16px" }} key={type}>
-                              <span>{getOptionsLabel(type, CharacterConst.getArenaTypeOptions())}</span>
-                              <span className="split-dot" />
-                              <span>{score}</span>
-                            </span>
-                          ))}
-                        </Flex>
-                      </td>
-                    </tr>
-                    <tr style={{ verticalAlign: "baseline" }}>
-                      <td>
-                        <span className="info-label">百戰</span>
-                      </td>
-                      <td>
-                        <div className="border-divider__left">
-                          <span className="endless-battle-tag energy">精</span>
-                          <span>{detail.commodity.endlessBattleValue?.energy}</span>
-                          <span className="split-dot" />
-                          <span className="endless-battle-tag stamina">耐</span>
-                          <span>{detail.commodity.endlessBattleValue?.stamina}</span>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr style={{ verticalAlign: "baseline" }}>
-                      <td>
-                        <span className="info-label">家園</span>
-                      </td>
-                      <td>
-                        <div className="border-divider__left">{detail.commodity.estateRank}</div>
-                      </td>
-                    </tr>
+                    <tbody>
+                      <tr style={{ verticalAlign: "baseline" }}>
+                        <td>
+                          <span className="info-label">戰階</span>
+                        </td>
+                        <td>
+                          <div className="border-divider__left">{detail.commodity.battleRank}</div>
+                        </td>
+                      </tr>
+                      <tr style={{ verticalAlign: "baseline" }}>
+                        <td>
+                          <span className="info-label">名劍分數</span>
+                        </td>
+                        <td>
+                          <Flex className="border-divider__left" gap={4} vertical>
+                            {detail.commodity.arenaScoreList?.map(({ type, score }) => (
+                              <span style={{ lineHeight: "16px" }} key={type}>
+                                <span>{getOptionsLabel(type, CharacterConst.getArenaTypeOptions())}</span>
+                                <span className="split-dot" />
+                                <span>{score}</span>
+                              </span>
+                            ))}
+                          </Flex>
+                        </td>
+                      </tr>
+                      <tr style={{ verticalAlign: "baseline" }}>
+                        <td>
+                          <span className="info-label">百戰</span>
+                        </td>
+                        <td>
+                          <div className="border-divider__left">
+                            <span className="endless-battle-tag energy">精</span>
+                            <span>{detail.commodity.endlessBattleValue?.energy}</span>
+                            <span className="split-dot" />
+                            <span className="endless-battle-tag stamina">耐</span>
+                            <span>{detail.commodity.endlessBattleValue?.stamina}</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr style={{ verticalAlign: "baseline" }}>
+                        <td>
+                          <span className="info-label">家園</span>
+                        </td>
+                        <td>
+                          <div className="border-divider__left">{detail.commodity.estateRank}</div>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </Flex>
                 <Flex className="border" style={{ padding: 20, width: "33.33%", height: 226 }} gap={10} vertical>
                   <span className="sub-title">資歷·寵物·外觀</span>
                   <table className="info" style={{ width: "fit-content", borderSpacing: "0 8px" }}>
-                    <tr style={{ verticalAlign: "baseline" }}>
-                      <td>
-                        <span className="info-label">資歷分數</span>
-                      </td>
-                      <td>
-                        <div className="border-divider__left">{detail.commodity.accomplishmentScore}</div>
-                      </td>
-                    </tr>
-                    <tr style={{ verticalAlign: "baseline" }}>
-                      <td>
-                        <span className="info-label">寵物分數</span>
-                      </td>
-                      <td>
-                        <div className="border-divider__left">{detail.commodity.petScore}</div>
-                      </td>
-                    </tr>
-                    <tr style={{ verticalAlign: "baseline" }}>
-                      <td>
-                        <span className="info-label">外觀</span>
-                      </td>
-                      <td>
-                        <Flex className="border-divider__left" gap={8} vertical>
-                          {detail.commodity.skinCount?.map(({ type, value }) => (
-                            <span style={{ lineHeight: 1 }} key={type}>
-                              <span>{getOptionsLabel(type, CharacterConst.getSkinTypeOptions())}</span>
-                              <span style={{ display: "inline-block", width: 30, margin: "0 8px" }}>{value}</span>
-                              <span>{getOptionsLabel(type, CharacterConst.getSkinTypeUnitOption())}</span>
-                            </span>
-                          ))}
-                        </Flex>
-                      </td>
-                    </tr>
+                    <tbody>
+                      <tr style={{ verticalAlign: "baseline" }}>
+                        <td>
+                          <span className="info-label">資歷分數</span>
+                        </td>
+                        <td>
+                          <div className="border-divider__left">{detail.commodity.accomplishmentScore}</div>
+                        </td>
+                      </tr>
+                      <tr style={{ verticalAlign: "baseline" }}>
+                        <td>
+                          <span className="info-label">寵物分數</span>
+                        </td>
+                        <td>
+                          <div className="border-divider__left">{detail.commodity.petScore}</div>
+                        </td>
+                      </tr>
+                      <tr style={{ verticalAlign: "baseline" }}>
+                        <td>
+                          <span className="info-label">外觀</span>
+                        </td>
+                        <td>
+                          <Flex className="border-divider__left" gap={8} vertical>
+                            {detail.commodity.skinCount?.map(({ type, value }) => (
+                              <span style={{ lineHeight: 1 }} key={type}>
+                                <span>{getOptionsLabel(type, CharacterConst.getSkinTypeOptions())}</span>
+                                <span style={{ display: "inline-block", width: 30, margin: "0 8px" }}>{value}</span>
+                                <span>{getOptionsLabel(type, CharacterConst.getSkinTypeUnitOption())}</span>
+                              </span>
+                            ))}
+                          </Flex>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </Flex>
               </Flex>
