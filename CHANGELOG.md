@@ -1,3 +1,15 @@
+## [1.10.2](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.10.1...v1.10.2) (2024-08-26)
+
+
+### 🐞 Bug Fixes
+
+* 修正 tbody 警告 (by @mike) ([6b2f468](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/6b2f46847cb4458921e28a948cf109e09cb1df25))
+
+
+### 🦄 Code Refactoring
+
+* 重寫首頁搜索邏輯 (by @mike) ([2b1896e](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/2b1896ea92db089dff7360c348410e20ec110be5))
+
 ## [1.10.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.10.0...v1.10.1) (2024-08-20)
 
 
