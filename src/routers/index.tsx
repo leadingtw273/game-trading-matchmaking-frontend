@@ -9,8 +9,7 @@ export default function Router() {
       children: [
         {
           index: true,
-          // lazy: () => import("@/views/Home"),
-          element: <Navigate to="/market/coin" replace />,
+          lazy: () => import("@/views/Home"),
         },
         {
           path: "market",

@@ -101,12 +101,13 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
   };
 
   const onChange = (currentSlide: number) => {
-    console.log(currentSlide);
+    console.log("onChange", currentSlide);
   };
 
   return (
     <Flex className="commodity-carousel" gap={24} vertical>
       <div className="commodity-carousel_title">{title}</div>
+
       <Flex justify="space-between" align="center">
         <Flex className="commodity-carousel_type-action" gap={16}>
           <Button onClick={() => handleClickType(TransactionEnum.Commodity.Appearance)}>外觀</Button>
@@ -118,6 +119,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
           <span className="material-symbols-outlined">chevron_right</span>
         </Button>
       </Flex>
+
       <BaseCarousel afterChange={onChange} {...settings}>
         {commodities.map((commodity) => (
           <ItemCard key={commodity.id} {...commodity} />

@@ -2,16 +2,32 @@ import { Form, Input, Select, Space } from "antd";
 import { SelectTag } from "@/components/BaseField";
 import { CharacterEnum, CurrencyEnum, TransactionEnum } from "@/enums";
 import { CharacterConst, CurrencyConst } from "@/consts";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+type LocationState = {
+  sect: CharacterEnum.SectType;
+  innerSkill: CharacterEnum.InnerSkillType;
+  bodyType: CharacterEnum.BodyType;
+};
 
 export default function SideForm() {
   const form = Form.useFormInstance();
   const currentSect = Form.useWatch("sect", form);
+  const { state } = useLocation() as { state: LocationState | undefined };
+  const [lastSect, setLastSect] = useState<CharacterEnum.SectType | undefined>(state?.sect);
+
+  useEffect(() => {
+    if (state != null) form.setFieldsValue(state);
+  }, [form, state]);
 
   useEffect(() => {
     // Reset innerSkill when sect changes
-    form.setFieldsValue({ innerSkill: undefined });
-  }, [currentSect, form]);
+    if (currentSect != null && currentSect !== lastSect) {
+      form.setFieldsValue({ innerSkill: undefined });
+      setLastSect(currentSect);
+    }
+  }, [currentSect, lastSect, form]);
 
   return (
     <>

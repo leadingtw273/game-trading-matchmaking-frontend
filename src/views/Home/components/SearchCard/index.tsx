@@ -1,31 +1,33 @@
-import { Button, Card, Input, Tabs, TabsProps } from "antd";
+import { Tabs } from "antd";
+import FormCoin from "./components/FormCoin";
+import FormAppearance from "./components/FormAppearance";
+import FormCharacter from "./components/FormCharacter";
+
 import "./style.scss";
-import searchDecorate from "@/assets/search-decorate.png";
 
 export default function SearchCard() {
-  const items: TabsProps["items"] = [
-    {
-      key: "1",
-      label: "外觀",
-    },
-    {
-      key: "2",
-      label: "角色",
-    },
-    {
-      key: "3",
-      label: "金幣",
-    },
-  ];
-
   return (
-    <Card className="search-card">
-      <Tabs defaultActiveKey="1" items={items} tabBarStyle={{ color: "red" }} />
-      <Input placeholder="搜尋" prefix={<span className="icon material-symbols-outlined">search</span>} />
-      <Button type="primary">搜尋</Button>
-      <img className="search-card_decorate decorate-1" src={searchDecorate} />
-      <img className="search-card_decorate decorate-2" src={searchDecorate} />
-      <img className="search-card_decorate decorate-3" src={searchDecorate} />
-    </Card>
+    <div className="search-card">
+      <Tabs
+        defaultActiveKey="1"
+        items={[
+          {
+            key: "1",
+            label: "金幣",
+            children: <FormCoin />,
+          },
+          {
+            key: "2",
+            label: "外觀",
+            children: <FormAppearance />,
+          },
+          {
+            key: "3",
+            label: "角色",
+            children: <FormCharacter />,
+          },
+        ]}
+      />
+    </div>
   );
 }

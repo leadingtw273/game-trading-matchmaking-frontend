@@ -4,8 +4,22 @@ import { CurrencyEnum, TransactionEnum } from "@/enums";
 
 import { StockType } from "./enum";
 import { CurrencyConst } from "@/consts";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+type LocationState = {
+  currency: CurrencyEnum.Type;
+  ratio: string;
+};
 
 export default function SideForm() {
+  const form = Form.useFormInstance();
+  const { state } = useLocation() as { state: LocationState | undefined };
+
+  useEffect(() => {
+    if (state != null) form.setFieldsValue(state);
+  }, [form, state]);
+
   return (
     <>
       <Form.Item name="sellCurrency" label="幣值" colon={false}>

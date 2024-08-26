@@ -2,12 +2,26 @@ import { Form, Input, Select, Space } from "antd";
 import { SelectTag } from "@/components/BaseField";
 import { CurrencyEnum, TransactionEnum, AppearanceEnum } from "@/enums";
 import { AppearanceConst, CurrencyConst } from "@/consts";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+type LocationState = {
+  type: AppearanceEnum.Type;
+  name: string;
+};
 
 export default function SideForm() {
+  const form = Form.useFormInstance();
+  const { state } = useLocation() as { state: LocationState | undefined };
+
+  useEffect(() => {
+    if (state != null) form.setFieldsValue(state);
+  }, [form, state]);
+
   return (
     <>
       <Form.Item name="type" label="外觀類型" initialValue={AppearanceEnum.Type.GIFT_BOX}>
-        <Select options={AppearanceConst.getTypeOptions()} />
+        <Select options={AppearanceConst.getTypeOptions()} placeholder="請選擇" />
       </Form.Item>
       <Form.Item name="name" label="外觀名稱">
         <Input placeholder="請輸入" />

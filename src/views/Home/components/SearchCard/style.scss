@@ -1,23 +1,27 @@
 .search-card {
   position: relative;
+
+  padding: 30px;
+
   width: 100%;
-  text-align: center;
 
-  background: url("@/assets/background-search-card.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 0;
+  box-sizing: border-box;
 
-  .ant-card {
-    &-body {
-      padding: 30px;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60px;
+
+    width: 1390px;
+    height: 308px;
+
+    background: url("@/assets/search-card_background.svg");
   }
 
   .ant-tabs {
     &-nav {
-      margin: 0;
+      margin-bottom: 24px;
 
       &::before {
         border-bottom: none;
@@ -27,21 +31,18 @@
     &-tab {
       padding: 16px 0;
 
-      &-btn {
-        color: #6d5833 !important;
-        opacity: 0.3;
+      color: rgba($color: #000000, $alpha: 0.25);
 
-        font-family: Noto Sans TC;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 32px; /* 133.333% */
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.33;
+
+      &-active > .ant-tabs-tab-btn {
+        color: #6d5833 !important;
       }
 
-      &-active {
-        .ant-tabs-tab-btn {
-          opacity: 1 !important;
-        }
+      & + .ant-tabs-tab {
+        margin-left: 48px;
       }
     }
 
@@ -50,70 +51,91 @@
 
       background: #6d5833;
     }
+
+    &-content {
+      padding: 0 24px;
+    }
+  }
+
+  .ant-select {
+    width: 100%;
+    height: 80px;
+
+    &-selector {
+      padding: 8px 24px !important;
+
+      font-size: 24px;
+
+      border: 1px solid #e2d4bb !important;
+      border-radius: 12px;
+    }
+
+    &-arrow {
+      inset-inline-end: 24px;
+      margin-top: -10px;
+
+      height: 20px;
+
+      font-size: 20px;
+    }
   }
 
   .ant-input {
-    height: 40px;
+    padding: 8px 24px;
 
-    font-family: Noto Sans TC;
-    font-size: 32px !important;
-    font-weight: 400;
-    line-height: 22px; /* 68.75% */
+    width: 100%;
+    height: 80px;
 
-    &-affix-wrapper {
-      margin: 24px 0;
-      padding: 20px 24px;
-      border-radius: 12px;
+    font-size: 24px;
 
-      &:active,
-      &:hover,
-      &:focus-within {
-        border-color: rgba(217, 217, 217, 1);
-        box-shadow: none;
-      }
-    }
-
-    &-prefix {
-      margin-inline-end: 16px;
-      color: rgba(217, 217, 217, 1);
-
-      > .icon {
-        font-size: 40px;
-      }
-    }
+    border: 1px solid #e2d4bb !important;
+    border-radius: 12px;
   }
 
   .ant-btn {
-    width: 400px;
-    height: 55px;
+    position: relative;
+    z-index: 0;
     padding: 10px;
 
+    width: 400px;
+    height: 55px;
+
+    color: #ffffff;
     font-size: 24px;
     font-weight: 700;
-  }
+    line-height: 1;
 
-  &_decorate {
-    position: absolute;
+    &::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
 
-    &.decorate-1 {
-      top: 214.69px;
-      left: -60px;
+      width: 400px;
+      height: 55px;
 
-      width: 155px;
+      background: url("@/assets/search-card_button.svg");
     }
 
-    &.decorate-2 {
-      top: 244.33px;
-      left: 48px;
+    &:not(:disabled):not(.ant-btn-disabled) {
+      &:hover {
+        color: #ffffff;
+        background: none;
 
-      width: 105px;
-    }
+        &::before {
+          background: url("@/assets/search-card_button-hover.svg");
+        }
+      }
 
-    &.decorate-3 {
-      top: 31.33px;
-      right: -98px;
+      &:active {
+        color: #ffffff;
+        background: none;
 
-      width: 184px;
+        &::before {
+          background: url("@/assets/search-card_button-active.svg");
+        }
+      }
     }
   }
 }
