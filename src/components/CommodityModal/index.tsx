@@ -56,7 +56,7 @@ export default function CommodityModal(props: CommodityModalProps) {
         </Flex>
         <Flex className="commodity-modal__user-card" gap={37} vertical>
           <Flex style={{ height: 139 }} gap={8} align="center" justify="center" vertical>
-            <Avatar size={75} icon={<UserOutlined />} />
+            <Avatar size={75} icon={<UserOutlined />} src={item?.postedBy.avatarUrl} />
             <span className="nickname">{item?.postedBy.nickname}</span>
           </Flex>
           <Flex style={{ padding: "0 10px" }} flex={1} gap={15} vertical>

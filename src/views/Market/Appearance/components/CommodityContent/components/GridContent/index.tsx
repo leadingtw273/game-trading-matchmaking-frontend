@@ -1,7 +1,6 @@
 import { Col, Flex, Row, Tag, Tooltip } from "antd";
-import { TransactionItem } from "@/types";
+import { AppearanceCommodity, TransactionItem } from "@/types";
 import { AppearanceEnum, TransactionEnum } from "@/enums";
-import { AppearanceCommodity } from "@/views/Market/Appearance";
 import CoatImage from "@/assets/icon/appearance/coat.svg";
 import GiftBoxImage from "@/assets/icon/appearance/giftBox.svg";
 import HairImage from "@/assets/icon/appearance/hair.svg";

@@ -1,7 +1,6 @@
 import { Col, Divider, Flex, Row, Tag } from "antd";
-import { TransactionItem } from "@/types";
+import { CharacterCommodity, TransactionItem } from "@/types";
 import { TransactionEnum } from "@/enums";
-import { CharacterCommodity } from "@/views/Market/Character";
 
 import "./style.scss";
 import { CurrencyConst, CharacterConst } from "@/consts";

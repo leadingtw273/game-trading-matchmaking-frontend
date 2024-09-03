@@ -2,57 +2,12 @@ import CommodityCard from "@/components/CommodityModal";
 import SideForm from "./components/SideForm";
 import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum, CharacterEnum } from "@/enums";
-import { CurrencyPrice, CommodityItem, TransactionItem } from "@/types";
+import { CharacterCommodity, TransactionItem } from "@/types";
 import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
-import characterCommodityList from "./mocks/CharacterCommodity";
+import characterCommodityList from "@/mocks/CharacterCommodity";
 import ModalContent from "../Character/components/ModalContent";
-import { useNavigate } from "react-router-dom";
-
-export type CharacterCommodity = CommodityItem<{
-  sectList: CharacterEnum.SectType[]; // 門派
-  innerSkillList: CharacterEnum.InnerSkillType[]; // 心法
-  bodyTypeList: CharacterEnum.BodyType[]; // 體型
-  campList: CharacterEnum.CampType[]; // 陣營
-  level: number; // 等級
-  info: {
-    noDebt: boolean; // 無負債
-    needChangeName: boolean; // 需改名
-    needTransferred: boolean; // 需轉移
-    needFullLevel: boolean; // 需滿等
-  };
-  price: CurrencyPrice; // 價格
-  imageList: string[] | null; // 圖片
-  gearScoreList: {
-    // 裝分
-    innerSkill: CharacterEnum.InnerSkillType | null;
-    type: CharacterEnum.GearType;
-    score: number;
-  }[];
-  battleRank: number | null; // 戰階
-  arenaScoreList:
-    | {
-        // 競技場分數
-        type: CharacterEnum.ArenaType;
-        score: number;
-      }[]
-    | null;
-  estateRank: number | null; // 家園分數
-  endlessBattleValue: {
-    // 百戰值
-    energy: number;
-    stamina: number;
-  } | null;
-  accomplishmentScore: number | null; // 資歷
-  petScore: number | null; // 寵物分數
-  skinCount:
-    | {
-        // 外觀數量
-        type: CharacterEnum.SkinType;
-        value: number;
-      }[]
-    | null;
-}>;
+import { useLocation, useNavigate } from "react-router-dom";
 
 type FormValues = {
   sect: CharacterEnum.SectType | null;
@@ -78,13 +33,16 @@ type FormValues = {
 Component.displayName = "MarketCharacter";
 export function Component() {
   const navigate = useNavigate();
+  const { state } = useLocation() as { state?: { transactionType?: TransactionEnum.Type } };
   const [clickItemData, setClickItemData] = useState<TransactionItem<CharacterCommodity> | null>(null);
   const [dataList, setDataList] = useState<TransactionItem<CharacterCommodity>[]>([]);
 
   useEffect(() => {
-    const list = requestList<TransactionItem<CharacterCommodity>[]>(TransactionEnum.Type.SALE);
+    const list = requestList<TransactionItem<CharacterCommodity>[]>(
+      state?.transactionType ?? TransactionEnum.Type.SALE
+    );
     setDataList(list);
-  }, []);
+  }, [state?.transactionType]);
 
   const requestList = <Response,>(transactionType: TransactionEnum.Type): Response => {
     // TODO: fetch data from server
@@ -111,7 +69,7 @@ export function Component() {
   return (
     <>
       <TransactionTable<FormValues, CharacterCommodity>
-        defaultTransactionType={TransactionEnum.Type.SALE}
+        defaultTransactionType={state?.transactionType ?? TransactionEnum.Type.SALE}
         dataSource={dataList}
         renderForm={() => <SideForm />}
         renderCardContent={(type, mode, item) =>

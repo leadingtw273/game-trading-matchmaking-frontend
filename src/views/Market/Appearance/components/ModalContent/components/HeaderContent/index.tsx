@@ -1,6 +1,5 @@
 import { Flex } from "antd";
-import { AppearanceCommodity } from "@/views/Market/Appearance";
-import { TransactionItem } from "@/types";
+import { AppearanceCommodity, TransactionItem } from "@/types";
 import { AppearanceEnum, TransactionEnum } from "@/enums";
 import { getOptionsLabel } from "@/utils";
 import { CurrencyConst } from "@/consts";

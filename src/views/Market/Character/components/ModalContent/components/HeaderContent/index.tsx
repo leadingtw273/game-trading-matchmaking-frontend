@@ -1,6 +1,5 @@
 import { Flex } from "antd";
-import { CharacterCommodity } from "@/views/Market/Character";
-import { TransactionItem } from "@/types";
+import { CharacterCommodity, TransactionItem } from "@/types";
 import { getOptionsLabel } from "@/utils";
 import { CurrencyConst } from "@/consts";
 

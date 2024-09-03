@@ -2,18 +2,12 @@ import CommodityCard from "@/components/CommodityModal";
 import SideForm from "./components/SideForm";
 import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum, AppearanceEnum } from "@/enums";
-import { CurrencyPrice, CommodityItem, TransactionItem } from "@/types";
+import { AppearanceCommodity, TransactionItem } from "@/types";
 import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
-import appearanceCommodityList from "./mocks/AppearanceCommodity";
+import appearanceCommodityList from "@/mocks/AppearanceCommodity";
 import ModalContent from "./components/ModalContent";
-
-export type AppearanceCommodity = CommodityItem<{
-  name: string;
-  price: CurrencyPrice;
-  amount: number;
-  category: AppearanceEnum.Type;
-}>;
+import { useLocation } from "react-router-dom";
 
 type FormValues = {
   type: AppearanceEnum.Type;
@@ -27,13 +21,16 @@ type FormValues = {
 
 Component.displayName = "MarketAppearance";
 export function Component() {
+  const { state } = useLocation() as { state?: { transactionType?: TransactionEnum.Type } };
   const [clickItemData, setClickItemData] = useState<TransactionItem<AppearanceCommodity> | null>(null);
   const [dataList, setDataList] = useState<TransactionItem<AppearanceCommodity>[]>([]);
 
   useEffect(() => {
-    const list = requestList<TransactionItem<AppearanceCommodity>[]>(TransactionEnum.Type.SALE);
+    const list = requestList<TransactionItem<AppearanceCommodity>[]>(
+      state?.transactionType ?? TransactionEnum.Type.SALE
+    );
     setDataList(list);
-  }, []);
+  }, [state?.transactionType]);
 
   const requestList = <Response,>(transactionType: TransactionEnum.Type): Response => {
     // TODO: fetch data from server
@@ -59,7 +56,7 @@ export function Component() {
   return (
     <>
       <TransactionTable<FormValues, AppearanceCommodity>
-        defaultTransactionType={TransactionEnum.Type.SALE}
+        defaultTransactionType={state?.transactionType ?? TransactionEnum.Type.SALE}
         dataSource={dataList}
         renderForm={() => <SideForm />}
         renderCardContent={(type, mode, item) =>

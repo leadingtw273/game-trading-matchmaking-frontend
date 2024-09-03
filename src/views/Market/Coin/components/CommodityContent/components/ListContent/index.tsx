@@ -1,9 +1,8 @@
 import { Col, Flex, Row, Tag } from "antd";
 import dayjs from "dayjs";
-import { TransactionItem } from "@/types";
+import { CoinCommodity, TransactionItem } from "@/types";
 import CoinImage from "@/assets/icon/coin.svg";
 import { TransactionEnum } from "@/enums";
-import { CoinCommodity } from "@/views/Market/Coin";
 
 import "./style.scss";
 import { getOptionsLabel } from "@/utils";

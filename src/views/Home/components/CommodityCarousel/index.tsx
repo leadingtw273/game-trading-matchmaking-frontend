@@ -1,129 +1,122 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BaseCarousel from "@/components/BaseCarousel";
-import ItemCard from "./CommodityCard";
-import "./style.scss";
 import { Button, Flex } from "antd";
-import { CurrencyEnum, TransactionEnum } from "@/enums";
+import { TransactionEnum } from "@/enums";
+import appearanceCommodityList from "@/mocks/AppearanceCommodity";
+import CharacterCommodityList from "@/mocks/CharacterCommodity";
+import CoinCommodityList from "@/mocks/CoinCommodity";
+import AppearanceCard from "./components/AppearanceCard";
+import CharacterCard from "./components/CharacterCard";
+import CoinCard from "./components/CoinCard";
+
+import "./style.scss";
+import { AppearanceCommodity, CharacterCommodity, CoinCommodity, CommodityItem, TransactionItem } from "@/types";
 
 interface ICommodityCarouselProps {
-  title: string;
+  transactionType: TransactionEnum.Type;
 }
-
 export default function CommodityCarousel(props: ICommodityCarouselProps) {
-  const { title } = props;
-  const [type, setType] = useState<TransactionEnum.Commodity>(TransactionEnum.Commodity.Appearance);
-  const [commodities] = useState([
-    {
-      id: 1,
-      name: "月絨絨‧明橙",
-      price: {
-        currency: CurrencyEnum.Type.TWD,
-        value: 600,
-      },
-      image:
-        "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-      seller: "@salse_name",
-    },
-    {
-      id: 2,
-      name: "月絨絨‧明橙",
-      price: {
-        currency: CurrencyEnum.Type.TWD,
-        value: 600,
-      },
-      image:
-        "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-      seller: "@salse_name",
-    },
-    {
-      id: 3,
-      name: "月絨絨‧明橙",
-      price: {
-        currency: CurrencyEnum.Type.TWD,
-        value: 600,
-      },
-      image:
-        "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-      seller: "@salse_name",
-    },
-    {
-      id: 4,
-      name: "月絨絨‧明橙",
-      price: {
-        currency: CurrencyEnum.Type.TWD,
-        value: 600,
-      },
-      image:
-        "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-      seller: "@salse_name",
-    },
-    {
-      id: 5,
-      name: "月絨絨‧明橙",
-      price: {
-        currency: CurrencyEnum.Type.TWD,
-        value: 600,
-      },
-      image:
-        "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-      seller: "@salse_name",
-    },
-    {
-      id: 6,
-      name: "月絨絨‧明橙",
-      price: {
-        currency: CurrencyEnum.Type.TWD,
-        value: 600,
-      },
-      image:
-        "https://s3-alpha-sig.figma.com/img/3448/23e2/a2051ecd6accdc196e976861ba7f859a?Expires=1704672000&Signature=F-DiBo7LDYt9p9jDzdn9EshSXQCMO6flpE-yw4sGftuFz5g8NvtEhjjquQcP3wC-EgjeeZqP84GaNN817sgXuWc4btgEgIpXsT2LFOkp244rF-7p1EtdNI6afKLIyhaOhR1zQHfkcrVsgYobREm~7XdQntF0Y-w58P5Do-jzsCG3g4pd-En0UtTSlqyH0Anh47MkbxgJcordDKj48hRTmvX4l94fKRTFmR5TbbwN6IANL-N4LJp41~XMQ71xrTmA1QR32fNUzwAr3zPeNnTkULApB7sGYmNhJe2k1PMdFp3J373dRDlhjV0SYKqKxfV4D8fqfiP1lw2soACN5lh0fA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-      seller: "@salse_name",
-    },
-  ]);
-  const labelMap = {
+  const { transactionType } = props;
+  const navigate = useNavigate();
+  const [commodityType, setCommodityType] = useState<TransactionEnum.Commodity>(TransactionEnum.Commodity.Appearance);
+  const [dataList, setDataList] = useState<
+    TransactionItem<CommodityItem<CoinCommodity | AppearanceCommodity | CharacterCommodity>>[]
+  >([]);
+
+  const transactionLabelMap = {
+    [TransactionEnum.Type.SALE]: "販賣",
+    [TransactionEnum.Type.PURCHASE]: "收購",
+  };
+
+  const commodityLabelMap = {
     [TransactionEnum.Commodity.Appearance]: "外觀",
     [TransactionEnum.Commodity.Character]: "角色",
     [TransactionEnum.Commodity.Coin]: "金幣",
   };
 
-  const settings = {
-    dots: false,
-    arrows: true,
-    infinite: true,
-    speed: 500,
-    variableWidth: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
+  const requestList = <Response,>(
+    transactionType: TransactionEnum.Type,
+    commodityType: TransactionEnum.Commodity
+  ): Response => {
+    // TODO: fetch data from server
+    switch (commodityType) {
+      case TransactionEnum.Commodity.Appearance:
+        return appearanceCommodityList.filter((item) => item.type === transactionType).slice(0, 10) as Response;
+      case TransactionEnum.Commodity.Character:
+        return CharacterCommodityList.filter((item) => item.type === transactionType).slice(0, 10) as Response;
+      case TransactionEnum.Commodity.Coin:
+        return CoinCommodityList.filter((item) => item.type === transactionType).slice(0, 10) as Response;
+      default:
+        return [] as Response;
+    }
   };
 
-  const handleClickType = (type: TransactionEnum.Commodity) => {
-    setType(type);
+  const handleClickMore = () => {
+    navigate(`/market/${commodityType}`, { state: { transactionType } });
   };
 
-  const onChange = (currentSlide: number) => {
-    console.log("onChange", currentSlide);
+  const handleClickCommodityType = (type: TransactionEnum.Commodity) => {
+    setCommodityType(type);
+    const result = requestList<
+      TransactionItem<CommodityItem<CoinCommodity | AppearanceCommodity | CharacterCommodity>>[]
+    >(transactionType, type);
+    setDataList(result);
   };
 
   return (
     <Flex className="commodity-carousel" gap={24} vertical>
-      <div className="commodity-carousel_title">{title}</div>
+      <div className="commodity-carousel_title">最新{transactionLabelMap[transactionType]}</div>
 
       <Flex justify="space-between" align="center">
-        <Flex className="commodity-carousel_type-action" gap={16}>
-          <Button onClick={() => handleClickType(TransactionEnum.Commodity.Appearance)}>外觀</Button>
-          <Button onClick={() => handleClickType(TransactionEnum.Commodity.Character)}>角色</Button>
-          <Button onClick={() => handleClickType(TransactionEnum.Commodity.Coin)}>金幣</Button>
+        <Flex style={{ padding: "0 15px" }} gap={16}>
+          <Button
+            className={[
+              "commodity-carousel_action-type",
+              TransactionEnum.Commodity.Appearance === commodityType ? "active" : "",
+            ].join(" ")}
+            onClick={() => handleClickCommodityType(TransactionEnum.Commodity.Appearance)}
+          >
+            外觀
+          </Button>
+          <Button
+            className={[
+              "commodity-carousel_action-type",
+              TransactionEnum.Commodity.Character === commodityType ? "active" : "",
+            ].join(" ")}
+            onClick={() => handleClickCommodityType(TransactionEnum.Commodity.Character)}
+          >
+            角色
+          </Button>
+          <Button
+            className={[
+              "commodity-carousel_action-type",
+              TransactionEnum.Commodity.Coin === commodityType ? "active" : "",
+            ].join(" ")}
+            onClick={() => handleClickCommodityType(TransactionEnum.Commodity.Coin)}
+          >
+            金幣
+          </Button>
         </Flex>
-        <Button className="commodity-carousel_more-action" type="link">
-          查看販賣中{labelMap[type]}
+        <Button className="commodity-carousel_action-more" type="link" onClick={handleClickMore}>
+          查看{transactionLabelMap[transactionType]}中{commodityLabelMap[commodityType]}
           <span className="material-symbols-outlined">chevron_right</span>
         </Button>
       </Flex>
 
-      <BaseCarousel afterChange={onChange} {...settings}>
-        {commodities.map((commodity) => (
-          <ItemCard key={commodity.id} {...commodity} />
-        ))}
+      <BaseCarousel>
+        {dataList.map((data) => {
+          switch (commodityType) {
+            case TransactionEnum.Commodity.Appearance:
+              return <AppearanceCard key={data.id} data={data as TransactionItem<AppearanceCommodity>} />;
+            case TransactionEnum.Commodity.Character:
+              return <CharacterCard key={data.id} data={data as TransactionItem<CharacterCommodity>} />;
+            case TransactionEnum.Commodity.Coin:
+              return <CoinCard key={data.id} data={data as TransactionItem<CoinCommodity>} />;
+            default:
+              return null;
+          }
+        })}
       </BaseCarousel>
     </Flex>
   );

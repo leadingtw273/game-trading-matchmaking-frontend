@@ -1,8 +1,7 @@
 import { AppearanceConst, TransactionConst } from "@/consts";
 import { TransactionEnum } from "@/enums";
-import { TransactionItem } from "@/types";
+import { AppearanceCommodity, TransactionItem } from "@/types";
 import { getOptionsLabel } from "@/utils";
-import { AppearanceCommodity } from "@/views/Market/Appearance";
 import { Col, Flex, Row, Tag } from "antd";
 
 import "./style.scss";

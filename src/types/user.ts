@@ -6,6 +6,7 @@ export type ContactInfo = {
 };
 
 export type UserInfo = {
+  avatarUrl: string;
   nickname: string;
   gameId: string;
   contacts: ContactInfo[];

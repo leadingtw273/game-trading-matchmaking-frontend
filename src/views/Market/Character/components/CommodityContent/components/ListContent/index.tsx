@@ -1,8 +1,7 @@
 import { Divider, Flex, Tag } from "antd";
 import dayjs from "dayjs";
-import { TransactionItem } from "@/types";
+import { CharacterCommodity, TransactionItem } from "@/types";
 import { CharacterEnum, TransactionEnum } from "@/enums";
-import { CharacterCommodity } from "@/views/Market/Character";
 
 import "./style.scss";
 import { CharacterConst, ContactInfoConst, CurrencyConst } from "@/consts";

@@ -5,78 +5,55 @@
   &_title {
     color: #6d5833;
 
-    font-family: Noto Sans TC;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.33;
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1;
   }
 
-  &_type-action {
-    padding: 0 15px;
+  &_action-type {
+    width: 80px;
+    height: 40px;
 
-    .ant-btn {
-      position: relative;
-      z-index: 1;
+    color: rgba($color: #6d5833, $alpha: 0.5);
 
-      width: 80px;
-      height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
 
-      color: rgba(109, 88, 51, 0.5);
+    background: url("@/assets/commodity-carousel_button.svg");
 
-      font-family: Noto Sans TC;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.5;
+    border: none;
 
-      background:
-        linear-gradient(0, rgba(226, 212, 187, 0.25), rgba(226, 212, 187, 0.25)),
-        linear-gradient(0, rgba(226, 212, 187, 0.25), rgba(226, 212, 187, 0.25)),
-        linear-gradient(-45deg, rgb(226 212 187) 2.5px, transparent 0) bottom right,
-        linear-gradient(45deg, rgb(226 212 187) 2.5px, transparent 0) bottom left,
-        linear-gradient(135deg, rgb(226 212 187) 2.5px, transparent 0) top left,
-        linear-gradient(-135deg, rgb(226 212 187) 2.5px, transparent 0) top right,
-        url("@/assets/btn-1.png");
-      border-color: rgb(226 212 187);
+    &:not(:disabled):not(.ant-btn-disabled) {
+      &:hover,
+      &:active {
+        color: rgba($color: #6d5833, $alpha: 0.5);
 
-      clip-path: polygon(
-        4px 0,
-        calc(100% - 4px) 0,
-        100% 4px,
-        100% calc(100% - 4px),
-        calc(100% - 4px) 100%,
-        4px 100%,
-        0 calc(100% - 4px),
-        0 4px
-      );
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 0;
-      border-style: solid;
-      border-width: 1px;
+        background: url("@/assets/commodity-carousel_button.svg");
 
-      transition: none;
+        border: none;
+      }
+    }
+
+    &.active {
+      color: #ffffff;
+
+      background: url("@/assets/commodity-carousel_button-active.svg");
 
       &:not(:disabled):not(.ant-btn-disabled) {
         &:hover,
         &:active {
-          color: #fff;
-          z-index: 1;
+          color: #ffffff;
 
-          background:
-            linear-gradient(0, rgba(109, 88, 51, 0.5), rgba(109, 88, 51, 0.5)),
-            linear-gradient(-45deg, rgb(181, 172, 153) 2.5px, transparent 0) bottom right,
-            linear-gradient(45deg, rgb(181, 172, 153) 2.5px, transparent 0) bottom left,
-            linear-gradient(135deg, rgb(181, 172, 153) 2.5px, transparent 0) top left,
-            linear-gradient(-135deg, rgb(181, 172, 153) 2.5px, transparent 0) top right,
-            url("@/assets/btn-1.png");
-          border-color: rgb(145 130 102);
-          background-size: cover;
+          background: url("@/assets/commodity-carousel_button-active.svg");
+
+          border: none;
         }
       }
     }
   }
 
-  &_more-action {
+  &_action-more {
     display: flex;
     align-items: center;
 

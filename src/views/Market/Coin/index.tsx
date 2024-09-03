@@ -3,17 +3,12 @@ import SideForm from "./components/SideForm";
 import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum } from "@/enums";
 import { StockType } from "./components/SideForm/enum";
-import { CurrencyRatio, CommodityItem, TransactionItem } from "@/types";
+import { CoinCommodity, TransactionItem } from "@/types";
 import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
-import coinCommodityList from "./mocks/CoinCommodity";
+import coinCommodityList from "@/mocks/CoinCommodity";
 import ModalContent from "./components/ModalContent";
-
-export type CoinCommodity = CommodityItem<{
-  coinRatio: CurrencyRatio;
-  amount: number;
-  transMinLimit: number;
-}>;
+import { useLocation } from "react-router-dom";
 
 type FormValues = {
   sellCurrency: {
@@ -26,13 +21,14 @@ type FormValues = {
 
 Component.displayName = "MarketCoin";
 export function Component() {
+  const { state } = useLocation() as { state?: { transactionType?: TransactionEnum.Type } };
   const [clickItemData, setClickItemData] = useState<TransactionItem<CoinCommodity> | null>(null);
   const [dataList, setDataList] = useState<TransactionItem<CoinCommodity>[]>([]);
 
   useEffect(() => {
-    const list = requestList<TransactionItem<CoinCommodity>[]>(TransactionEnum.Type.SALE);
+    const list = requestList<TransactionItem<CoinCommodity>[]>(state?.transactionType ?? TransactionEnum.Type.SALE);
     setDataList(list);
-  }, []);
+  }, [state?.transactionType]);
 
   const requestList = <Response,>(transactionType: TransactionEnum.Type): Response => {
     // TODO: fetch data from server
@@ -58,7 +54,7 @@ export function Component() {
   return (
     <>
       <TransactionTable<FormValues, CoinCommodity>
-        defaultTransactionType={TransactionEnum.Type.SALE}
+        defaultTransactionType={state?.transactionType ?? TransactionEnum.Type.SALE}
         dataSource={dataList}
         renderForm={() => <SideForm />}
         renderCardContent={(type, mode, item) =>

@@ -1,7 +1,6 @@
 import { CharacterConst, TransactionConst } from "@/consts";
-import { TransactionItem } from "@/types";
+import { CharacterCommodity, TransactionItem } from "@/types";
 import { getOptionsLabel } from "@/utils";
-import { CharacterCommodity } from "@/views/Market/Character";
 import { Col, Flex, Row, Tag } from "antd";
 
 import "./style.scss";

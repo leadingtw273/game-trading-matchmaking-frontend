@@ -1,0 +1,69 @@
+.character-card {
+  position: relative;
+  z-index: 0;
+
+  width: 250px !important;
+  height: 300px;
+
+  background-color: $color-background-white;
+
+  mask:
+    radial-gradient(circle 15px at top left, #0000 98%, #000) top left,
+    radial-gradient(circle 15px at top right, #0000 98%, #000) top right,
+    radial-gradient(circle 15px at bottom left, #0000 98%, #000) bottom left,
+    radial-gradient(circle 15px at bottom right, #0000 98%, #000) bottom right;
+  mask-size: 51% 51%;
+  mask-repeat: no-repeat;
+
+  &_wrapper {
+    position: relative;
+    filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.1));
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      height: 96%;
+      width: 96%;
+
+      box-sizing: border-box;
+      border: 1px solid $colorPrimary;
+    }
+  }
+
+  &_image {
+    background-color: #d9d9d9;
+
+    object-fit: cover;
+  }
+
+  &_content {
+    padding: 8px 20px 12px;
+  }
+
+  &_title {
+    color: rgba(0, 0, 0, 0.88);
+
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  &_sub-title,
+  &_posted-by {
+    color: rgba(0, 0, 0, 0.6);
+
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  &_prize {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
+
+    color: #ffc700;
+  }
+}

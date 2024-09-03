@@ -37,8 +37,18 @@ interface IBaseCarouselProps extends CarouselProps {
 export default function BaseCarousel(props: IBaseCarouselProps) {
   const { children } = props;
 
+  const settings = {
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    variableWidth: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
+
   return (
-    <Carousel className="base-carousel" nextArrow={<SlickArrowNext />} prevArrow={<SlickArrowPrev />} {...props}>
+    <Carousel className="base-carousel" nextArrow={<SlickArrowNext />} prevArrow={<SlickArrowPrev />} {...settings}>
       {children}
     </Carousel>
   );

@@ -1,8 +1,7 @@
 import { Col, Flex, Row, Tag, Tooltip } from "antd";
-import { TransactionItem } from "@/types";
+import { CoinCommodity, TransactionItem } from "@/types";
 import CoinImage from "@/assets/icon/coin.svg";
 import { TransactionEnum } from "@/enums";
-import { CoinCommodity } from "@/views/Market/Coin";
 
 import "./style.scss";
 import { getOptionsLabel } from "@/utils";

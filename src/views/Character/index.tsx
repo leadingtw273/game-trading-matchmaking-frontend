@@ -2,8 +2,7 @@ import { Avatar, Breadcrumb, Divider, Flex, Image, Tag } from "antd";
 import { useLocation, useParams } from "react-router-dom";
 
 import "./style.scss";
-import { IdType, TransactionItem } from "@/types";
-import { CharacterCommodity } from "../Market/Character";
+import { CharacterCommodity, IdType, TransactionItem } from "@/types";
 import { useCallback, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { CharacterConst, ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";

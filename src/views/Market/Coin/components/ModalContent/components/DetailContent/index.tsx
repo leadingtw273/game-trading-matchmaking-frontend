@@ -1,8 +1,7 @@
 import { CurrencyConst, TransactionConst } from "@/consts";
 import { TransactionEnum } from "@/enums";
-import { TransactionItem } from "@/types";
+import { CoinCommodity, TransactionItem } from "@/types";
 import { getOptionsLabel } from "@/utils";
-import { CoinCommodity } from "@/views/Market/Coin";
 import { Col, Flex, Row, Tag } from "antd";
 
 import "./style.scss";
