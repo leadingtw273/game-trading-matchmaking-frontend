@@ -1,3 +1,26 @@
+# [1.11.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.10.2...v1.11.0) (2024-09-16)
+
+
+### ✨ Features
+
+* 完成首頁前端邏輯 (by @mike) ([40211ee](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/40211ee979a76a5a81a08a4021d092d45ce1d9bf))
+* 調整用戶頭像假資料 (by @mike) ([8621798](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/862179863b1f93fa940397c821fc54bd41898e5d))
+
+
+### 🐞 Bug Fixes
+
+* 修正販售角色卡片高度彈跳問題& (by @mike) ([f68f651](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/f68f651cb85efc13e1285d918df8b1431c70d132))
+
+
+### 🔧 Chores
+
+* 配置 import 順序 eslint rule (by @mike) ([7858aea](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/7858aeadd1bd258c77c82b37c293f7fadf84accc))
+
+
+### 🦄 Code Refactoring
+
+* 調整最新收售卡片邏輯套用假資料 (by @mike) ([12761f3](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/12761f3b9a440f0701673ffa51930e519b9b781e))
+
 ## [1.10.2](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.10.1...v1.10.2) (2024-08-26)
 
 
