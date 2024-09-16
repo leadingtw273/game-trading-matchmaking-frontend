@@ -1,11 +1,12 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Form, Input, Select, Space } from "antd";
+
 import { SelectTag } from "@/components/BaseField";
+import { CurrencyConst } from "@/consts";
 import { CurrencyEnum, TransactionEnum } from "@/enums";
 
 import { StockType } from "./enum";
-import { CurrencyConst } from "@/consts";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 type LocationState = {
   currency: CurrencyEnum.Type;

@@ -1,7 +1,8 @@
+import { Col, Flex, Row, Tag } from "antd";
+
 import { CharacterConst, TransactionConst } from "@/consts";
 import { CharacterCommodity, TransactionItem } from "@/types";
 import { getOptionsLabel } from "@/utils";
-import { Col, Flex, Row, Tag } from "antd";
 
 import "./style.scss";
 

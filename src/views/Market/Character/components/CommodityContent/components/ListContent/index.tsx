@@ -1,13 +1,14 @@
-import { Divider, Flex, Tag } from "antd";
 import dayjs from "dayjs";
-import { CharacterCommodity, TransactionItem } from "@/types";
+import { Divider, Flex, Tag } from "antd";
+
+import InnerSkillTag from "@/components/InnerSkillTag";
+import { CharacterConst, ContactInfoConst, CurrencyConst } from "@/consts";
+import { getInnerSkillOptions } from "@/consts/Character";
 import { CharacterEnum, TransactionEnum } from "@/enums";
+import { CharacterCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
 
 import "./style.scss";
-import { CharacterConst, ContactInfoConst, CurrencyConst } from "@/consts";
-import { getOptionsLabel } from "@/utils";
-import { getInnerSkillOptions } from "@/consts/Character";
-import InnerSkillTag from "@/components/InnerSkillTag";
 
 type CommodityContentProps = {
   transactionType: TransactionEnum.Type;

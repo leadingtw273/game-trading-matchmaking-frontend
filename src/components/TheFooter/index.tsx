@@ -1,6 +1,7 @@
-import { Button } from "antd";
-import "./style.scss";
 import { Link } from "react-router-dom";
+import { Button } from "antd";
+
+import "./style.scss";
 
 export default function TheFooter() {
   return (

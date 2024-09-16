@@ -1,6 +1,5 @@
 import { Col, Flex, Row, Tag, Tooltip } from "antd";
-import { AppearanceCommodity, TransactionItem } from "@/types";
-import { AppearanceEnum, TransactionEnum } from "@/enums";
+
 import CoatImage from "@/assets/icon/appearance/coat.svg";
 import GiftBoxImage from "@/assets/icon/appearance/giftBox.svg";
 import HairImage from "@/assets/icon/appearance/hair.svg";
@@ -8,10 +7,12 @@ import HangingPetImage from "@/assets/icon/appearance/hangingPet.svg";
 import HarnessImage from "@/assets/icon/appearance/harness.svg";
 import MountImage from "@/assets/icon/appearance/mount.svg";
 import OtherImage from "@/assets/icon/appearance/other.svg";
+import { AppearanceConst, CurrencyConst, TransactionConst } from "@/consts";
+import { AppearanceEnum, TransactionEnum } from "@/enums";
+import { AppearanceCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
 
 import "./style.scss";
-import { AppearanceConst, CurrencyConst, TransactionConst } from "@/consts";
-import { getOptionsLabel } from "@/utils";
 
 type GridContentProps = {
   transactionType: TransactionEnum.Type;

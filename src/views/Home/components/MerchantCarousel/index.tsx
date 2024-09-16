@@ -1,8 +1,11 @@
 import { useState } from "react";
-import BaseCarousel from "@/components/BaseCarousel";
-import ItemCard from "./MerchantCard";
-import "./style.scss";
 import { Button, Flex } from "antd";
+
+import BaseCarousel from "@/components/BaseCarousel";
+
+import ItemCard from "./MerchantCard";
+
+import "./style.scss";
 
 interface IMerchantCarouselProps {
   title: string;

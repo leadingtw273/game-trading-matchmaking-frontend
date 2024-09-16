@@ -1,9 +1,10 @@
-import { Form, Input, Select, Space } from "antd";
-import { SelectTag } from "@/components/BaseField";
-import { CurrencyEnum, TransactionEnum, AppearanceEnum } from "@/enums";
-import { AppearanceConst, CurrencyConst } from "@/consts";
-import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Form, Input, Select, Space } from "antd";
+
+import { SelectTag } from "@/components/BaseField";
+import { AppearanceConst, CurrencyConst } from "@/consts";
+import { AppearanceEnum, CurrencyEnum, TransactionEnum } from "@/enums";
 
 type LocationState = {
   type: AppearanceEnum.Type;

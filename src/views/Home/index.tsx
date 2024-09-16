@@ -1,10 +1,13 @@
 import { Flex } from "antd";
+
 import logo from "@/assets/logo.png";
-import SearchCard from "./components/SearchCard";
+import { TransactionEnum } from "@/enums";
+
 import CommodityCarousel from "./components/CommodityCarousel";
+import SearchCard from "./components/SearchCard";
+
 // import MerchantCarousel from "./components/MerchantCarousel";
 import "./style.scss";
-import { TransactionEnum } from "@/enums";
 
 Component.displayName = "Home";
 export function Component() {

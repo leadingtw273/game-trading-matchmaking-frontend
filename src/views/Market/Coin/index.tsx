@@ -1,13 +1,15 @@
-import SideForm from "./components/SideForm";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+import CoinCommodityModal from "@/components/Modal/CoinCommodityModal";
 import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum } from "@/enums";
-import { StockType } from "./components/SideForm/enum";
-import { CoinCommodity, TransactionItem } from "@/types";
-import CommodityContent from "./components/CommodityContent";
-import { useEffect, useState } from "react";
 import coinCommodityList from "@/mocks/CoinCommodity";
-import { useLocation } from "react-router-dom";
-import CoinCommodityModal from "@/components/Modal/CoinCommodityModal";
+import { CoinCommodity, TransactionItem } from "@/types";
+
+import CommodityContent from "./components/CommodityContent";
+import SideForm from "./components/SideForm";
+import { StockType } from "./components/SideForm/enum";
 
 type FormValues = {
   sellCurrency: {

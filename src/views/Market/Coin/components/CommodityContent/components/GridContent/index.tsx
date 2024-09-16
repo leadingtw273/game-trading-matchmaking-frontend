@@ -1,11 +1,12 @@
 import { Col, Flex, Row, Tag, Tooltip } from "antd";
-import { CoinCommodity, TransactionItem } from "@/types";
+
 import CoinImage from "@/assets/icon/coin.svg";
+import { CurrencyConst, TransactionConst } from "@/consts";
 import { TransactionEnum } from "@/enums";
+import { CoinCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
 
 import "./style.scss";
-import { getOptionsLabel } from "@/utils";
-import { CurrencyConst, TransactionConst } from "@/consts";
 
 type GridContentProps = {
   transactionType: TransactionEnum.Type;

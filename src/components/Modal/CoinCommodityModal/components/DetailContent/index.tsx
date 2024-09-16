@@ -1,8 +1,9 @@
+import { Col, Flex, Row, Tag } from "antd";
+
 import { CurrencyConst, TransactionConst } from "@/consts";
 import { TransactionEnum } from "@/enums";
 import { CoinCommodity, TransactionItem } from "@/types";
 import { getOptionsLabel } from "@/utils";
-import { Col, Flex, Row, Tag } from "antd";
 
 import "./style.scss";
 

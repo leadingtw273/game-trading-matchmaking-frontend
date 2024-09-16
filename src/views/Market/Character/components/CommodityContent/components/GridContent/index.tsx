@@ -1,11 +1,12 @@
 import { Col, Divider, Flex, Row, Tag } from "antd";
-import { CharacterCommodity, TransactionItem } from "@/types";
+
+import InnerSkillTag from "@/components/InnerSkillTag";
+import { CharacterConst, CurrencyConst } from "@/consts";
 import { TransactionEnum } from "@/enums";
+import { CharacterCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
 
 import "./style.scss";
-import { CurrencyConst, CharacterConst } from "@/consts";
-import { getOptionsLabel } from "@/utils";
-import InnerSkillTag from "@/components/InnerSkillTag";
 
 type GridContentProps = {
   transactionType: TransactionEnum.Type;

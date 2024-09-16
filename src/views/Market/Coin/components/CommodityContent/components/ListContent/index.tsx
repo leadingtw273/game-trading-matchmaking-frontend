@@ -1,12 +1,13 @@
-import { Col, Flex, Row, Tag } from "antd";
 import dayjs from "dayjs";
-import { CoinCommodity, TransactionItem } from "@/types";
+import { Col, Flex, Row, Tag } from "antd";
+
 import CoinImage from "@/assets/icon/coin.svg";
+import { ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
 import { TransactionEnum } from "@/enums";
+import { CoinCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
 
 import "./style.scss";
-import { getOptionsLabel } from "@/utils";
-import { ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
 
 type CommodityContentProps = {
   transactionType: TransactionEnum.Type;

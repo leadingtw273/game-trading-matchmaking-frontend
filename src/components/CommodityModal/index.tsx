@@ -1,18 +1,18 @@
+import dayjs from "dayjs";
 import { Avatar, Flex, Modal } from "antd";
-
-import "./style.scss";
 import { UserOutlined } from "@ant-design/icons";
 
-import UserIcon from "@/assets/icon/user.svg";
-import DiscordIcon from "@/assets/icon/discord.svg";
-import LineIcon from "@/assets/icon/line.svg";
-import FacebookIcon from "@/assets/icon/facebook.svg";
 import MarketModalDivider from "@/assets/decorate/market-modal_divider.svg";
-import { CommodityItem, TransactionItem } from "@/types";
-import dayjs from "dayjs";
-import { ContactInfoEnum } from "@/enums";
-import { getOptionsLabel } from "@/utils";
+import DiscordIcon from "@/assets/icon/discord.svg";
+import FacebookIcon from "@/assets/icon/facebook.svg";
+import LineIcon from "@/assets/icon/line.svg";
+import UserIcon from "@/assets/icon/user.svg";
 import { ContactInfoConst } from "@/consts";
+import { ContactInfoEnum } from "@/enums";
+import { CommodityItem, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
+
+import "./style.scss";
 
 type CommodityModalProps = {
   show: boolean;

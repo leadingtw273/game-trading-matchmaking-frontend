@@ -1,9 +1,10 @@
 import { Flex } from "antd";
+
 import CoinIcon from "@/assets/icon/coin.svg";
-import { CoinCommodity, TransactionItem } from "@/types";
-import { TransactionEnum } from "@/enums";
-import { getOptionsLabel } from "@/utils";
 import { CurrencyConst } from "@/consts";
+import { TransactionEnum } from "@/enums";
+import { CoinCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
 
 import "./style.scss";
 

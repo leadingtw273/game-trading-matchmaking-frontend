@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
+import { Button, Col, Form, Input, message, Row, Select } from "antd";
+
 import { AppearanceConst } from "@/consts";
 import { AppearanceEnum } from "@/enums";
-import { Button, Col, Form, Input, message, Row, Select } from "antd";
-import { useNavigate } from "react-router-dom";
 
 type FormValues = {
   type: AppearanceEnum.Type;

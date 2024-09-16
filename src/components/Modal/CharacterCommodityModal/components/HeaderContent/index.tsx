@@ -1,8 +1,9 @@
 import { Flex } from "antd";
+
 import InnerSkillTag from "@/components/InnerSkillTag";
+import { CurrencyConst } from "@/consts";
 import { CharacterCommodity, TransactionItem } from "@/types";
 import { getOptionsLabel } from "@/utils";
-import { CurrencyConst } from "@/consts";
 
 import "./style.scss";
 

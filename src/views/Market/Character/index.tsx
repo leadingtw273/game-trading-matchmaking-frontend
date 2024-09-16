@@ -1,12 +1,14 @@
-import SideForm from "./components/SideForm";
-import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
-import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum, CharacterEnum } from "@/enums";
-import { CharacterCommodity, TransactionItem } from "@/types";
-import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
-import characterCommodityList from "@/mocks/CharacterCommodity";
 import { useLocation, useNavigate } from "react-router-dom";
+
 import CharacterCommodityModal from "@/components/Modal/CharacterCommodityModal";
+import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
+import { CharacterEnum, CurrencyEnum, TableDisplayModeEnum, TransactionEnum } from "@/enums";
+import characterCommodityList from "@/mocks/CharacterCommodity";
+import { CharacterCommodity, TransactionItem } from "@/types";
+
+import CommodityContent from "./components/CommodityContent";
+import SideForm from "./components/SideForm";
 
 type FormValues = {
   sect: CharacterEnum.SectType | null;

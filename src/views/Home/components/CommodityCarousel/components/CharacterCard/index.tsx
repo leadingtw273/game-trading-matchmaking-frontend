@@ -1,13 +1,15 @@
-import "./style.scss";
-import { Flex, Image } from "antd";
-import ImageEmpty from "@/assets/image_empty.svg";
-import { CharacterCommodity, TransactionItem } from "@/types";
-import { TransactionEnum } from "@/enums";
-import { CurrencyConst } from "@/consts";
-import { getOptionsLabel } from "@/utils";
 import { useState } from "react";
-import CharacterCommodityModal from "@/components/Modal/CharacterCommodityModal";
 import { useNavigate } from "react-router-dom";
+import { Flex, Image } from "antd";
+
+import ImageEmpty from "@/assets/image_empty.svg";
+import CharacterCommodityModal from "@/components/Modal/CharacterCommodityModal";
+import { CurrencyConst } from "@/consts";
+import { TransactionEnum } from "@/enums";
+import { CharacterCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
+
+import "./style.scss";
 
 interface ICharacterCardProps {
   data: TransactionItem<CharacterCommodity>;

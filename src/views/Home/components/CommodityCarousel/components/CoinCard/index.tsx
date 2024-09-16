@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { Flex, Image } from "antd";
-import "./style.scss";
-import { CoinCommodity, TransactionItem } from "@/types";
-import { getOptionsLabel } from "@/utils";
+
 import AvatarEmpty from "@/assets/avatar_empty.svg";
+import CoinCommodityModal from "@/components/Modal/CoinCommodityModal";
 import { CurrencyConst } from "@/consts";
 import { TransactionEnum } from "@/enums";
-import CoinCommodityModal from "@/components/Modal/CoinCommodityModal";
-import { useState } from "react";
+import { CoinCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
+
+import "./style.scss";
 
 interface ICoinCardProps {
   data: TransactionItem<CoinCommodity>;

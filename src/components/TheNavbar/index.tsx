@@ -1,7 +1,9 @@
-import logo from "@/assets/logo.png";
-import { Button, Input } from "antd";
-import "./style.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Button, Input } from "antd";
+
+import logo from "@/assets/logo.png";
+
+import "./style.scss";
 
 export default function TheNavbar() {
   const navigate = useNavigate();

@@ -1,12 +1,14 @@
-import SideForm from "./components/SideForm";
-import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
-import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum, AppearanceEnum } from "@/enums";
-import { AppearanceCommodity, TransactionItem } from "@/types";
-import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
-import appearanceCommodityList from "@/mocks/AppearanceCommodity";
 import { useLocation } from "react-router-dom";
+
 import AppearanceCommodityModal from "@/components/Modal/AppearanceCommodityModal";
+import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
+import { AppearanceEnum, CurrencyEnum, TableDisplayModeEnum, TransactionEnum } from "@/enums";
+import appearanceCommodityList from "@/mocks/AppearanceCommodity";
+import { AppearanceCommodity, TransactionItem } from "@/types";
+
+import CommodityContent from "./components/CommodityContent";
+import SideForm from "./components/SideForm";
 
 type FormValues = {
   type: AppearanceEnum.Type;

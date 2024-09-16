@@ -1,7 +1,8 @@
 import { Tabs } from "antd";
-import FormCoin from "./components/FormCoin";
+
 import FormAppearance from "./components/FormAppearance";
 import FormCharacter from "./components/FormCharacter";
+import FormCoin from "./components/FormCoin";
 
 import "./style.scss";
 

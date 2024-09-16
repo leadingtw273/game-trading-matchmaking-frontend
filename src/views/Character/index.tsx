@@ -1,20 +1,20 @@
-import { Avatar, Breadcrumb, Divider, Flex, Image, Tag } from "antd";
-import { useLocation, useParams } from "react-router-dom";
-
-import "./style.scss";
-import { CharacterCommodity, IdType, TransactionItem } from "@/types";
-import { useCallback, useEffect, useState } from "react";
 import dayjs from "dayjs";
-import { CharacterConst, ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
-import { getOptionsLabel } from "@/utils";
+import { useCallback, useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import { Avatar, Breadcrumb, Divider, Flex, Image, Tag } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
+import DiscordIcon from "@/assets/icon/discord.svg";
+import FacebookIcon from "@/assets/icon/facebook.svg";
+import LineIcon from "@/assets/icon/line.svg";
 import TransactionIcon from "@/assets/icon/transaction.svg";
 import UserIcon from "@/assets/icon/user.svg";
-import DiscordIcon from "@/assets/icon/discord.svg";
-import LineIcon from "@/assets/icon/line.svg";
-import FacebookIcon from "@/assets/icon/facebook.svg";
+import { CharacterConst, ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
 import { ContactInfoEnum } from "@/enums";
-import { UserOutlined } from "@ant-design/icons";
+import { CharacterCommodity, IdType, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
+
+import "./style.scss";
 
 Component.displayName = "Character";
 export function Component() {

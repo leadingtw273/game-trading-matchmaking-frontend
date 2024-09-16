@@ -1,7 +1,6 @@
-import { Col, Flex, Row, Tag } from "antd";
 import dayjs from "dayjs";
-import { AppearanceCommodity, TransactionItem } from "@/types";
-import { AppearanceEnum, TransactionEnum } from "@/enums";
+import { Col, Flex, Row, Tag } from "antd";
+
 import CoatImage from "@/assets/icon/appearance/coat.svg";
 import GiftBoxImage from "@/assets/icon/appearance/giftBox.svg";
 import HairImage from "@/assets/icon/appearance/hair.svg";
@@ -9,10 +8,12 @@ import HangingPetImage from "@/assets/icon/appearance/hangingPet.svg";
 import HarnessImage from "@/assets/icon/appearance/harness.svg";
 import MountImage from "@/assets/icon/appearance/mount.svg";
 import OtherImage from "@/assets/icon/appearance/other.svg";
+import { AppearanceConst, ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
+import { AppearanceEnum, TransactionEnum } from "@/enums";
+import { AppearanceCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
 
 import "./style.scss";
-import { AppearanceConst, ContactInfoConst, CurrencyConst, TransactionConst } from "@/consts";
-import { getOptionsLabel } from "@/utils";
 
 type CommodityContentProps = {
   transactionType: TransactionEnum.Type;

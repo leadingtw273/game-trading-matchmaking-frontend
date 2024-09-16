@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
+import { Button, Col, Form, Input, message, Row, Select } from "antd";
+
 import { CurrencyConst } from "@/consts";
 import { CurrencyEnum } from "@/enums";
-import { Button, Col, Form, Input, message, Row, Select } from "antd";
-import { useNavigate } from "react-router-dom";
 
 type FormValues = {
   currency: CurrencyEnum.Type;

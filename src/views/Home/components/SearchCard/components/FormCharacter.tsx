@@ -1,8 +1,9 @@
-import { CharacterConst } from "@/consts";
-import { CharacterEnum } from "@/enums";
-import { Button, Col, Form, message, Row, Select } from "antd";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, Col, Form, message, Row, Select } from "antd";
+
+import { CharacterConst } from "@/consts";
+import { CharacterEnum } from "@/enums";
 
 type FormValues = {
   sect: CharacterEnum.SectType;

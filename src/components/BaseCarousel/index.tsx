@@ -1,5 +1,7 @@
 import { Button, ButtonProps, Carousel, CarouselProps } from "antd";
+
 import chevron from "@/assets/chevron.svg";
+
 import "./style.scss";
 
 interface ICustomArrowProps extends ButtonProps {

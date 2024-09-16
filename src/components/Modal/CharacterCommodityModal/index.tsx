@@ -1,7 +1,8 @@
 import CommodityModal from "@/components/CommodityModal";
 import { CharacterCommodity, CommodityItem, TransactionItem } from "@/types";
-import HeaderContent from "./components/HeaderContent";
+
 import DetailContent from "./components/DetailContent";
+import HeaderContent from "./components/HeaderContent";
 
 type CharacterCommodityModalProps = {
   show: boolean;

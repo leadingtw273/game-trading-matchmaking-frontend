@@ -1,12 +1,14 @@
-import "./style.scss";
-import { AppearanceCommodity, TransactionItem } from "@/types";
+import { useState } from "react";
 import { Flex, Image } from "antd";
+
 import AvatarEmpty from "@/assets/avatar_empty.svg";
-import { getOptionsLabel } from "@/utils";
+import AppearanceCommodityModal from "@/components/Modal/AppearanceCommodityModal";
 import { AppearanceConst, CurrencyConst } from "@/consts";
 import { TransactionEnum } from "@/enums";
-import AppearanceCommodityModal from "@/components/Modal/AppearanceCommodityModal";
-import { useState } from "react";
+import { AppearanceCommodity, TransactionItem } from "@/types";
+import { getOptionsLabel } from "@/utils";
+
+import "./style.scss";
 
 interface IAppearanceCardProps {
   data: TransactionItem<AppearanceCommodity>;

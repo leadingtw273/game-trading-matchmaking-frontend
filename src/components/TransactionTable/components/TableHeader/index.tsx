@@ -1,5 +1,5 @@
-import { AppstoreFilled, MenuOutlined } from "@ant-design/icons";
 import { Flex, Radio, Select } from "antd";
+import { AppstoreFilled, MenuOutlined } from "@ant-design/icons";
 
 import { TableDisplayModeEnum, TableSortTypeEnum } from "@/enums";
 
