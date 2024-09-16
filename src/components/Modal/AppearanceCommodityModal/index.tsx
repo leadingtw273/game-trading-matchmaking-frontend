@@ -1,0 +1,23 @@
+import CommodityModal from "@/components/CommodityModal";
+import { AppearanceCommodity, CommodityItem, TransactionItem } from "@/types";
+import HeaderContent from "./components/HeaderContent";
+import DetailContent from "./components/DetailContent";
+
+type AppearanceCommodityModalProps = {
+  show: boolean;
+  item: TransactionItem<CommodityItem<unknown>> | null;
+  onClose: () => void;
+};
+export default function AppearanceCommodityModal(props: AppearanceCommodityModalProps) {
+  const { show, item, onClose } = props;
+
+  return (
+    <CommodityModal
+      show={show}
+      item={item}
+      renderHeader={(item) => <HeaderContent item={item as TransactionItem<AppearanceCommodity>} />}
+      renderDetail={(item) => <DetailContent item={item as TransactionItem<AppearanceCommodity>} />}
+      onClose={onClose}
+    />
+  );
+}

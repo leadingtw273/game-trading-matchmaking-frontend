@@ -1,10 +1,10 @@
 import { Flex } from "antd";
+import InnerSkillTag from "@/components/InnerSkillTag";
 import { CharacterCommodity, TransactionItem } from "@/types";
 import { getOptionsLabel } from "@/utils";
 import { CurrencyConst } from "@/consts";
 
 import "./style.scss";
-import InnerSkillTag from "../../../CommodityContent/components/InnerSkillTag";
 
 type HeaderContentProps = {
   item: TransactionItem<CharacterCommodity>;

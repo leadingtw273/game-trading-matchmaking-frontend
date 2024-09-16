@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BaseCarousel from "@/components/BaseCarousel";
 import { Button, Flex } from "antd";
@@ -12,6 +12,8 @@ import CoinCard from "./components/CoinCard";
 
 import "./style.scss";
 import { AppearanceCommodity, CharacterCommodity, CoinCommodity, CommodityItem, TransactionItem } from "@/types";
+
+type Response = TransactionItem<CommodityItem<CoinCommodity | AppearanceCommodity | CharacterCommodity>>[];
 
 interface ICommodityCarouselProps {
   transactionType: TransactionEnum.Type;
@@ -35,10 +37,12 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
     [TransactionEnum.Commodity.Coin]: "金幣",
   };
 
-  const requestList = <Response,>(
-    transactionType: TransactionEnum.Type,
-    commodityType: TransactionEnum.Commodity
-  ): Response => {
+  useEffect(() => {
+    const result = requestList(transactionType, commodityType);
+    setDataList(result);
+  }, [commodityType, transactionType]);
+
+  const requestList = (transactionType: TransactionEnum.Type, commodityType: TransactionEnum.Commodity): Response => {
     // TODO: fetch data from server
     switch (commodityType) {
       case TransactionEnum.Commodity.Appearance:
@@ -58,9 +62,7 @@ export default function CommodityCarousel(props: ICommodityCarouselProps) {
 
   const handleClickCommodityType = (type: TransactionEnum.Commodity) => {
     setCommodityType(type);
-    const result = requestList<
-      TransactionItem<CommodityItem<CoinCommodity | AppearanceCommodity | CharacterCommodity>>[]
-    >(transactionType, type);
+    const result = requestList(transactionType, type);
     setDataList(result);
   };
 

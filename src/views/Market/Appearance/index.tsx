@@ -1,4 +1,3 @@
-import CommodityCard from "@/components/CommodityModal";
 import SideForm from "./components/SideForm";
 import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum, AppearanceEnum } from "@/enums";
@@ -6,8 +5,8 @@ import { AppearanceCommodity, TransactionItem } from "@/types";
 import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
 import appearanceCommodityList from "@/mocks/AppearanceCommodity";
-import ModalContent from "./components/ModalContent";
 import { useLocation } from "react-router-dom";
+import AppearanceCommodityModal from "@/components/Modal/AppearanceCommodityModal";
 
 type FormValues = {
   type: AppearanceEnum.Type;
@@ -69,13 +68,7 @@ export function Component() {
         onSearch={handleSearch}
         onClickItem={handleClickItem}
       />
-      <CommodityCard
-        show={clickItemData != null}
-        item={clickItemData}
-        renderHeader={(item) => <ModalContent.Header item={item as TransactionItem<AppearanceCommodity>} />}
-        renderDetail={(item) => <ModalContent.Detail item={item as TransactionItem<AppearanceCommodity>} />}
-        onClose={handleCloseCommodityModal}
-      />
+      <AppearanceCommodityModal show={clickItemData != null} item={clickItemData} onClose={handleCloseCommodityModal} />
     </>
   );
 }

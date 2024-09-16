@@ -1,4 +1,3 @@
-import CommodityCard from "@/components/CommodityModal";
 import SideForm from "./components/SideForm";
 import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum } from "@/enums";
@@ -7,8 +6,8 @@ import { CoinCommodity, TransactionItem } from "@/types";
 import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
 import coinCommodityList from "@/mocks/CoinCommodity";
-import ModalContent from "./components/ModalContent";
 import { useLocation } from "react-router-dom";
+import CoinCommodityModal from "@/components/Modal/CoinCommodityModal";
 
 type FormValues = {
   sellCurrency: {
@@ -67,13 +66,7 @@ export function Component() {
         onSearch={handleSearch}
         onClickItem={handleClickItem}
       />
-      <CommodityCard
-        show={clickItemData != null}
-        item={clickItemData}
-        renderHeader={(item) => <ModalContent.Header item={item as TransactionItem<CoinCommodity>} />}
-        renderDetail={(item) => <ModalContent.Detail item={item as TransactionItem<CoinCommodity>} />}
-        onClose={handleCloseCommodityModal}
-      />
+      <CoinCommodityModal show={clickItemData != null} item={clickItemData} onClose={handleCloseCommodityModal} />
     </>
   );
 }

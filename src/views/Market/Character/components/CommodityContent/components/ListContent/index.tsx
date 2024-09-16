@@ -6,8 +6,8 @@ import { CharacterEnum, TransactionEnum } from "@/enums";
 import "./style.scss";
 import { CharacterConst, ContactInfoConst, CurrencyConst } from "@/consts";
 import { getOptionsLabel } from "@/utils";
-import InnerSkillTag from "../InnerSkillTag";
 import { getInnerSkillOptions } from "@/consts/Character";
+import InnerSkillTag from "@/components/InnerSkillTag";
 
 type CommodityContentProps = {
   transactionType: TransactionEnum.Type;

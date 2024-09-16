@@ -1,4 +1,3 @@
-import CommodityCard from "@/components/CommodityModal";
 import SideForm from "./components/SideForm";
 import TransactionTable, { TableSubmitParams } from "@/components/TransactionTable";
 import { CurrencyEnum, TableDisplayModeEnum, TransactionEnum, CharacterEnum } from "@/enums";
@@ -6,8 +5,8 @@ import { CharacterCommodity, TransactionItem } from "@/types";
 import CommodityContent from "./components/CommodityContent";
 import { useEffect, useState } from "react";
 import characterCommodityList from "@/mocks/CharacterCommodity";
-import ModalContent from "../Character/components/ModalContent";
 import { useLocation, useNavigate } from "react-router-dom";
+import CharacterCommodityModal from "@/components/Modal/CharacterCommodityModal";
 
 type FormValues = {
   sect: CharacterEnum.SectType | null;
@@ -83,11 +82,9 @@ export function Component() {
         onClickItem={handleClickItem}
       />
       {clickItemData?.type === TransactionEnum.Type.PURCHASE && (
-        <CommodityCard
+        <CharacterCommodityModal
           show={clickItemData != null}
           item={clickItemData}
-          renderHeader={(item) => <ModalContent.Header item={item as TransactionItem<CharacterCommodity>} />}
-          renderDetail={(item) => <ModalContent.Detail item={item as TransactionItem<CharacterCommodity>} />}
           onClose={handleCloseCommodityModal}
         />
       )}

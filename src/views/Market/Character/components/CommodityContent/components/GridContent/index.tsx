@@ -5,7 +5,7 @@ import { TransactionEnum } from "@/enums";
 import "./style.scss";
 import { CurrencyConst, CharacterConst } from "@/consts";
 import { getOptionsLabel } from "@/utils";
-import InnerSkillTag from "../InnerSkillTag";
+import InnerSkillTag from "@/components/InnerSkillTag";
 
 type GridContentProps = {
   transactionType: TransactionEnum.Type;
