@@ -11,7 +11,7 @@
     .grid-content__image {
       margin: 1px;
 
-      height: 135px;
+      min-height: 135px;
 
       mask:
         radial-gradient(circle 11.3px at top left, #0000 100%, #000) top left,
