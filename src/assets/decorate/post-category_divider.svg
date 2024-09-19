@@ -1,0 +1,9 @@
+<svg width="136" height="16" viewBox="0 0 136 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="67.8828" y="15.0703" width="10" height="10" transform="rotate(-135 67.8828 15.0703)" fill="#E2D4BB" fill-opacity="0.75"/>
+<rect x="51.9688" y="11.0703" width="5" height="5" transform="rotate(-135 51.9688 11.0703)" fill="#E2D4BB" fill-opacity="0.75"/>
+<rect x="83.9688" y="11.0703" width="5" height="5" transform="rotate(-135 83.9688 11.0703)" fill="#E2D4BB" fill-opacity="0.75"/>
+<circle cx="43.5781" cy="8.07031" r="2" transform="rotate(-90 43.5781 8.07031)" fill="#E2D4BB" fill-opacity="0.75"/>
+<circle cx="92.4531" cy="8.07031" r="2" transform="rotate(-90 92.4531 8.07031)" fill="#E2D4BB" fill-opacity="0.75"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M37.5156 10.0703C37.4417 10.0703 37.3687 10.0663 37.2969 10.0585L0.515625 8.07031L37.2969 6.08214C37.3687 6.07432 37.4417 6.07031 37.5156 6.07031C38.6202 6.07031 39.5156 6.96574 39.5156 8.07031C39.5156 9.17488 38.6202 10.0703 37.5156 10.0703Z" fill="#E2D4BB" fill-opacity="0.75"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M98.4844 6.07031C98.5583 6.07031 98.6313 6.07432 98.7031 6.08213L135.484 8.07031L98.7031 10.0585C98.6313 10.0663 98.5583 10.0703 98.4844 10.0703C97.3798 10.0703 96.4844 9.17488 96.4844 8.07031C96.4844 6.96574 97.3798 6.07031 98.4844 6.07031Z" fill="#E2D4BB" fill-opacity="0.75"/>
+</svg>

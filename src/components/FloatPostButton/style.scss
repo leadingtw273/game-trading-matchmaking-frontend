@@ -1,0 +1,18 @@
+.float-post-button {
+  &__button {
+    width: 65px;
+    height: 65px;
+
+    inset-inline-end: 43px;
+    inset-block-end: 100px;
+
+    .ant-float-btn-icon {
+      width: auto !important;
+    }
+  }
+
+  &__icon {
+    width: 47px !important;
+    height: 40px !important;
+  }
+}

@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 
+import FloatPostButton from "@/components/FloatPostButton";
 import TheFooter from "@/components/TheFooter";
 import TheNavbar from "@/components/TheNavbar";
 
@@ -9,6 +10,7 @@ export function Component() {
     <>
       <TheNavbar />
       <Outlet />
+      <FloatPostButton />
       <TheFooter />
     </>
   );

@@ -35,6 +35,10 @@ export default function Router() {
           path: "character/:id",
           lazy: () => import("@/views/Character"),
         },
+        {
+          path: "post",
+          lazy: () => import("@/views/Post"),
+        },
       ],
     },
   ]);
