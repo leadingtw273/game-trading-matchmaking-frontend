@@ -1,3 +1,15 @@
+# [1.12.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.11.0...v1.12.0) (2024-09-19)
+
+
+### ✨ Features
+
+* 完成刊登商品側邊欄切版 (by @mike) ([bebb5c3](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/bebb5c35f0557fd1ac7ea0fe0abec831d6289d4f))
+
+
+### 🐞 Bug Fixes
+
+* 修正樣式問題 (by @mike) ([2cd38e3](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/2cd38e31e362010cd4ec3eda8367bdc4c028caaa))
+
 # [1.11.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.10.2...v1.11.0) (2024-09-16)
 
 
