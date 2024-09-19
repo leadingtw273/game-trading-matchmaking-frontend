@@ -14,7 +14,7 @@ export default function DetailContent(props: DetailContentProps) {
   const { commodity } = item;
 
   return (
-    <Flex className="detail-content appearance" style={{ padding: "4px 0" }} gap={10} vertical>
+    <Flex className="detail-content character" style={{ padding: "4px 0" }} gap={10} vertical>
       <Flex gap={8}>
         <span className="detail-content__label">收購體型</span>
         <span className="detail-content__value">

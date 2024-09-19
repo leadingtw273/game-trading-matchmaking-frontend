@@ -37,7 +37,7 @@ export default function HeaderContent(props: HeaderContentProps) {
   return (
     <Flex className="header-content appearance" style={{ padding: "8px 0" }} gap={16}>
       <img style={{ width: 80 }} src={categoryImageMap[commodity.category]} />
-      <Flex justify="center" gap={5} vertical>
+      <Flex style={{ padding: "10px 0" }} justify="center" gap={5} vertical>
         <span className="header-content__title" style={{ marginBottom: 5 }}>
           {isSale ? "販賣" : "收購"}外觀
         </span>

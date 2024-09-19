@@ -16,7 +16,7 @@ export default function HeaderContent(props: HeaderContentProps) {
   const currencyFormatter = new Intl.NumberFormat("zh-TW").format;
 
   return (
-    <Flex className="header-content appearance" style={{ padding: "8px 0" }} gap={16}>
+    <Flex className="header-content character" style={{ padding: "8px 0" }} gap={16}>
       <Flex justify="center" gap={10} align="center" vertical>
         <Flex style={{ padding: "0 25px" }} gap="5px 10px" wrap="wrap" justify="center">
           {commodity.innerSkillList.map((innerSkill) => (

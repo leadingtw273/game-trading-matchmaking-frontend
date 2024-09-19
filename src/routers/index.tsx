@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
 export default function Router() {
-  const fallbackElement = <p>Loading...</p>;
   const router = createBrowserRouter([
     {
       path: "/",
@@ -40,5 +39,5 @@ export default function Router() {
     },
   ]);
 
-  return <RouterProvider router={router} fallbackElement={fallbackElement} />;
+  return <RouterProvider router={router} />;
 }
