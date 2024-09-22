@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Button, Input } from "antd";
 
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo_2.png";
 
 import "./style.scss";
 
