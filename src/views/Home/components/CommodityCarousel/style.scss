@@ -20,7 +20,7 @@
     font-weight: bold;
     line-height: 1.5;
 
-    background: url("@/assets/commodity-carousel_button.svg");
+    background: url("@/assets/button/commodity-carousel.svg");
 
     border: none;
 
@@ -29,7 +29,7 @@
       &:active {
         color: rgba($color: #6d5833, $alpha: 0.5);
 
-        background: url("@/assets/commodity-carousel_button.svg");
+        background: url("@/assets/button/commodity-carousel.svg");
 
         border: none;
       }
@@ -38,14 +38,14 @@
     &.active {
       color: #ffffff;
 
-      background: url("@/assets/commodity-carousel_button-active.svg");
+      background: url("@/assets/button/commodity-carousel_active.svg");
 
       &:not(:disabled):not(.ant-btn-disabled) {
         &:hover,
         &:active {
           color: #ffffff;
 
-          background: url("@/assets/commodity-carousel_button-active.svg");
+          background: url("@/assets/button/commodity-carousel_active.svg");
 
           border: none;
         }

@@ -115,7 +115,7 @@
       width: 400px;
       height: 55px;
 
-      background: url("@/assets/search-card_button.svg");
+      background: url("@/assets/button/search-card.svg");
     }
 
     &:not(:disabled):not(.ant-btn-disabled) {
@@ -124,7 +124,7 @@
         background: none;
 
         &::before {
-          background: url("@/assets/search-card_button-hover.svg");
+          background: url("@/assets/button/search-card_hover.svg");
         }
       }
 
@@ -133,7 +133,7 @@
         background: none;
 
         &::before {
-          background: url("@/assets/search-card_button-active.svg");
+          background: url("@/assets/button/search-card_active.svg");
         }
       }
     }
