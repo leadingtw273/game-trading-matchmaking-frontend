@@ -1,3 +1,11 @@
+# [1.13.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.12.0...v1.13.0) (2024-09-23)
+
+
+### ✨ Features
+
+* 完成金幣&外觀收售刊登表單切版 (by @mike) ([bcac15b](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/bcac15bfd6951cebadaa4969a6e346fc0a3f0eae))
+* 更換 logo (by @mike) ([e2dab47](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/e2dab4772ba0e07f5804793199524ef0b1ff4f59))
+
 # [1.12.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.11.0...v1.12.0) (2024-09-19)
 
 
