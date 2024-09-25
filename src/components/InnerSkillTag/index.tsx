@@ -1,5 +1,6 @@
 import { getInnerSkillOptions, InnerSkillSectMap, SectTagOptionMap } from "@/consts/Character";
 import { CharacterEnum } from "@/enums";
+import { getOptionsLabel } from "@/utils";
 
 import "./style.scss";
 
@@ -21,7 +22,7 @@ interface IProps {
 }
 export default function InnerSkillTag(props: IProps) {
   const { innerSkill, style } = props;
-  const label = getInnerSkillOptions().find((option) => option.value === innerSkill)?.label;
+  const label = getOptionsLabel(innerSkill, getInnerSkillOptions());
   const sect = InnerSkillSectMap.get(innerSkill);
   const tagOption = sect != null ? SectTagOptionMap.get(sect) : null;
 

@@ -106,6 +106,18 @@ export enum InnerSkillType {
   SHAN_HAI_XIN_JUE = "WAN_LING-SHAN_HAI_XIN_JUE",
 }
 
+/** 心法類型 */
+export enum InnerSkillCategoryType {
+  /** 坦克 */
+  TANK = "TANK",
+  /** 治療 */
+  HEALER = "HEALER",
+  /** 外功輸出 */
+  EXTERNAL_DPS = "EXTERNAL_DPS",
+  /** 內功輸出 */
+  INTERNAL_DPS = "INTERNAL_DPS",
+}
+
 /** 資訊 */
 export enum InfoType {
   /** 無負債 */

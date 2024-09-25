@@ -82,6 +82,60 @@ export const InnerSkillSectMap = new Map([
   [CharacterEnum.InnerSkillType.SHAN_HAI_XIN_JUE, CharacterEnum.SectType.WAN_LING],
 ]);
 
+/** 心法類型對應表 */
+export const CategoryInnerSkillMap = new Map([
+  [
+    CharacterEnum.InnerSkillCategoryType.TANK,
+    [
+      CharacterEnum.InnerSkillType.TIE_LAO_LV,
+      CharacterEnum.InnerSkillType.XI_SUI_JING,
+      CharacterEnum.InnerSkillType.MING_ZUN_LIU_LI_TI,
+      CharacterEnum.InnerSkillType.TIE_GU_YI,
+    ],
+  ],
+  [
+    CharacterEnum.InnerSkillCategoryType.HEALER,
+    [
+      CharacterEnum.InnerSkillType.LI_JING_YI_DAO,
+      CharacterEnum.InnerSkillType.YUN_SHANG_XIN_JING,
+      CharacterEnum.InnerSkillType.BU_TIAN_JUE,
+      CharacterEnum.InnerSkillType.XIANG_ZHI,
+      CharacterEnum.InnerSkillType.LING_SU,
+    ],
+  ],
+  [
+    CharacterEnum.InnerSkillCategoryType.INTERNAL_DPS,
+    [
+      CharacterEnum.InnerSkillType.HUA_JIAN_YOU,
+      CharacterEnum.InnerSkillType.ZI_XIA_GONG,
+      CharacterEnum.InnerSkillType.BING_XIN_JUE,
+      CharacterEnum.InnerSkillType.YI_JIN_JING,
+      CharacterEnum.InnerSkillType.FEN_YING_SHENG_JUE,
+      CharacterEnum.InnerSkillType.DU_JING,
+      CharacterEnum.InnerSkillType.TIAN_LUO_GUI_DAO,
+      CharacterEnum.InnerSkillType.MO_WEN,
+      CharacterEnum.InnerSkillType.TAI_XUAN_JING,
+      CharacterEnum.InnerSkillType.WU_FANG,
+    ],
+  ],
+  [
+    CharacterEnum.InnerSkillCategoryType.EXTERNAL_DPS,
+    [
+      CharacterEnum.InnerSkillType.AO_XUE_ZHAN_YI,
+      CharacterEnum.InnerSkillType.TAI_XU_JIAN_YI,
+      CharacterEnum.InnerSkillType.WEN_SHUI_JUE,
+      CharacterEnum.InnerSkillType.XIAO_CHEN_JUE,
+      CharacterEnum.InnerSkillType.JING_YU_JUE,
+      CharacterEnum.InnerSkillType.FEN_SHAN_JIN,
+      CharacterEnum.InnerSkillType.BEI_AO_JUE,
+      CharacterEnum.InnerSkillType.LING_HAI_JUE,
+      CharacterEnum.InnerSkillType.YIN_LONG_JUE,
+      CharacterEnum.InnerSkillType.GU_FENG_JUE,
+      CharacterEnum.InnerSkillType.SHAN_HAI_XIN_JUE,
+    ],
+  ],
+]);
+
 /** 門派 Tag 設定對應表 */
 export const SectTagOptionMap = new Map([
   [
@@ -220,7 +274,7 @@ export const SectTagOptionMap = new Map([
 ]);
 
 /**
- * 獲取門派對應選項
+ * 獲取門派對應心法選項
  * @param sect 門派
  * @returns 心法選項
  */
@@ -295,6 +349,14 @@ export const getInnerSkillOptions = () => [
   { label: "太玄經", value: CharacterEnum.InnerSkillType.TAI_XUAN_JING },
   { label: "孤鋒訣", value: CharacterEnum.InnerSkillType.GU_FENG_JUE },
   { label: "山海心訣", value: CharacterEnum.InnerSkillType.SHAN_HAI_XIN_JUE },
+];
+
+/** 獲取心法類型選項 */
+export const getInnerSkillCategoryOption = () => [
+  { label: "坦克心法", value: CharacterEnum.InnerSkillCategoryType.TANK },
+  { label: "治療心法", value: CharacterEnum.InnerSkillCategoryType.HEALER },
+  { label: "內功輸出", value: CharacterEnum.InnerSkillCategoryType.INTERNAL_DPS },
+  { label: "外功輸出", value: CharacterEnum.InnerSkillCategoryType.EXTERNAL_DPS },
 ];
 
 /** 獲取資訊選項 */

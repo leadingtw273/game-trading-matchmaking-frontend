@@ -174,15 +174,15 @@ export default function CharacterSaleCommodityForm() {
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="名劍段位" wrapperCol={{ span: 18 }}>
+            <Form.Item style={{ margin: 0 }} label="名劍段位" wrapperCol={{ span: 18 }}>
               <Flex gap={20}>
-                <Form.Item style={{ margin: 0 }} label="2v2">
+                <Form.Item label="2v2">
                   <Input />
                 </Form.Item>
-                <Form.Item style={{ margin: 0 }} label="3v3">
+                <Form.Item label="3v3">
                   <Input />
                 </Form.Item>
-                <Form.Item style={{ margin: 0 }} label="5v5">
+                <Form.Item label="5v5">
                   <Input />
                 </Form.Item>
               </Flex>
@@ -194,12 +194,12 @@ export default function CharacterSaleCommodityForm() {
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="百戰精耐" wrapperCol={{ span: 18 }}>
+            <Form.Item style={{ margin: 0 }} label="百戰精耐" wrapperCol={{ span: 18 }}>
               <Flex gap={20}>
-                <Form.Item style={{ margin: 0 }} label={<span className="label__energy">精</span>}>
+                <Form.Item label={<span className="label__energy">精</span>}>
                   <Input />
                 </Form.Item>
-                <Form.Item style={{ margin: 0 }} label={<span className="label__endurance">耐</span>}>
+                <Form.Item label={<span className="label__endurance">耐</span>}>
                   <Input />
                 </Form.Item>
               </Flex>
@@ -219,21 +219,21 @@ export default function CharacterSaleCommodityForm() {
             </Form.Item>
           </Col>
           <Col span={24}>
-            <Form.Item label="外觀" labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} required>
+            <Form.Item label="外觀" style={{ margin: 0 }} labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} required>
               <div className="tips" style={{ marginBottom: 10 }}>
                 請填入數量，若有亮點外觀可於下方標籤處特別註明
               </div>
               <Flex style={{ width: "100%" }} gap={40}>
-                <Form.Item style={{ margin: 0 }} label="髮型">
+                <Form.Item label="髮型">
                   <Input suffix="單位" />
                 </Form.Item>
-                <Form.Item style={{ margin: 0 }} label="體型">
+                <Form.Item label="體型">
                   <Input suffix="單位" />
                 </Form.Item>
-                <Form.Item style={{ margin: 0 }} label="臉型">
+                <Form.Item label="臉型">
                   <Input suffix="單位" />
                 </Form.Item>
-                <Form.Item style={{ margin: 0 }} label="交互">
+                <Form.Item label="交互">
                   <Input suffix="單位" />
                 </Form.Item>
               </Flex>

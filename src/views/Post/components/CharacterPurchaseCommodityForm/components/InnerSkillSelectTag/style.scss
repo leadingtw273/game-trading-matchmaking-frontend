@@ -1,0 +1,59 @@
+.inner-skill {
+  .select-tag {
+    &__item {
+      margin-inline-end: 0;
+      padding: 6px 8px;
+
+      color: #434343;
+      font-size: 14px;
+      line-height: 20px;
+
+      border: 1px solid #d9d9d9;
+      border-radius: 5px;
+      box-sizing: border-box;
+
+      .icon {
+        margin-right: 2.5px;
+
+        width: 15px;
+
+        filter: brightness(0.26);
+      }
+
+      &.disabled {
+        color: #8c8c8c;
+        background-color: #d9d9d9;
+        border-color: #bfbfbf;
+
+        opacity: 0.75;
+
+        cursor: not-allowed;
+
+        .icon {
+          filter: brightness(0.55);
+        }
+      }
+
+      &:not(.disabled):not(.ant-tag-checkable-checked):hover {
+        color: #8c8c8c;
+        border-color: $colorPrimary;
+        background-color: inherit;
+
+        .icon {
+          filter: brightness(0.55);
+        }
+      }
+
+      &.ant-tag-checkable-checked {
+        color: $colorPrimary;
+        border-color: $colorPrimary;
+        background-color: inherit;
+        box-shadow: 1px 1px 4px $colorPrimary;
+
+        .icon {
+          filter: brightness(0.55);
+        }
+      }
+    }
+  }
+}
