@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Col, Form, message, Row, Select } from "antd";
+import { App, Button, Col, Form, Row, Select } from "antd";
 
 import { CharacterConst } from "@/consts";
 import { CharacterEnum } from "@/enums";
@@ -15,7 +15,7 @@ export default function FormCharacter() {
   const [form] = Form.useForm();
   const currentSect = Form.useWatch("sect", form);
   const navigate = useNavigate();
-  const [messageApi, contextHolder] = message.useMessage();
+  const { message } = App.useApp();
 
   useEffect(() => {
     // Reset innerSkill when sect changes
@@ -29,7 +29,7 @@ export default function FormCharacter() {
       navigate(`/market/character`, { state: { ...values, bodyType: [values.bodyType] } });
     } catch (error) {
       if (error instanceof Error)
-        messageApi.open({
+        message.open({
           type: "warning",
           content: error.message,
         });
@@ -60,7 +60,6 @@ export default function FormCharacter() {
           </Button>
         </Col>
       </Row>
-      {contextHolder}
     </Form>
   );
 }

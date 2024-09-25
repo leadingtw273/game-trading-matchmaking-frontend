@@ -6,19 +6,19 @@ import { TransactionEnum } from "@/enums";
 
 import "./style.scss";
 
-interface IAppearanceCommodityForm {
+interface IAppearanceCommodityFormProps {
   transactionType: TransactionEnum.Type;
 }
-export default function AppearanceCommodityForm(props: IAppearanceCommodityForm) {
+export default function AppearanceCommodityForm(props: IAppearanceCommodityFormProps) {
   const { transactionType } = props;
 
   return (
     <div className="appearance-commodity-form">
       <Form labelAlign="left" labelCol={{ span: 6 }} wrapperCol={{ span: 16 }} colon={false}>
-        <Row gutter={[5, 12]}>
+        <Row style={{ padding: "10px 20px" }} gutter={[5, 12]}>
           <Col span={12}>
             <Form.Item label={"幣值"} required>
-              <Flex gap={9}>
+              <Flex gap={10}>
                 <Form.Item name="type" noStyle>
                   <Select style={{ width: 110 }} placeholder="外觀類型" options={AppearanceConst.getTypeOptions()} />
                 </Form.Item>
@@ -35,7 +35,7 @@ export default function AppearanceCommodityForm(props: IAppearanceCommodityForm)
           </Col>
           <Col span={12}>
             <Form.Item label={transactionType === TransactionEnum.Type.SALE ? "販售金額" : "收購預算"} required>
-              <Flex gap={9}>
+              <Flex gap={10}>
                 <Form.Item name="currency" initialValue="TWD" noStyle>
                   <Select style={{ width: 90 }} options={[{ label: "台幣", value: "TWD" }]} />
                 </Form.Item>

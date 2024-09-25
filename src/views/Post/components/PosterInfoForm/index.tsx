@@ -6,7 +6,7 @@ export default function PosterInfoForm() {
   return (
     <div className="poster-info-form">
       <Form labelAlign="left" labelCol={{ span: 6 }} wrapperCol={{ span: 12 }} colon={false}>
-        <Row gutter={[5, 12]}>
+        <Row style={{ padding: "10px 20px" }} gutter={[5, 12]}>
           <Col span={24}>
             <Checkbox style={{ margin: 10 }}>記住資料下次自動套入</Checkbox>
           </Col>

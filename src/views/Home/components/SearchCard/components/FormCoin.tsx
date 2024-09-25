@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Button, Col, Form, Input, message, Row, Select } from "antd";
+import { App, Button, Col, Form, Input, Row, Select } from "antd";
 
 import { CurrencyConst } from "@/consts";
 import { CurrencyEnum } from "@/enums";
@@ -11,7 +11,7 @@ type FormValues = {
 
 export default function FormCoin() {
   const navigate = useNavigate();
-  const [messageApi, contextHolder] = message.useMessage();
+  const { message } = App.useApp();
 
   const handleSubmit = (values: FormValues) => {
     try {
@@ -21,7 +21,7 @@ export default function FormCoin() {
       navigate(`/market/coin`, { state: values });
     } catch (error) {
       if (error instanceof Error)
-        messageApi.open({
+        message.open({
           type: "warning",
           content: error.message,
         });
@@ -47,7 +47,6 @@ export default function FormCoin() {
           </Button>
         </Col>
       </Row>
-      {contextHolder}
     </Form>
   );
 }

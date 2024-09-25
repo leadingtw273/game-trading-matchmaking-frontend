@@ -1,20 +1,14 @@
 .appearance-commodity-form {
-  padding: 10px 20px;
-
-  .label {
-    color: #434343;
-
-    font-size: 16px;
-    line-height: 23px;
-    font-weight: bold;
-  }
-
   .ant-form-item {
     margin-bottom: 12px;
   }
 
   .ant-form-item-label > label {
-    @extend .label;
+    color: #434343;
+
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: bold;
   }
 
   .ant-input-suffix {

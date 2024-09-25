@@ -1,0 +1,98 @@
+.character-sale-commodity-form {
+  .sub-title {
+    padding: 4px 20px;
+
+    background-color: rgba($color: $colorPrimary, $alpha: 0.5);
+
+    color: #ffffff;
+
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: bold;
+  }
+
+  .tips {
+    color: #8c8c8c;
+
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .label {
+    &__energy {
+      padding: 4px;
+
+      background-color: #ce9dff;
+
+      border-radius: 2px;
+
+      color: #ffffff;
+
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    &__endurance {
+      padding: 4px;
+
+      background-color: #fcd486;
+
+      border-radius: 2px;
+
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1;
+    }
+  }
+
+  .ant-upload-drag {
+    background: none;
+
+    .ant-image-img {
+      border-radius: 5px;
+    }
+
+    .upload-tip {
+      margin-top: 10px;
+
+      &__title {
+        margin-bottom: 3px;
+
+        color: #434343;
+
+        font-size: 16px;
+        line-height: 23px;
+        font-weight: bold;
+      }
+
+      &__text {
+        color: #8c8c8c;
+
+        font-size: 12px;
+        line-height: 17px;
+      }
+    }
+  }
+
+  .ant-form-item {
+    margin-bottom: 12px;
+  }
+
+  .ant-form-item-no-colon {
+    width: 100%;
+  }
+
+  .ant-form-item-label > label {
+    color: #434343;
+
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: bold;
+  }
+
+  .ant-input-suffix {
+    color: #d9d9d9;
+  }
+}

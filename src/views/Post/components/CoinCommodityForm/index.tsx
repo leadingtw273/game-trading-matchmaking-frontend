@@ -14,10 +14,10 @@ export default function CoinCommodityForm(props: ICoinCommodityFormProps) {
   return (
     <div className="coin-commodity-form">
       <Form labelAlign="left" labelCol={{ span: 6 }} wrapperCol={{ span: 16 }} colon={false}>
-        <Row gutter={[5, 12]}>
+        <Row style={{ padding: "10px 20px" }} gutter={[5, 12]}>
           <Col span={12}>
             <Form.Item label={"幣值"} required>
-              <Flex gap={9}>
+              <Flex gap={10}>
                 <Form.Item name="currency" initialValue="TWD" noStyle>
                   <Select style={{ width: 90 }} options={[{ label: "1 台幣", value: "TWD" }]} />
                 </Form.Item>
