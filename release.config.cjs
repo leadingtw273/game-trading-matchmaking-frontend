@@ -1,7 +1,6 @@
-// Copied from https://github.com/conventional-changelog/conventional-changelog/blob/master/packages/conventional-changelog-angular/writer-opts.js#L27
-// and modified to support adding all commit types to the release notes
 function customTransform(commit) {
-  const convertedCommit = {...commit};
+  // 創建一個新的物件來進行修改
+  const convertedCommit = { ...commit };
 
   // BREAKING CHANGES title 轉換
   convertedCommit.notes = commit.notes.map((note) => ({ ...note, title: "BREAKING CHANGES" }));
@@ -28,12 +27,17 @@ function customTransform(commit) {
 
   // 設置 short commit hash
   if (typeof commit.hash === "string") {
-    convertedCommit.shortHash = commit.commit.short;
+    convertedCommit.shortHash = commit.hash.substring(0, 7);
   }
 
   // 設置 committer
-  if (typeof commit.subject === "string") {
+  if (typeof commit.subject === "string" && commit.committer && commit.committer.name) {
     convertedCommit.subject = `${commit.subject} (by @${commit.committer.name})`;
+  }
+
+  // 確保日期欄位是 Date 物件
+  if (commit.committerDate) {
+    convertedCommit.committerDate = new Date(commit.committerDate);
   }
 
   return convertedCommit;
