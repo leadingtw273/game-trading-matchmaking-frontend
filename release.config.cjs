@@ -1,7 +1,7 @@
 // Copied from https://github.com/conventional-changelog/conventional-changelog/blob/master/packages/conventional-changelog-angular/writer-opts.js#L27
 // and modified to support adding all commit types to the release notes
 function customTransform(commit) {
-  const convertedCommit = commit;
+  const convertedCommit = {...commit};
 
   // BREAKING CHANGES title 轉換
   convertedCommit.notes = commit.notes.map((note) => ({ ...note, title: "BREAKING CHANGES" }));
