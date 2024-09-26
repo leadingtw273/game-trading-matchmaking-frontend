@@ -1,3 +1,21 @@
+# [1.14.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.13.0...v1.14.0) (2024-09-26)
+
+
+### ✨ Features
+
+* 完成角色寄賣刊登表單切版 (by @mike) ([8ee9471](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/8ee9471fe529ab6b79ea8add6ed3390da33b2154))
+* 完成角色收購刊登表單切版 (by @mike) ([d3858ff](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/d3858ffa2a9430b4bffcc8f14e9c888a513a7c34))
+
+
+### 🔧 Chores
+
+* 修正 customTransform 物件複製問題 (by @mike) ([b37009c](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/b37009c8995f0032a4b106dfeba318d1497145c6))
+* 修正日期配置問題 (by @mike) ([ba8a267](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/ba8a267a2047d7e17018b515be5e87d50b0d558d))
+* 升級相關 semantic-releas 套件 (by @mike) ([e544eff](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/e544efffb5a7332783d763f38d562685e6208f9a))
+* 調整 Semantic Release 使用版本 (by @mike) ([7274fdd](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/7274fddb19e3996d9cbf01aba3bbbff804f0a4d2))
+* 調適 antd & release-notes-generator 版本 (by @mike) ([f3a71f9](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/f3a71f9104afedb801da5f0ee1494e69f05356ec))
+* 退版測試 semantic-releas (by @mike) ([57ce553](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/57ce553a14d36a90b3b28d994c9b3d8bee76e3b6))
+
 # [1.13.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.12.0...v1.13.0) (2024-09-23)
 
 
