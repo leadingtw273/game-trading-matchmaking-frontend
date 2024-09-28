@@ -1,20 +1,30 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { Breadcrumb, Flex } from "antd";
+import { Breadcrumb, Flex, Form, FormInstance } from "antd";
 
 import PostCategoryDividerImage from "@/assets/decorate/post-category_divider.svg";
 import { TransactionEnum } from "@/enums";
 
-import AppearanceCommodityForm from "./components/AppearanceCommodityForm";
-import CharacterPurchaseCommodityForm from "./components/CharacterPurchaseCommodityForm";
-import CharacterSaleCommodityForm from "./components/CharacterSaleCommodityForm";
-import CoinCommodityForm from "./components/CoinCommodityForm";
-import PosterInfoForm from "./components/PosterInfoForm";
+import AppearanceCommodityForm, { AppearanceCommodityFormValues } from "./components/AppearanceCommodityForm";
+import CharacterPurchaseCommodityForm, {
+  CharacterPurchaseCommodityFormValues,
+} from "./components/CharacterPurchaseCommodityForm";
+import CharacterSaleCommodityForm, { CharacterSaleCommodityFormValues } from "./components/CharacterSaleCommodityForm";
+import CoinCommodityForm, { CoinCommodityFormValues } from "./components/CoinCommodityForm";
+import PosterInfoForm, { PosterInfoFormValues, PosterInfoValidFormProps } from "./components/PosterInfoForm";
 
 import "./style.scss";
 
+type CommodityFormValues =
+  | CoinCommodityFormValues
+  | AppearanceCommodityFormValues
+  | CharacterPurchaseCommodityFormValues
+  | CharacterSaleCommodityFormValues;
+type RcFormInstance<Values = CommodityFormValues> = Omit<FormInstance<Values>, "scrollToField" | "getFieldInstance">;
+
 Component.displayName = "Post";
 export function Component() {
+  const [posterForm] = Form.useForm<PosterInfoFormValues>();
   const [category, setCategory] = useState<{
     transactionType: TransactionEnum.Type;
     commodityType: TransactionEnum.Commodity;
@@ -27,11 +37,36 @@ export function Component() {
     return category.transactionType === transactionType && category.commodityType === commodityType;
   };
 
+  const getFormName = (transactionType: TransactionEnum.Type, commodityType: TransactionEnum.Commodity) => {
+    return `${commodityType}-${transactionType}-commodity-form`;
+  };
+
   const handleClickCategory = (transactionType: TransactionEnum.Type, commodityType: TransactionEnum.Commodity) => {
     setCategory({
       transactionType,
       commodityType,
     });
+  };
+
+  const handleClickPost = async (forms: Record<string, RcFormInstance>) => {
+    const commodityForm = forms[getFormName(category.transactionType, category.commodityType)];
+    const commodityValues = commodityForm.getFieldsValue();
+    const posterValues = posterForm.getFieldsValue();
+    console.log("[test] handleClickPost", { commodityValues, posterValues });
+
+    try {
+      const commodityValues = await commodityForm.validateFields();
+      console.log("[test] commodityForm values", commodityValues);
+    } catch (error) {
+      console.log("[test] commodityForm error", error);
+    }
+
+    try {
+      const posterValues = (await posterForm.validateFields()) as PosterInfoValidFormProps;
+      console.log("[test] posterForm values", posterValues);
+    } catch (error) {
+      console.log("[test] posterForm error", error);
+    }
   };
 
   return (
@@ -119,34 +154,51 @@ export function Component() {
           <div className="edit-button">修改/下架商品</div>
         </div>
         <Flex flex={1} gap={12} vertical>
-          <div className="commodity_form-card">
-            <div className="title">刊登商品資訊</div>
-            <div className="content">
-              {category.commodityType === TransactionEnum.Commodity.Coin && (
-                <CoinCommodityForm transactionType={category.transactionType} />
-              )}
-              {category.commodityType === TransactionEnum.Commodity.Appearance && (
-                <AppearanceCommodityForm transactionType={category.transactionType} />
-              )}
-
-              {category.commodityType === TransactionEnum.Commodity.Character &&
-                (category.transactionType === TransactionEnum.Type.SALE ? (
-                  <CharacterSaleCommodityForm />
-                ) : (
-                  <CharacterPurchaseCommodityForm />
-                ))}
+          <Form.Provider onFormFinish={(name, info) => name === "action" && handleClickPost(info.forms)}>
+            <div className="commodity_form-card">
+              <div className="title">刊登商品資訊</div>
+              <div className="content">
+                <CoinCommodityForm
+                  show={isActiveCategory(TransactionEnum.Type.SALE, TransactionEnum.Commodity.Coin)}
+                  name={getFormName(TransactionEnum.Type.SALE, TransactionEnum.Commodity.Coin)}
+                  transactionType={category.transactionType}
+                />
+                <CoinCommodityForm
+                  show={isActiveCategory(TransactionEnum.Type.PURCHASE, TransactionEnum.Commodity.Coin)}
+                  name={getFormName(TransactionEnum.Type.PURCHASE, TransactionEnum.Commodity.Coin)}
+                  transactionType={category.transactionType}
+                />
+                {category.commodityType === TransactionEnum.Commodity.Appearance && (
+                  <AppearanceCommodityForm
+                    key={`${category.commodityType}-${category.transactionType}`}
+                    transactionType={category.transactionType}
+                  />
+                )}
+                {category.commodityType === TransactionEnum.Commodity.Character &&
+                  (category.transactionType === TransactionEnum.Type.SALE ? (
+                    <CharacterSaleCommodityForm />
+                  ) : (
+                    <CharacterPurchaseCommodityForm />
+                  ))}
+              </div>
             </div>
-          </div>
-          <div className="commodity_form-card">
-            <div className="title">刊登者資訊</div>
-            <div className="content">
-              <PosterInfoForm />
+            <div className="commodity_form-card">
+              <div className="title">刊登者資訊</div>
+              <div className="content">
+                <PosterInfoForm form={posterForm} />
+              </div>
             </div>
-          </div>
-          <Flex className="commodity_action" justify="space-between" align="center">
-            <div className="tip">填寫商品資料後，按下「刊登」或「更新」儲存您的設定。</div>
-            <button className="button">刊登</button>
-          </Flex>
+            <Flex className="commodity_action" justify="space-between" align="center">
+              <div className="tip">填寫商品資料後，按下「刊登」或「更新」儲存您的設定。</div>
+              <Form name="action">
+                <Form.Item>
+                  <button className="button" type="submit">
+                    刊登
+                  </button>
+                </Form.Item>
+              </Form>
+            </Flex>
+          </Form.Provider>
         </Flex>
       </Flex>
     </div>

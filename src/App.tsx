@@ -6,7 +6,7 @@ export default function APP() {
   return (
     <ConfigProvider
       componentSize={"middle"}
-      autoInsertSpaceInButton={false}
+      button={{ autoInsertSpace: false }}
       theme={{
         token: {
           fontFamily: "Inter, Noto Sans TC, system-ui, Avenir, Helvetica, Arial, sans-serif",
@@ -15,6 +15,11 @@ export default function APP() {
           colorSuccess: "#ffc700",
           colorWarning: "#ed9e00",
           colorError: "#d10002",
+        },
+        components: {
+          Form: {
+            itemMarginBottom: 0,
+          },
         },
       }}
     >

@@ -10,10 +10,14 @@ import { CharacterConst } from "@/consts";
 
 import "./style.scss";
 
+export type CharacterSaleCommodityFormValues = {
+  innerSkill: string[];
+};
+
 export default function CharacterSaleCommodityForm() {
+  const [form] = Form.useForm<CharacterSaleCommodityFormValues>();
   const { message } = App.useApp();
   const { token } = theme.useToken();
-  const [form] = Form.useForm();
   const currentSect = Form.useWatch("sect", form);
   const innerSkillOptions = useMemo(() => CharacterConst.getInnerSkillOptionsBySect(currentSect), [currentSect]);
 

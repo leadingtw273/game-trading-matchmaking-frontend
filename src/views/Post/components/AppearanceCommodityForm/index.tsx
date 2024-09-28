@@ -6,15 +6,20 @@ import { TransactionEnum } from "@/enums";
 
 import "./style.scss";
 
+export type AppearanceCommodityFormValues = {
+  username: string;
+};
+
 interface IAppearanceCommodityFormProps {
   transactionType: TransactionEnum.Type;
 }
 export default function AppearanceCommodityForm(props: IAppearanceCommodityFormProps) {
   const { transactionType } = props;
+  const [form] = Form.useForm<AppearanceCommodityFormValues>();
 
   return (
     <div className="appearance-commodity-form">
-      <Form labelAlign="left" labelCol={{ span: 6 }} wrapperCol={{ span: 16 }} colon={false}>
+      <Form form={form} labelAlign="left" labelCol={{ span: 6 }} wrapperCol={{ span: 16 }} colon={false}>
         <Row style={{ padding: "10px 20px" }} gutter={[5, 12]}>
           <Col span={12}>
             <Form.Item label={"幣值"} required>

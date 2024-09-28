@@ -1,6 +1,11 @@
-.coin-commodity-form {
-  .ant-form-item {
-    margin-bottom: 12px;
+#coin-sale-commodity-form,
+#coin-purchase-commodity-form {
+  .ratio-symbol {
+    color: #aeaeae;
+
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: bold;
   }
 
   .ant-form-item-label > label {
@@ -11,7 +16,7 @@
     font-weight: bold;
   }
 
-  .ant-input-suffix {
+  .ant-input-number-suffix {
     color: #d9d9d9;
   }
 }

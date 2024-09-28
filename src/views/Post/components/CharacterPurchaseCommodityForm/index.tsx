@@ -9,8 +9,12 @@ import InnerSkillSelectTag from "./components/InnerSkillSelectTag";
 
 import "./style.scss";
 
+export type CharacterPurchaseCommodityFormValues = {
+  username: string;
+};
+
 export default function CharacterPurchaseCommodityForm() {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm<CharacterPurchaseCommodityFormValues>();
   const { token } = theme.useToken();
   const [innerSkillLength, setInnerSkillLength] = useState(0);
 
