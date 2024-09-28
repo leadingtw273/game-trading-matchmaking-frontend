@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.15.0...v1.16.0) (2024-09-28)
+
+
+### ✨ Features
+
+* 完成外觀收售刊登表單前端邏輯 (by @mike) ([6cab227](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/6cab22754f27cafd7e11f35fc4fe84493fe2df75))
+
 # [1.15.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.14.0...v1.15.0) (2024-09-28)
 
 
