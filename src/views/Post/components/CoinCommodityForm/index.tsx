@@ -54,13 +54,14 @@ export default function CoinCommodityForm(props: ICoinCommodityFormProps) {
     <Form
       name={name}
       form={form}
+      className="coin-commodity-form"
       style={{ padding: "20px 30px", display: show ? "block" : "none" }}
       labelAlign="left"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
       colon={false}
     >
-      <Row gutter={[0, 24]}>
+      <Row gutter={[0, 20]}>
         <Col span={12}>
           <Form.Item label="幣值" required>
             <Flex gap={10} align="center">

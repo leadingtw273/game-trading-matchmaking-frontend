@@ -168,12 +168,16 @@ export function Component() {
                   name={getFormName(TransactionEnum.Type.PURCHASE, TransactionEnum.Commodity.Coin)}
                   transactionType={category.transactionType}
                 />
-                {category.commodityType === TransactionEnum.Commodity.Appearance && (
-                  <AppearanceCommodityForm
-                    key={`${category.commodityType}-${category.transactionType}`}
-                    transactionType={category.transactionType}
-                  />
-                )}
+                <AppearanceCommodityForm
+                  show={isActiveCategory(TransactionEnum.Type.SALE, TransactionEnum.Commodity.Appearance)}
+                  name={getFormName(TransactionEnum.Type.SALE, TransactionEnum.Commodity.Appearance)}
+                  transactionType={category.transactionType}
+                />
+                <AppearanceCommodityForm
+                  show={isActiveCategory(TransactionEnum.Type.PURCHASE, TransactionEnum.Commodity.Appearance)}
+                  name={getFormName(TransactionEnum.Type.PURCHASE, TransactionEnum.Commodity.Appearance)}
+                  transactionType={category.transactionType}
+                />
                 {category.commodityType === TransactionEnum.Commodity.Character &&
                   (category.transactionType === TransactionEnum.Type.SALE ? (
                     <CharacterSaleCommodityForm />
