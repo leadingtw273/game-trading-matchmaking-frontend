@@ -1,4 +1,5 @@
 import { ConfigProvider } from "antd";
+import { App } from "antd";
 
 import Router from "@/routers";
 
@@ -23,7 +24,9 @@ export default function APP() {
         },
       }}
     >
-      <Router />
+      <App>
+        <Router />
+      </App>
     </ConfigProvider>
   );
 }

@@ -47,40 +47,7 @@
     }
   }
 
-  .ant-upload-drag {
-    background: none;
-
-    .ant-image-img {
-      border-radius: 5px;
-    }
-
-    .upload-tip {
-      margin-top: 10px;
-
-      &__title {
-        margin-bottom: 3px;
-
-        color: #434343;
-
-        font-size: 16px;
-        line-height: 23px;
-        font-weight: bold;
-      }
-
-      &__text {
-        color: #8c8c8c;
-
-        font-size: 12px;
-        line-height: 17px;
-      }
-    }
-  }
-
-  .ant-form-item {
-    margin-bottom: 12px;
-  }
-
-  .ant-form-item-no-colon {
+  .inner-skill__gear-score label {
     width: 100%;
   }
 

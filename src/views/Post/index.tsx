@@ -178,12 +178,12 @@ export function Component() {
                   name={getFormName(TransactionEnum.Type.PURCHASE, TransactionEnum.Commodity.Appearance)}
                   transactionType={category.transactionType}
                 />
+                <CharacterSaleCommodityForm
+                  show={isActiveCategory(TransactionEnum.Type.SALE, TransactionEnum.Commodity.Character)}
+                  name={getFormName(TransactionEnum.Type.SALE, TransactionEnum.Commodity.Character)}
+                />
                 {category.commodityType === TransactionEnum.Commodity.Character &&
-                  (category.transactionType === TransactionEnum.Type.SALE ? (
-                    <CharacterSaleCommodityForm />
-                  ) : (
-                    <CharacterPurchaseCommodityForm />
-                  ))}
+                  category.transactionType === TransactionEnum.Type.PURCHASE && <CharacterPurchaseCommodityForm />}
               </div>
             </div>
             <div className="commodity_form-card">
