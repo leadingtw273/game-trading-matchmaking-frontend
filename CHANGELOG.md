@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.16.0...v1.17.0) (2024-10-07)
+
+
+### ✨ Features
+
+* 完成角色圖片上傳組件 (by @mike) ([406d48f](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/406d48fd4a6ba88415049b54e04522fc1d367b6f))
+
 # [1.16.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.15.0...v1.16.0) (2024-09-28)
 
 
