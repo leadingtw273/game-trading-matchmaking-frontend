@@ -47,8 +47,12 @@
     }
   }
 
-  .inner-skill__gear-score label {
+  .inner-skill__gear-score {
     width: 100%;
+
+    label {
+      width: 100%;
+    }
   }
 
   .ant-form-item-label > label {
@@ -59,7 +63,8 @@
     font-weight: bold;
   }
 
-  .ant-input-suffix {
+  .ant-input-suffix,
+  .ant-input-number-suffix {
     color: #d9d9d9;
   }
 }

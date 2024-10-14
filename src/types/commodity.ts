@@ -41,7 +41,7 @@ export type CharacterCommodity = CommodityItem<{
     type: CharacterEnum.GearType;
     score: number;
   }[];
-  battleRank: number | null; // 戰階
+  battleRankScore: number | null; // 戰階
   arenaScoreList:
     | {
         // 競技場分數
@@ -49,7 +49,7 @@ export type CharacterCommodity = CommodityItem<{
         score: number;
       }[]
     | null;
-  estateRank: number | null; // 家園分數
+  estateRankScore: number | null; // 家園分數
   endlessBattleValue: {
     // 百戰值
     energy: number;

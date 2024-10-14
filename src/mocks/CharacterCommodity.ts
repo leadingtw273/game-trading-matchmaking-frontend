@@ -52,7 +52,7 @@ export default [
           score: 251000,
         },
       ],
-      battleRank: 14,
+      battleRankScore: 14000,
       arenaScoreList: [
         {
           type: CharacterEnum.ArenaType.TWO_VS_TWO,
@@ -67,7 +67,7 @@ export default [
           score: 1400,
         },
       ],
-      estateRank: 100,
+      estateRankScore: 100,
       endlessBattleValue: {
         energy: 100,
         stamina: 100,
@@ -154,9 +154,9 @@ export default [
           score: 200000,
         },
       ],
-      battleRank: null,
+      battleRankScore: null,
       arenaScoreList: null,
-      estateRank: null,
+      estateRankScore: null,
       endlessBattleValue: null,
       accomplishmentScore: null,
       petScore: null,

@@ -26,6 +26,12 @@ export default function CharacterPurchaseCommodityForm() {
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 16 }}
         colon={false}
+        requiredMark={(label, { required }) => (
+          <>
+            {label}
+            {required && <span style={{ color: "red", marginLeft: 3 }}>*</span>}
+          </>
+        )}
         onFieldsChange={(changedFields) => {
           if (changedFields.some((field) => field.name[0] === "innerSkills")) {
             setInnerSkillLength(changedFields[0].value?.length ?? 0);

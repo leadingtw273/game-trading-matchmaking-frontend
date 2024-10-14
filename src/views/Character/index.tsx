@@ -167,7 +167,7 @@ export function Component() {
                           <span className="info-label">戰階</span>
                         </td>
                         <td>
-                          <div className="border-divider__left">{detail.commodity.battleRank}</div>
+                          <div className="border-divider__left">{detail.commodity.battleRankScore}</div>
                         </td>
                       </tr>
                       <tr style={{ verticalAlign: "baseline" }}>
@@ -205,7 +205,7 @@ export function Component() {
                           <span className="info-label">家園</span>
                         </td>
                         <td>
-                          <div className="border-divider__left">{detail.commodity.estateRank}</div>
+                          <div className="border-divider__left">{detail.commodity.estateRankScore}</div>
                         </td>
                       </tr>
                     </tbody>

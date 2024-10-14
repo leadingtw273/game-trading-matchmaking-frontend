@@ -43,8 +43,8 @@ export default function InnerSkillSelectTag(props: InnerSkillSelectTagProps) {
       {[...CharacterConst.CategoryInnerSkillMap.entries()].map(([category, innerSkillList]) => {
         return (
           <Flex key={category} align="center" gap={10}>
-            <span>{getOptionsLabel(category, CharacterConst.getInnerSkillCategoryOption())}</span>
-            <Flex gap={4}>
+            <Flex flex="none">{getOptionsLabel(category, CharacterConst.getInnerSkillCategoryOption())}</Flex>
+            <Flex gap={4} wrap="wrap">
               {innerSkillList?.map((innerSkill, index) => {
                 const sect = CharacterConst.InnerSkillSectMap.get(innerSkill);
                 const tagOption = sect != null ? CharacterConst.SectTagOptionMap.get(sect) : null;

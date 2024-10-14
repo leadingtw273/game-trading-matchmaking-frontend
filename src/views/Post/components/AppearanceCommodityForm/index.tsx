@@ -60,6 +60,12 @@ export default function AppearanceCommodityForm(props: IAppearanceCommodityFormP
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
       colon={false}
+      requiredMark={(label, { required }) => (
+        <>
+          {label}
+          {required && <span style={{ color: "red", marginLeft: 3 }}>*</span>}
+        </>
+      )}
     >
       <Row gutter={[0, 20]}>
         <Col span={12}>

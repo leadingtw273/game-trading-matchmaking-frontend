@@ -1,15 +1,41 @@
 import { useEffect, useMemo } from "react";
-import { Checkbox, Col, Flex, Form, Input, Row, Select } from "antd";
+import { Checkbox, Col, Flex, Form, InputNumber, Row, Select, UploadFile } from "antd";
 import TextArea from "antd/es/input/TextArea";
+import { DownOutlined } from "@ant-design/icons";
 
 import { SelectTag } from "@/components/BaseField";
 import UploadCharacterImage from "@/components/BaseField/UploadCharacterImage";
-import { CharacterConst } from "@/consts";
+import { CharacterConst, TransactionConst } from "@/consts";
+import { CharacterEnum, CurrencyEnum, TransactionEnum } from "@/enums";
+import { CharacterCommodity, ImgurResponse } from "@/types";
 
 import "./style.scss";
 
 export type CharacterSaleCommodityFormValues = {
-  innerSkill: string[];
+  sect?: CharacterEnum.SectType;
+  innerSkillList: CharacterEnum.InnerSkillType[];
+  bodyTypeList: CharacterEnum.BodyType[];
+  campList: CharacterEnum.CampType[];
+  level?: number;
+  info: Array<keyof CharacterCommodity["info"]>;
+  transactionMethod: TransactionEnum.Method[];
+  price: {
+    currency: CurrencyEnum.Type;
+    value?: number;
+  };
+  imageList: UploadFile<ImgurResponse>[];
+  gearScoreMap?: Record<CharacterEnum.InnerSkillType, Record<CharacterEnum.GearType, number | undefined>>;
+  battleRankScore?: number;
+  arenaScoreMap: Record<CharacterEnum.ArenaType, number | undefined>;
+  estateRankScore?: number;
+  endlessBattleValue: {
+    energy?: number;
+    stamina?: number;
+  };
+  accomplishmentScore?: number;
+  petScore?: number;
+  skinCountMap: Record<CharacterEnum.SkinType, number | undefined>;
+  tags: string[];
 };
 
 interface ICharacterSaleCommodityFormProps {
@@ -19,15 +45,19 @@ interface ICharacterSaleCommodityFormProps {
 export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodityFormProps) {
   const { show, name } = props;
   const [form] = Form.useForm<CharacterSaleCommodityFormValues>();
+  const selectedTags = Form.useWatch("tags", form);
   const currentSect = Form.useWatch("sect", form);
-  const innerSkillOptions = useMemo(() => CharacterConst.getInnerSkillOptionsBySect(currentSect), [currentSect]);
+  const innerSkillOptions = useMemo(
+    () => (currentSect != null ? CharacterConst.getInnerSkillOptionsBySect(currentSect) : []),
+    [currentSect]
+  );
 
   useEffect(() => {
     // Reset innerSkill when sect changes
     if (currentSect != null) {
-      form.setFieldsValue({ innerSkill: undefined });
+      form.setFieldsValue({ innerSkillList: innerSkillOptions.map(({ value }) => value) });
     }
-  }, [currentSect, form]);
+  }, [currentSect, form, innerSkillOptions]);
 
   return (
     <Form
@@ -39,69 +69,111 @@ export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodit
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
       colon={false}
+      requiredMark={(label, { required }) => (
+        <>
+          {label}
+          {required && <span style={{ color: "red", marginLeft: 3 }}>*</span>}
+        </>
+      )}
     >
       <div className="sub-title">基本資料</div>
       <Row style={{ padding: "10px 28px" }} gutter={[5, 20]}>
         <Col span={12}>
           <Form.Item label="門派心法" required>
             <Flex gap={10}>
-              <Form.Item name="sect" noStyle>
-                <Select style={{ width: 110 }} placeholder="選擇門派" options={CharacterConst.getSectOptions()} />
+              <Form.Item name="sect" rules={[{ required: true, message: "請選擇門派" }]} noStyle>
+                <Select placeholder="選擇門派" options={CharacterConst.getSectOptions()} />
               </Form.Item>
-              <Form.Item name="innerSkill" noStyle>
+              <Form.Item name="innerSkillList" initialValue={[]} noStyle hidden>
                 <Select style={{ width: 110 }} placeholder="選擇心法" options={innerSkillOptions} />
               </Form.Item>
             </Flex>
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="體型" required>
+          <Form.Item
+            name="bodyTypeList"
+            initialValue={[]}
+            label="體型"
+            rules={[{ required: true, message: "請選擇體型" }]}
+            required
+          >
             <SelectTag options={CharacterConst.getBodyTypeOptions()} />
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="陣營" required>
+          <Form.Item
+            name="campList"
+            initialValue={[]}
+            label="陣營"
+            rules={[{ required: true, message: "請選擇陣營" }]}
+            required
+          >
             <SelectTag options={CharacterConst.getCampTypeOptions()} />
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="等級" required>
-            <Input style={{ width: 300 }} suffix="等" />
+          <Form.Item
+            name="level"
+            label="等級"
+            rules={[
+              { required: true, message: "請輸入等級" },
+              { type: "number", min: 0, message: "請輸入正確等級" },
+            ]}
+            required
+          >
+            <InputNumber style={{ width: "100%" }} suffix="等" controls={false} />
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="角色狀態" required>
+          <Form.Item name="info" initialValue={[]} label="角色狀態">
             <Checkbox.Group>
-              <Checkbox>無負債</Checkbox>
-              <Checkbox>需改名</Checkbox>
-              <Checkbox>需轉移</Checkbox>
+              <Checkbox value="noDebt">無負債</Checkbox>
+              <Checkbox value="needChangeName">需改名</Checkbox>
+              <Checkbox value="needTransferred">需轉移</Checkbox>
             </Checkbox.Group>
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item label="售價" required>
             <Flex gap={10}>
-              <Form.Item name="currency" initialValue="TWD" noStyle>
+              <Form.Item name={["price", "currency"]} initialValue="TWD" noStyle>
                 <Select style={{ width: 90 }} options={[{ label: "台幣", value: "TWD" }]} />
               </Form.Item>
-              <Form.Item required noStyle>
-                <Input style={{ width: 200 }} suffix="元" />
+              <Form.Item
+                name={["price", "value"]}
+                rules={[
+                  { required: true, message: "請輸入金額" },
+                  { type: "number", min: 0, message: "請輸入正確金額" },
+                ]}
+                noStyle
+              >
+                <InputNumber style={{ width: "100%" }} suffix="元" controls={false} />
               </Form.Item>
             </Flex>
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="交易方式" required>
+          <Form.Item
+            name="transactionMethod"
+            label="交易方式"
+            initialValue={[]}
+            rules={[{ required: true, message: "請選擇交易方式" }]}
+            required
+          >
             <Checkbox.Group>
-              <Checkbox>匯款</Checkbox>
-              <Checkbox>Line Pay</Checkbox>
-              <Checkbox>點卡</Checkbox>
-              <Checkbox>其他</Checkbox>
+              <Flex gap={5} wrap="wrap">
+                {TransactionConst.getMethodOptions().map((method) => (
+                  <Checkbox key={method.value} value={method.value}>
+                    {method.label}
+                  </Checkbox>
+                ))}
+              </Flex>
             </Checkbox.Group>
           </Form.Item>
         </Col>
         <Col span={24} style={{ height: "fit-content" }}>
-          <Form.Item name="imageList" noStyle>
+          <Form.Item name="imageList" initialValue={[]} noStyle>
             <UploadCharacterImage />
           </Form.Item>
         </Col>
@@ -109,82 +181,110 @@ export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodit
       {innerSkillOptions.length > 0 && (
         <>
           <div className="sub-title">裝備分數</div>
-          <Row style={{ padding: "10px 28px" }} gutter={[5, 20]}>
-            <Col span={24}>
-              <span className="tips">請選擇對應的心法與裝備類型填入裝分，若無則不必填寫</span>
-            </Col>
+          <div style={{ padding: "10px 28px" }}>
+            <div className="tips" style={{ marginBottom: 20 }}>
+              請選擇對應的心法與裝備類型填入裝分，若無則不必填寫
+            </div>
             {innerSkillOptions.map((innerSkill) => (
-              <>
-                <Col span={12} key={innerSkill.value + "_PVP"}>
-                  <Form.Item
-                    className="inner-skill__gear-score"
-                    label={
-                      <Flex style={{ width: "100%" }} justify="space-between">
-                        <span>{innerSkill.label}</span>
-                        <span>PVP</span>
-                      </Flex>
-                    }
-                    labelCol={{ span: 7 }}
-                    wrapperCol={{ span: 15 }}
-                  >
-                    <Input />
-                  </Form.Item>
-                </Col>
-                <Col span={12} key={innerSkill.value + "_PVE"}>
-                  <Form.Item
-                    className="inner-skill__gear-score"
-                    label={
-                      <Flex style={{ width: "100%" }} justify="space-between">
-                        <span>{innerSkill.label}</span>
-                        <span>PVE</span>
-                      </Flex>
-                    }
-                    labelCol={{ span: 7 }}
-                    wrapperCol={{ span: 15 }}
-                  >
-                    <Input />
-                  </Form.Item>
-                </Col>
-              </>
+              <Flex key={innerSkill.value} style={{ marginTop: 20 }} gap={5}>
+                <Form.Item
+                  className="inner-skill__gear-score"
+                  name={["gearScoreMap", innerSkill.value, CharacterEnum.GearType.PVP]}
+                  label={
+                    <Flex style={{ width: "100%" }} justify="space-between">
+                      <span>{innerSkill.label}</span>
+                      <span>PVP</span>
+                    </Flex>
+                  }
+                  labelCol={{ span: 7 }}
+                  wrapperCol={{ span: 15 }}
+                  rules={[{ type: "number", min: 0, message: "請輸入正確裝分" }]}
+                >
+                  <InputNumber style={{ width: "100%" }} controls={false} />
+                </Form.Item>
+                <Form.Item
+                  className="inner-skill__gear-score"
+                  name={["gearScoreMap", innerSkill.value, CharacterEnum.GearType.PVE]}
+                  label={
+                    <Flex style={{ width: "100%" }} justify="space-between">
+                      <span>{innerSkill.label}</span>
+                      <span>PVE</span>
+                    </Flex>
+                  }
+                  labelCol={{ span: 7 }}
+                  wrapperCol={{ span: 15 }}
+                  rules={[{ type: "number", min: 0, message: "請輸入正確裝分" }]}
+                >
+                  <InputNumber style={{ width: "100%" }} controls={false} />
+                </Form.Item>
+              </Flex>
             ))}
-          </Row>
+          </div>
         </>
       )}
       <div className="sub-title">副本·陣營·百戰·家園</div>
       <Row style={{ padding: "10px 28px" }} gutter={[5, 20]}>
         <Col span={12}>
-          <Form.Item label="戰階分數">
-            <Input />
+          <Form.Item
+            name="battleRankScore"
+            label="戰階分數"
+            rules={[{ type: "number", min: 0, message: "請輸入正確分數" }]}
+          >
+            <InputNumber style={{ width: "100%" }} controls={false} />
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item style={{ margin: 0 }} label="名劍段位" wrapperCol={{ span: 18 }}>
+          <Form.Item style={{ margin: 0 }} label="名劍分數" wrapperCol={{ span: 18 }}>
             <Flex gap={20}>
-              <Form.Item label="2v2">
-                <Input />
+              <Form.Item
+                name={["arenaScoreMap", CharacterEnum.ArenaType.TWO_VS_TWO]}
+                label="2v2"
+                rules={[{ type: "number", min: 0, message: "請輸入正確分數" }]}
+              >
+                <InputNumber style={{ width: "100%" }} controls={false} />
               </Form.Item>
-              <Form.Item label="3v3">
-                <Input />
+              <Form.Item
+                name={["arenaScoreMap", CharacterEnum.ArenaType.THREE_VS_THREE]}
+                label="3v3"
+                rules={[{ type: "number", min: 0, message: "請輸入正確分數" }]}
+              >
+                <InputNumber style={{ width: "100%" }} controls={false} />
               </Form.Item>
-              <Form.Item label="5v5">
-                <Input />
+              <Form.Item
+                name={["arenaScoreMap", CharacterEnum.ArenaType.FIVE_VS_FIVE]}
+                label="5v5"
+                rules={[{ type: "number", min: 0, message: "請輸入正確分數" }]}
+              >
+                <InputNumber style={{ width: "100%" }} controls={false} />
               </Form.Item>
             </Flex>
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="家園分數">
-            <Input />
+          <Form.Item
+            name="estateRankScore"
+            label="家園分數"
+            rules={[{ type: "number", min: 0, message: "請輸入正確分數" }]}
+          >
+            <InputNumber style={{ width: "100%" }} controls={false} />
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item style={{ margin: 0 }} label="百戰精耐" wrapperCol={{ span: 18 }}>
             <Flex gap={20}>
-              <Form.Item label={<span className="label__energy">精</span>}>
-                <Input />
+              <Form.Item
+                name={["endlessBattleValue", "energy"]}
+                label={<span className="label__energy">精</span>}
+                rules={[{ type: "number", min: 0, message: "請輸入正確數值" }]}
+              >
+                <InputNumber style={{ width: "100%" }} controls={false} />
               </Form.Item>
-              <Form.Item label={<span className="label__endurance">耐</span>}>
-                <Input />
+              <Form.Item
+                name={["endlessBattleValue", "stamina"]}
+                label={<span className="label__endurance">耐</span>}
+                rules={[{ type: "number", min: 0, message: "請輸入正確數值" }]}
+              >
+                <InputNumber style={{ width: "100%" }} controls={false} />
               </Form.Item>
             </Flex>
           </Form.Item>
@@ -193,32 +293,36 @@ export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodit
       <div className="sub-title">資歷·寵物·外觀·標籤·備註</div>
       <Row style={{ padding: "10px 28px" }} gutter={[5, 20]}>
         <Col span={12}>
-          <Form.Item label="資歷分數" required>
-            <Input />
+          <Form.Item
+            name="accomplishmentScore"
+            label="資歷分數"
+            rules={[{ type: "number", min: 0, message: "請輸入正確數值" }]}
+          >
+            <InputNumber style={{ width: "100%" }} controls={false} />
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="寵物分數" required>
-            <Input />
+          <Form.Item name="petScore" label="寵物分數" rules={[{ type: "number", min: 0, message: "請輸入正確數值" }]}>
+            <InputNumber style={{ width: "100%" }} controls={false} />
           </Form.Item>
         </Col>
         <Col span={24}>
-          <Form.Item label="外觀" style={{ margin: 0 }} labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} required>
+          <Form.Item label="外觀" style={{ margin: 0 }} labelCol={{ span: 24 }} wrapperCol={{ span: 24 }}>
             <div className="tips" style={{ marginBottom: 10 }}>
               請填入數量，若有亮點外觀可於下方標籤處特別註明
             </div>
             <Flex style={{ width: "100%" }} gap={40}>
-              <Form.Item label="髮型">
-                <Input suffix="單位" />
+              <Form.Item name={["skinCountMap", CharacterEnum.SkinType.HAIR]} label="髮型">
+                <InputNumber style={{ width: "100%" }} controls={false} suffix="單位" />
               </Form.Item>
-              <Form.Item label="體型">
-                <Input suffix="單位" />
+              <Form.Item name={["skinCountMap", CharacterEnum.SkinType.BODY]} label="體型">
+                <InputNumber style={{ width: "100%" }} controls={false} suffix="單位" />
               </Form.Item>
-              <Form.Item label="臉型">
-                <Input suffix="單位" />
+              <Form.Item name={["skinCountMap", CharacterEnum.SkinType.FACE]} label="臉型">
+                <InputNumber style={{ width: "100%" }} controls={false} suffix="單位" />
               </Form.Item>
-              <Form.Item label="交互">
-                <Input suffix="單位" />
+              <Form.Item name={["skinCountMap", CharacterEnum.SkinType.INTERACTION]} label="交互">
+                <InputNumber style={{ width: "100%" }} controls={false} suffix="單位" />
               </Form.Item>
             </Flex>
           </Form.Item>
@@ -228,11 +332,24 @@ export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodit
             <div className="tips" style={{ marginBottom: 10 }}>
               優先顯示前三項標籤
             </div>
-            <Select mode="tags" maxCount={10} placeholder="請輸入標籤，上限 10 個" />
+            <Form.Item name="tags" initialValue={[]}>
+              <Select
+                mode="tags"
+                maxCount={10}
+                maxTagTextLength={4}
+                placeholder="請輸入標籤，上限 10 個"
+                suffixIcon={
+                  <>
+                    <span>{selectedTags?.length ?? 0} / 10</span>
+                    <DownOutlined />
+                  </>
+                }
+              />
+            </Form.Item>
           </Form.Item>
         </Col>
         <Col span={24}>
-          <Form.Item label="備註" labelCol={{ span: 24 }} wrapperCol={{ span: 24 }}>
+          <Form.Item name="remark" label="備註" labelCol={{ span: 24 }} wrapperCol={{ span: 24 }}>
             <TextArea rows={5} placeholder="請輸入備註" />
           </Form.Item>
         </Col>

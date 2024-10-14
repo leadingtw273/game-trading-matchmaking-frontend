@@ -31,6 +31,12 @@ export default function PosterInfoForm(props: IPosterInfoFormProps) {
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 12 }}
       colon={false}
+      requiredMark={(label, { required }) => (
+        <>
+          {label}
+          {required && <span style={{ color: "red", marginLeft: 3 }}>*</span>}
+        </>
+      )}
     >
       <Form.Item name="storeData" valuePropName="checked" initialValue={true} noStyle>
         <Checkbox style={{ margin: 10 }}>記住資料下次自動套入</Checkbox>
