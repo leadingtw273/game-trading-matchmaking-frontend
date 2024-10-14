@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.17.0...v1.18.0) (2024-10-14)
+
+
+### ✨ Features
+
+* 完成角色寄賣表單前端邏輯與調整必填樣式跟角色商品型別定義 (by @mike) ([f62f4c5](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/f62f4c5032e6b6286034a7069e0ab3ac131d8194))
+
 # [1.17.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.16.0...v1.17.0) (2024-10-07)
 
 
