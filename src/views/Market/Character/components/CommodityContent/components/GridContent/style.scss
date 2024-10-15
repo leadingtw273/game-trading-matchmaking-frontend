@@ -30,11 +30,12 @@
       margin: 4px 8px;
       padding: 4px;
 
+      line-height: 1;
+
       .price {
         color: $colorSuccess;
 
         font-size: 20px;
-        line-height: 1;
         font-weight: bold;
       }
 
@@ -104,6 +105,7 @@
       box-sizing: border-box;
 
       font-size: 16px;
+      line-height: 1;
     }
 
     .grid-content__divider {
