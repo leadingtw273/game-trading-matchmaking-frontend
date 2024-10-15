@@ -105,12 +105,12 @@ export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodit
         <Col span={12}>
           <Form.Item
             name="campList"
-            initialValue={[]}
+            initialValue={[CharacterEnum.CampType.NEUTRAL]}
             label="陣營"
             rules={[{ required: true, message: "請選擇陣營" }]}
             required
           >
-            <SelectTag options={CharacterConst.getCampTypeOptions()} />
+            <SelectTag options={CharacterConst.getCampTypeOptions()} multiple={false} />
           </Form.Item>
         </Col>
         <Col span={12}>
