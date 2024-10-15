@@ -182,8 +182,10 @@ export function Component() {
                   show={isActiveCategory(TransactionEnum.Type.SALE, TransactionEnum.Commodity.Character)}
                   name={getFormName(TransactionEnum.Type.SALE, TransactionEnum.Commodity.Character)}
                 />
-                {category.commodityType === TransactionEnum.Commodity.Character &&
-                  category.transactionType === TransactionEnum.Type.PURCHASE && <CharacterPurchaseCommodityForm />}
+                <CharacterPurchaseCommodityForm
+                  show={isActiveCategory(TransactionEnum.Type.PURCHASE, TransactionEnum.Commodity.Character)}
+                  name={getFormName(TransactionEnum.Type.PURCHASE, TransactionEnum.Commodity.Character)}
+                />
               </div>
             </div>
             <div className="commodity_form-card">

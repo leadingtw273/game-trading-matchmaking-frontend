@@ -36,6 +36,7 @@ export type CharacterSaleCommodityFormValues = {
   petScore?: number;
   skinCountMap: Record<CharacterEnum.SkinType, number | undefined>;
   tags: string[];
+  remark?: string;
 };
 
 interface ICharacterSaleCommodityFormProps {
@@ -85,7 +86,7 @@ export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodit
                 <Select placeholder="選擇門派" options={CharacterConst.getSectOptions()} />
               </Form.Item>
               <Form.Item name="innerSkillList" initialValue={[]} noStyle hidden>
-                <Select style={{ width: 110 }} placeholder="選擇心法" options={innerSkillOptions} />
+                <Select options={innerSkillOptions} />
               </Form.Item>
             </Flex>
           </Form.Item>
@@ -128,9 +129,11 @@ export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodit
         <Col span={12}>
           <Form.Item name="info" initialValue={[]} label="角色狀態">
             <Checkbox.Group>
-              <Checkbox value="noDebt">無負債</Checkbox>
-              <Checkbox value="needChangeName">需改名</Checkbox>
-              <Checkbox value="needTransferred">需轉移</Checkbox>
+              <Flex gap={5} wrap="wrap">
+                <Checkbox value="noDebt">無負債</Checkbox>
+                <Checkbox value="needChangeName">需改名</Checkbox>
+                <Checkbox value="needTransferred">需轉移</Checkbox>
+              </Flex>
             </Checkbox.Group>
           </Form.Item>
         </Col>
@@ -156,8 +159,8 @@ export default function CharacterSaleCommodityForm(props: ICharacterSaleCommodit
         <Col span={12}>
           <Form.Item
             name="transactionMethod"
-            label="交易方式"
             initialValue={[]}
+            label="交易方式"
             rules={[{ required: true, message: "請選擇交易方式" }]}
             required
           >
