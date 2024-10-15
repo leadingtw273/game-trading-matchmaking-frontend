@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.19.0...v1.19.1) (2024-10-15)
+
+
+### 🐞 Bug Fixes
+
+* 修正寄賣角色陣營多選問題 (by @mike) ([c5bf896](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/c5bf8967c8267e20fabb5166312a7a6904cf63f6))
+
 # [1.19.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.18.0...v1.19.0) (2024-10-15)
 
 
