@@ -1,3 +1,10 @@
+## [1.19.2](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.19.1...v1.19.2) (2024-10-15)
+
+
+### 🐞 Bug Fixes
+
+* 修正收售 table 卡片 lineHeight 問題 (by @mike) ([ed65c59](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/ed65c598d7619f73dc844f8c4fe3bf6bc7975042))
+
 ## [1.19.1](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.19.0...v1.19.1) (2024-10-15)
 
 
