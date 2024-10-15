@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.18.0...v1.19.0) (2024-10-15)
+
+
+### ✨ Features
+
+* 完成角色收購表單前端邏輯 (by @mike) ([cb977e7](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/cb977e7b668fefdb93edae73e38dc1967747bd68))
+
 # [1.18.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.17.0...v1.18.0) (2024-10-14)
 
 
