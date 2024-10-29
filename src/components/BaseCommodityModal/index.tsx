@@ -21,7 +21,7 @@ type CommodityModalProps = {
   renderDetail: (item: TransactionItem<CommodityItem<unknown>>) => React.ReactNode;
   onClose: () => void;
 };
-export default function CommodityModal(props: CommodityModalProps) {
+export default function BaseCommodityModal(props: CommodityModalProps) {
   const { show, item, renderHeader, renderDetail, onClose } = props;
   const ContactInfoIconMap: Record<ContactInfoEnum.Type, string> = {
     [ContactInfoEnum.Type.DISCORD]: DiscordIcon,

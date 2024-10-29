@@ -1,4 +1,4 @@
-import CommodityModal from "@/components/CommodityModal";
+import BaseCommodityModal from "@/components/BaseCommodityModal";
 import { CharacterCommodity, CommodityItem, TransactionItem } from "@/types";
 
 import DetailContent from "./components/DetailContent";
@@ -13,7 +13,7 @@ export default function CharacterCommodityModal(props: CharacterCommodityModalPr
   const { show, item, onClose } = props;
 
   return (
-    <CommodityModal
+    <BaseCommodityModal
       show={show}
       item={item}
       renderHeader={(item) => <HeaderContent item={item as TransactionItem<CharacterCommodity>} />}

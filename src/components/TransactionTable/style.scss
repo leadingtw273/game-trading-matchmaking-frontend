@@ -60,7 +60,7 @@
           width: 45px;
 
           color: #8c8c8c;
-          border-color: #8c8c8c;
+          border-color: #bfbfbf;
 
           border-radius: 5px;
 
@@ -83,7 +83,7 @@
 
           color: white;
           background-color: $colorPrimary;
-          border-color: $colorActive;
+          border-color: rgba($color: $colorActive, $alpha: 0.25);
 
           &:active,
           &:hover {

@@ -1,9 +1,19 @@
+import { useOverlayScrollbars } from "overlayscrollbars-react";
+import { useEffect } from "react";
 import { ConfigProvider } from "antd";
 import { App } from "antd";
 
 import Router from "@/routers";
 
 export default function APP() {
+  const [initializeScrollbars] = useOverlayScrollbars({
+    defer: true,
+  });
+
+  useEffect(() => {
+    initializeScrollbars(document.body);
+  }, [initializeScrollbars]);
+
   return (
     <ConfigProvider
       componentSize={"middle"}
