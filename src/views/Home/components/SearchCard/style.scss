@@ -16,7 +16,7 @@
     width: 1390px;
     height: 308px;
 
-    background: url("@/assets/search-card_background.svg");
+    background: url("@/assets/card/home-search.png");
   }
 
   .ant-tabs {
@@ -115,7 +115,7 @@
       width: 400px;
       height: 55px;
 
-      background: url("@/assets/button/search-card.svg");
+      background: url("@/assets/button/search-card.png");
     }
 
     &:not(:disabled):not(.ant-btn-disabled) {
@@ -124,7 +124,7 @@
         background: none;
 
         &::before {
-          background: url("@/assets/button/search-card_hover.svg");
+          background: url("@/assets/button/search-card_hover.png");
         }
       }
 
@@ -133,7 +133,7 @@
         background: none;
 
         &::before {
-          background: url("@/assets/button/search-card_active.svg");
+          background: url("@/assets/button/search-card_active.png");
         }
       }
     }

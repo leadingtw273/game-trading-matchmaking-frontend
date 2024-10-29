@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useState } from "react";
 import { Breadcrumb, Flex, Form, FormInstance } from "antd";
 
-import PostCategoryDividerImage from "@/assets/decorate/post-category_divider.svg";
+import PostCategoryDividerImage from "@/assets/decorate/post-category_divider.png";
 import { TransactionEnum } from "@/enums";
 
 import AppearanceCommodityForm, { AppearanceCommodityFormValues } from "./components/AppearanceCommodityForm";

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Flex, Image } from "antd";
 
-import ImageEmpty from "@/assets/image_empty.svg";
+import ImageEmpty from "@/assets/icon/empty_image.svg";
 import CharacterCommodityModal from "@/components/Modal/CharacterCommodityModal";
 import { CurrencyConst } from "@/consts";
 import { TransactionEnum } from "@/enums";

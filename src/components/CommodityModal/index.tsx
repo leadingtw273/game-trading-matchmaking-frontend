@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { Avatar, Flex, Modal } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
-import MarketModalDivider from "@/assets/decorate/market-modal_divider.svg";
+import MarketModalDivider from "@/assets/decorate/market-modal_divider.png";
 import DiscordIcon from "@/assets/icon/discord.svg";
 import FacebookIcon from "@/assets/icon/facebook.svg";
 import LineIcon from "@/assets/icon/line.svg";

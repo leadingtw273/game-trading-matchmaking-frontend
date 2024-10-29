@@ -5,7 +5,7 @@ import { App, Avatar, Button, Flex, Image, Spin, theme, UploadProps } from "antd
 import Upload, { UploadChangeParam, UploadFile } from "antd/es/upload";
 import { CloseOutlined, LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 
-import ImageEmpty from "@/assets/image_empty.svg";
+import ImageEmpty from "@/assets/icon/empty_image.svg";
 import { ImgurResponse } from "@/types";
 
 import "./style.scss";

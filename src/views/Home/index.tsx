@@ -1,6 +1,6 @@
 import { Flex } from "antd";
 
-import logo from "@/assets/logo_1.png";
+import logo from "@/assets/logo_mian.png";
 import { TransactionEnum } from "@/enums";
 
 import CommodityCarousel from "./components/CommodityCarousel";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Flex, Image } from "antd";
 
-import AvatarEmpty from "@/assets/avatar_empty.svg";
+import AvatarEmpty from "@/assets/icon/empty_avatar.svg";
 import CoinCommodityModal from "@/components/Modal/CoinCommodityModal";
 import { CurrencyConst } from "@/consts";
 import { TransactionEnum } from "@/enums";

@@ -35,7 +35,7 @@
       width: 95px;
       height: 36px;
 
-      background-image: url("@/assets/decorate/post-category_bottom.svg");
+      background-image: url("@/assets/decorate/post-category_bottom.png");
     }
 
     .title {
@@ -83,7 +83,7 @@
         border-left: 10px solid #e2d4bb;
 
         background-color: rgba($color: #e2d4bb, $alpha: 0.5);
-        background-image: url("@/assets/decorate/post-category_active-background.svg");
+        background-image: url("@/assets/decorate/post-category_active-background.png");
       }
     }
 
@@ -155,7 +155,7 @@
 
       border: none;
 
-      background: url("@/assets/button/post-commodity.svg");
+      background: url("@/assets/button/post-commodity.png");
 
       color: #ffffff;
 
@@ -166,7 +166,7 @@
       cursor: pointer;
 
       &:hover {
-        background: url("@/assets/button/post-commodity_hover.svg");
+        background: url("@/assets/button/post-commodity_hover.png");
       }
     }
   }
