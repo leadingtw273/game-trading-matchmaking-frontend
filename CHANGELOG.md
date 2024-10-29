@@ -1,3 +1,16 @@
+# [1.20.0](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.19.2...v1.20.0) (2024-10-29)
+
+
+### ✨ Features
+
+* 整理並調整圖片格式優化其大小 (by @mike) ([cd47712](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/cd477122e3a1c32511938b536731e9c48a434e74))
+* 調整 scrollbar 樣式與樣式&組件名稱優化 (by @mike) ([74e803c](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/74e803cc11eaee9ca2897a5097c2772f9ca7e311))
+
+
+### 🐞 Bug Fixes
+
+* 修正 Carousel 錯誤顯示預設箭頭問題 (by @mike) ([8e0c132](https://github.com/leadingtw273/game-trading-matchmaking-frontend/commit/8e0c132855415626c91bd3c0f2fceae0218e3ff1))
+
 ## [1.19.2](https://github.com/leadingtw273/game-trading-matchmaking-frontend/compare/v1.19.1...v1.19.2) (2024-10-15)
 
 
