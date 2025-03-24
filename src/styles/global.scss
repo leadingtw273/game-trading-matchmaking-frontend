@@ -1,8 +1,9 @@
+@use "@/styles/reset.scss";
+@use "@/styles/antd.scss";
+
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap&subset=chinese-traditional");
 @import url("https://fonts.googleapis.com/css2?family= :wght@100..900&display=swap&subset=chinese-traditional");
-@import "@/styles/reset.scss";
-@import "@/styles/antd.scss";
 
 html,
 body {
