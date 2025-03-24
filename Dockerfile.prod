@@ -1,8 +1,8 @@
 # Build stage
-FROM node:18.18.1-bullseye as build
+FROM node:18-bullseye as build
 
 # Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@8 --activate
 
 WORKDIR /app
 
